@@ -1,15 +1,15 @@
 :root {
   color-scheme: light;
-  --bg: #f7f8f5;
+  --bg: #f5f8fc;
   --surface: #ffffff;
-  --surface-muted: #eef3f1;
-  --text: #151816;
-  --muted: #5c6660;
-  --border: #dce4df;
-  --accent: #0e7c6b;
-  --accent-strong: #085f52;
-  --accent-warm: #b74431;
-  --shadow: 0 18px 48px rgba(21, 24, 22, 0.08);
+  --surface-muted: #e9f1fb;
+  --text: #0d1726;
+  --muted: #526073;
+  --border: #d7e2ee;
+  --accent: #1e6fe8;
+  --accent-strong: #164da3;
+  --accent-warm: #a85d2a;
+  --shadow: 0 18px 48px rgba(13, 23, 38, 0.08);
   font-family:
     Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
 }
@@ -38,9 +38,9 @@ body::before {
   inset: 0;
   z-index: -1;
   background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.86), rgba(247, 248, 245, 0.96)),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.9), rgba(245, 248, 252, 0.96)),
     url("/assets/background.svg") center / cover no-repeat;
-  opacity: 0.32;
+  opacity: 0.2;
 }
 
 img {
@@ -53,7 +53,7 @@ a {
 }
 
 :focus-visible {
-  outline: 3px solid rgba(14, 124, 107, 0.42);
+  outline: 3px solid rgba(30, 111, 232, 0.38);
   outline-offset: 4px;
 }
 
@@ -83,8 +83,8 @@ a {
   position: sticky;
   top: 0;
   z-index: 10;
-  border-bottom: 1px solid rgba(220, 228, 223, 0.9);
-  background: rgba(247, 248, 245, 0.92);
+  border-bottom: 1px solid rgba(215, 226, 238, 0.9);
+  background: rgba(245, 248, 252, 0.92);
   backdrop-filter: blur(18px);
 }
 
@@ -130,7 +130,7 @@ a {
 .site-nav a:hover,
 .text-link:hover {
   color: var(--accent-strong);
-  background: rgba(14, 124, 107, 0.08);
+  background: rgba(30, 111, 232, 0.08);
 }
 
 .button {
@@ -153,7 +153,7 @@ a {
 
 .button:hover {
   background: var(--accent-strong);
-  box-shadow: 0 10px 24px rgba(14, 124, 107, 0.18);
+  box-shadow: 0 10px 24px rgba(30, 111, 232, 0.18);
   transform: translateY(-1px);
 }
 
@@ -169,8 +169,8 @@ a {
 }
 
 .section-muted {
-  background: rgba(238, 243, 241, 0.72);
-  border-block: 1px solid rgba(220, 228, 223, 0.72);
+  background: rgba(233, 241, 251, 0.72);
+  border-block: 1px solid rgba(215, 226, 238, 0.72);
 }
 
 .hero {
@@ -232,7 +232,7 @@ h3 {
 .hero-summary {
   max-width: 720px;
   margin-bottom: 18px;
-  color: #26302b;
+  color: #1a2b42;
   font-size: 22px;
   line-height: 1.45;
 }
@@ -375,7 +375,7 @@ h3 {
 
 .detail-list {
   margin-top: 18px;
-  color: #26302b;
+  color: #1a2b42;
 }
 
 .tag-list {
@@ -386,9 +386,9 @@ h3 {
 }
 
 .tag-list li {
-  border: 1px solid rgba(14, 124, 107, 0.2);
+  border: 1px solid rgba(30, 111, 232, 0.2);
   border-radius: 999px;
-  background: rgba(14, 124, 107, 0.08);
+  background: rgba(30, 111, 232, 0.08);
   color: var(--accent-strong);
   font-size: 13px;
   font-weight: 750;
@@ -398,7 +398,7 @@ h3 {
 
 .project-grid {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 18px;
 }
 
@@ -406,7 +406,7 @@ h3 {
   display: flex;
   min-height: 100%;
   flex-direction: column;
-  justify-content: space-between;
+  gap: 18px;
   padding: 22px;
 }
 
@@ -471,7 +471,7 @@ h3 {
 
 .contact-footer .eyebrow,
 .contact-footer .text-link {
-  color: #91e6d6;
+  color: #9fc7ff;
 }
 
 .contact-footer .button {
@@ -481,7 +481,7 @@ h3 {
 }
 
 .contact-footer .button:hover {
-  background: #dff6f1;
+  background: #e8f1ff;
 }
 
 @media (max-width: 920px) {

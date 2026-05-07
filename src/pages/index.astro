@@ -32,24 +32,12 @@ const structuredData = {
   <main>
     <Hero />
 
-    <section id="experience" class="section-band" aria-labelledby="experience-title">
-      <div class="container section-grid">
-        <SectionHeading
-          eyebrow="Experience"
-          title="Work built for clarity, reliability, and impact"
-          description="A concise resume timeline for the roles and outcomes that matter most to hiring teams."
-          headingId="experience-title"
-        />
-        <ExperienceTimeline entries={resume.experience} />
-      </div>
-    </section>
-
     <section id="projects" class="section-band section-muted" aria-labelledby="projects-title">
       <div class="container section-grid">
         <SectionHeading
           eyebrow="Projects"
-          title="Selected work"
-          description="Focused examples that show product judgment, engineering execution, and practical delivery."
+          title="Project-heavy by design"
+          description="The strongest signal here is self-directed work: real architecture, real tradeoffs, and systems pushed past class-assignment scale."
           headingId="projects-title"
         />
         <ProjectGrid projects={resume.projects} />
@@ -65,6 +53,18 @@ const structuredData = {
           headingId="skills-title"
         />
         <SkillsPanel groups={resume.skills} education={resume.education} />
+      </div>
+    </section>
+
+    <section id="experience" class="section-band section-muted" aria-labelledby="experience-title">
+      <div class="container section-grid">
+        <SectionHeading
+          eyebrow="Experience"
+          title="Practical experience around the engineering path"
+          description="A compact timeline of technical support, data operations, and client-facing work that complements the project portfolio."
+          headingId="experience-title"
+        />
+        <ExperienceTimeline entries={resume.experience} />
       </div>
     </section>
   </main>

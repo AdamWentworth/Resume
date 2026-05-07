@@ -51,18 +51,18 @@ export type ResumeProfile = {
 
 export const resume = {
   name: 'Adam Wentworth',
-  role: 'Software Engineer',
-  location: 'Canada',
+  role: 'Software Engineer / BCIT Applied CS',
+  location: 'Metro Vancouver, BC',
   siteUrl: 'https://adamwentworth.ca',
-  email: 'hello@adamwentworth.ca',
+  email: 'adamjohnwentworth@gmail.com',
   summary:
-    'Software engineer focused on building dependable, user-centered web products with clean interfaces, strong fundamentals, and maintainable systems.',
+    'Software engineer and BCIT Applied Computer Science student building ambitious full-stack, systems, game, and local-AI projects.',
   intro:
-    'I turn ambiguous product goals into practical software, with an eye for clear architecture, responsive interfaces, and calm delivery.',
+    'I care about useful results: designing clear systems, shipping working software, and using modern tools thoughtfully to move faster without giving up ownership of quality.',
   impact: [
-    'Builds accessible, fast, and maintainable web experiences.',
-    'Connects product intent, technical tradeoffs, and implementation details.',
-    'Keeps systems readable so future work is easier to ship.',
+    'Internship candidate for Summer 2026; expected BSc Applied Computer Science graduation in May 2027.',
+    'Strongest work comes from self-directed projects with real architecture, deployment, and testing concerns.',
+    'Uses AI as an accelerator while staying accountable for system design, code quality, and outcomes.',
   ],
   resumePdf: {
     label: 'Download resume',
@@ -71,100 +71,158 @@ export const resume = {
   links: [
     {
       label: 'Email',
-      href: 'mailto:hello@adamwentworth.ca',
+      href: 'mailto:adamjohnwentworth@gmail.com',
       prominent: true,
     },
     {
       label: 'LinkedIn',
-      href: 'https://www.linkedin.com/in/adamwentworth/',
+      href: 'https://www.linkedin.com/in/adam-john-wentworth/',
       external: true,
       prominent: true,
     },
     {
       label: 'GitHub',
-      href: 'https://github.com/adamwentworth',
+      href: 'https://github.com/AdamWentworth',
       external: true,
       prominent: true,
     },
   ],
   experience: [
     {
-      title: 'Software Engineer',
-      company: 'Current or recent company',
-      location: 'Remote / Canada',
-      period: 'Dates to add',
+      title: 'IT Support Specialist Intern',
+      company: 'Firefly Systems IT Support',
+      location: 'Vancouver, BC',
+      period: 'May 2023 - August 2023',
       summary:
-        'Replace this draft entry with the role, company, dates, and concise impact statement from the final resume.',
+        'Provided end-to-end technical support across desktop, mobile, cloud, networking, and account administration environments.',
       highlights: [
-        'Add a measurable product, platform, or customer outcome.',
-        'Add a technical ownership highlight, such as architecture, performance, accessibility, or reliability.',
-        'Add a collaboration highlight that shows how the work shipped.',
+        'Troubleshot Windows, macOS, Linux, hardware, networking, cloud services, and security issues for on-site and remote users.',
+        'Administered access and infrastructure across Active Directory, VPNs, routers, switches, Office 365, and Google Workspace.',
+        'Maintained backups, asset inventory, and helpdesk ticket workflows in a practical production support setting.',
       ],
-      technologies: ['TypeScript', 'Astro', 'Web Platform'],
+      technologies: ['Windows', 'macOS', 'Linux', 'Active Directory', 'Office 365', 'Google Workspace'],
     },
     {
-      title: 'Software Engineering Project Work',
-      company: 'Selected client, team, or personal work',
-      location: 'Canada',
-      period: 'Dates to add',
+      title: 'Operations & Data Coordinator',
+      company: 'Reliant Music',
+      location: 'Vancouver, BC',
+      period: 'August 2020 - February 2023',
       summary:
-        'Use this entry for another role, contract, internship, open-source contribution, or production project.',
+        'Built cleaner data workflows for music catalog operations, royalty claim readiness, and targeted research.',
       highlights: [
-        'Describe the problem, your responsibility, and the result.',
-        'Mention the stack only where it clarifies the engineering judgment.',
+        'Rebuilt a disorganized song-management catalog into a standardized dataset with schemas, conventions, and validation checks.',
+        'Designed and maintained a DJ research database tracking social metrics, contact information, and placement status.',
       ],
-      technologies: ['JavaScript', 'APIs', 'Responsive UI'],
+      technologies: ['Data QA', 'Spreadsheet systems', 'Research workflows', 'Process design'],
+    },
+    {
+      title: 'Recording Engineer & Content Creator',
+      company: 'Hipposonic Studios / CaptainMonkHD',
+      location: 'Vancouver, BC',
+      period: 'Earlier experience',
+      summary:
+        'Client-facing technical and creative work that shaped a strong bias for delivery, iteration, and audience-aware output.',
+      highlights: [
+        'Worked in studio environments requiring technical troubleshooting, communication, and quality control.',
+        'Built a YouTube channel past 200k subscribers and participated as a Riot Games Partner through consistent, analytics-informed production.',
+      ],
+      technologies: ['Client work', 'Audio production', 'Analytics', 'Content systems'],
     },
   ],
   projects: [
     {
-      name: 'AdamWentworth.ca',
-      role: 'Designer and developer',
+      name: 'Pokemon Go Nexus',
+      role: 'Full-stack developer',
       summary:
-        'A fast static resume and portfolio site built with Astro, structured content, semantic HTML, and production metadata.',
+        'Event-driven platform for Pokemon GO players with microservice boundaries, live updates, geospatial search, and production-style deployment concerns.',
       highlights: [
-        'Centralized resume data so profile updates stay simple.',
-        'Static-first implementation with no client JavaScript required for V1.',
+        'Built Kafka-backed Go producer and consumer services with MySQL and streamed live updates to frontend clients through SSE.',
+        'Implemented a Node/Express auth service with JWT access and refresh tokens in secure cookies backed by MongoDB.',
+        'Added Postgres/PostGIS geospatial search using spatial indexes and polygon queries.',
+        'Containerized with Docker and NGINX, including reverse proxying, rate limiting, security headers, frontend tests, and automated backups.',
       ],
-      technologies: ['Astro', 'TypeScript', 'CSS'],
-      href: 'https://adamwentworth.ca',
+      technologies: ['React', 'Go', 'Kafka', 'MySQL', 'Postgres/PostGIS', 'Node', 'MongoDB', 'Docker'],
+      href: 'https://github.com/AdamWentworth/Go',
     },
     {
-      name: 'Featured project',
+      name: 'Pokemon Autochess',
+      role: 'Systems developer',
+      summary:
+        'Custom C++20 engine and game layer for an autobattler prototype with deterministic combat, movement, and data-driven gameplay rules.',
+      highlights: [
+        'Designed an engine/game boundary with GameLoop and GameContext to decouple gameplay from SDL and avoid global singletons.',
+        'Implemented deterministic Lua movement with A*, priority, reservations, and swap prevention for reproducible simulations.',
+        'Created a modular Lua rules layer through sol2 to iterate on gameplay without recompiling C++.',
+      ],
+      technologies: ['C++20', 'SDL2', 'OpenGL', 'Lua', 'sol2'],
+      href: 'https://github.com/AdamWentworth/PokemonAutochess',
+    },
+    {
+      name: 'Jarvin',
       role: 'Software engineer',
       summary:
-        'Replace this with a strong project that demonstrates product thinking, technical execution, and measurable impact.',
+        'Fully local offline voice assistant that connects speech recognition, local LLM inference, text-to-speech, observability, and testable service design.',
       highlights: [
-        'State the user or business problem.',
-        'Describe the technical approach and shipped outcome.',
+        'Integrated Whisper-based speech-to-text with a local GGUF LLM runtime through llama.cpp for offline chat responses.',
+        'Implemented real-time audio capture with adaptive noise-gate voice activity detection for more reliable utterance handling.',
+        'Auto-provisioned and loaded the local model at startup, with a Gradio UI mounted in FastAPI for control, observability, and testing.',
       ],
-      technologies: ['Technology', 'Framework', 'Outcome'],
+      technologies: ['Python', 'FastAPI', 'llama.cpp', 'asyncio', 'pytest', 'GitHub Actions'],
+      href: 'https://github.com/AdamWentworth/Jarvin',
     },
     {
-      name: 'Technical case study',
-      role: 'Owner or contributor',
+      name: 'Innota',
+      role: 'Full-stack developer',
       summary:
-        'Use this slot for a deeper engineering story: migration, automation, integration, performance work, or a full-stack build.',
+        'Student-team PDF study workspace with AI writing tools, production features, deployment handoff, and client-driven iteration.',
       highlights: [
-        'Explain the before and after state.',
-        'Include a concrete result when final resume details are available.',
+        'Refactored and shipped React UI and REST APIs through peer review and changing client requirements.',
+        'Implemented PDF upload, ingestion, and AI actions including summarize, paraphrase, bullets, translate, and elaborate through the OpenAI API.',
+        'Containerized the app with Docker and supported production deployment and handoff.',
       ],
-      technologies: ['Systems', 'Testing', 'Delivery'],
+      technologies: ['MongoDB', 'Express', 'React', 'Node', 'Docker', 'OpenAI API'],
+    },
+    {
+      name: 'Phlosion',
+      role: 'Independent product lab',
+      summary:
+        'Planned company and project hub for production-level tools, experiments, demos, changelogs, and future monetization.',
+      highlights: [
+        'Keeps AdamWentworth.ca focused on the person, resume, and hiring story.',
+        'Gives larger projects a branded home where they can stand on their own as products.',
+      ],
+      technologies: ['Next.js', 'Tailwind CSS', 'Vercel', 'Product pages'],
     },
   ],
   skills: [
     {
-      name: 'Frontend',
-      items: ['TypeScript', 'JavaScript', 'HTML', 'CSS', 'Accessibility', 'Responsive UI'],
+      name: 'Languages',
+      items: ['Python', 'TypeScript', 'JavaScript', 'Go', 'C++'],
     },
     {
-      name: 'Product Engineering',
-      items: ['Technical scoping', 'API integration', 'Performance', 'Testing', 'Documentation'],
+      name: 'Frameworks',
+      items: ['React', 'Node/Express', 'FastAPI', 'Fiber', 'Astro'],
     },
     {
-      name: 'Tools',
-      items: ['Git', 'Node.js', 'Astro', 'Vercel', 'CI-ready workflows'],
+      name: 'Data & Infrastructure',
+      items: ['PostgreSQL/PostGIS', 'MySQL', 'MongoDB', 'Docker', 'NGINX', 'Kafka', 'GitHub Actions'],
+    },
+    {
+      name: 'Computer Science',
+      items: ['Data structures', 'Algorithms', 'OOP', 'Networking', 'Operating systems', 'Testing'],
+    },
+    {
+      name: 'AI & Media',
+      items: ['OpenAI API', 'Whisper ASR', 'llama.cpp', 'Local LLMs', 'Audio engineering'],
+    },
+    {
+      name: 'Working Style',
+      items: ['Self-directed projects', 'Product thinking', 'Documentation', 'Agile/Scrum', 'Outcome focus'],
     },
   ],
-  education: ['Add degree, certification, bootcamp, or relevant professional learning here.'],
+  education: [
+    'BSc Applied Computer Science, British Columbia Institute of Technology, expected May 2027.',
+    'Diploma in Computer Information Technology, British Columbia Institute of Technology, May 2024.',
+    'Diploma in Audio Engineering & Music Production, SAE Institute, June 2020.',
+  ],
 } satisfies ResumeProfile;
