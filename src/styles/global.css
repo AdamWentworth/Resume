@@ -430,6 +430,11 @@ h3 {
   fill: currentColor;
 }
 
+.tech-icon-image {
+  display: block;
+  object-fit: contain;
+}
+
 .tech-icon-directx {
   width: 21px;
   height: 15px;
