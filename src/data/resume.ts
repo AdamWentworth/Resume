@@ -18,8 +18,12 @@ export type ExperienceEntry = {
 export type ProjectEntry = {
   name: string;
   role: string;
+  featured?: boolean;
   summary: string;
-  highlights: string[];
+  proof: {
+    label: string;
+    text: string;
+  }[];
   technologies: string[];
   href?: string;
 };
@@ -175,39 +179,67 @@ export const resume = {
   projects: [
     {
       name: 'Pokemon Go Nexus',
-      role: 'Full-stack developer',
+      role: 'Full-stack product system',
+      featured: true,
       summary:
-        'Full-stack Pokemon GO monorepo with a React frontend, Go and Node services, Kafka event sync, location intelligence, and multiple persistence layers.',
-      highlights: [
-        'Built an event flow from frontend update ingestion to Kafka, Go consumers, MySQL persistence, and SSE readers.',
-        'Implemented auth and service boundaries across Node/Express, Go APIs, MongoDB, MySQL, and PostGIS.',
-        'Added NGINX routing, Dockerized services, automated backups, frontend tests, and local development runbooks.',
+        'A full-stack Pokemon GO platform and data ecosystem for tracking, managing, and trading collections. It spans React web/mobile clients, Go and Express services, Kafka event sync, geospatial search, persistent storage, reverse proxying, and operational runbooks.',
+      proof: [
+        {
+          label: 'Architecture',
+          text: 'Split the product into auth, Pokemon API, location, receiver/storage, search, users, and events services so each concern has a clear boundary.',
+        },
+        {
+          label: 'Data flow',
+          text: 'Designed frontend update batching through Kafka producers and Go consumers into MySQL persistence and SSE readers.',
+        },
+        {
+          label: 'Delivery',
+          text: 'Added Docker and NGINX service wiring, backups, shared frontend packages, Vitest coverage, and docs for local and deployment workflows.',
+        },
       ],
       technologies: ['React', 'Go', 'Kafka', 'MySQL', 'Postgres/PostGIS', 'Node', 'MongoDB', 'Docker', 'NGINX', 'Vitest'],
       href: 'https://github.com/AdamWentworth/Go',
     },
     {
       name: 'Pokemon Autochess',
-      role: 'Systems developer',
+      role: 'C++ engine and game systems',
       summary:
-        'Engine-first C++20 auto-battler prototype with placement and combat states, 3D board rendering, VFX tooling, tests, and a data pipeline.',
-      highlights: [
-        'Built engine core systems for the app loop, windowing, input mapping, UI, rendering, and resource caches.',
-        'Implemented game runtime systems for placement, combat, shops, movement, cards, units, and scripted rules.',
-        'Added headless tests, data validation, JSON config cooking, packaged content bundles, and release tooling.',
+        'An engine-first C++20 game prototype for a Pokemon-inspired auto-battler. It proves lower-level systems thinking through app loop/window/input infrastructure, OpenGL and Direct3D 12 rendering backends, Lua-driven gameplay, VFX tooling, data cooking, and headless tests.',
+      proof: [
+        {
+          label: 'Engine',
+          text: 'Built reusable engine modules for app lifecycle, system registration, resources, UI, camera and board rendering, model loading, animation, and render caches.',
+        },
+        {
+          label: 'Runtime',
+          text: 'Composed placement and combat states with round, shop, movement, combat, bench, card, battle feed, health bar, and Lua tuning systems.',
+        },
+        {
+          label: 'Tooling',
+          text: 'Added VFX preview tools, JSON config validation, packaged content bundles, release scripts, installer support, and smoke/invariant tests.',
+        },
       ],
       technologies: ['C++20', 'SDL2', 'OpenGL', 'Direct3D 12', 'Lua', 'sol2', 'CMake', 'JSON'],
       href: 'https://github.com/AdamWentworth/PokemonAutochess',
     },
     {
       name: 'Jarvin',
-      role: 'Software engineer',
+      role: 'Local AI assistant platform',
       summary:
-        'Host-run personal AI assistant built around local models, voice processing, memory, tools, integrations, and shared desktop/mobile clients.',
-      highlights: [
-        'Connected llama.cpp and Ollama backends with FastAPI services, conversation memory, reminders, and routines.',
-        'Built React and Tauri clients for desktop, mobile shell, host-served UI, and remote phone voice workflows.',
-        'Added Google Calendar actions, DuckDuckGo-backed research, morning briefs, workspace tools, and backend tests.',
+        'A host-run personal AI assistant focused on useful assistant systems around local models: voice, memory, tools, integrations, planning, and desktop/mobile clients. The goal is not a custom foundation model; it is a reliable assistant stack around models I can run and evaluate.',
+      proof: [
+        {
+          label: 'Local host',
+          text: 'Connected llama.cpp and Ollama backends through FastAPI with conversation history, profile memory, reminders, routines, and safe host-side tools.',
+        },
+        {
+          label: 'Clients',
+          text: 'Built a shared React client, Tauri desktop app, Tauri Android shell, and remote phone voice path over local network or WireGuard.',
+        },
+        {
+          label: 'Integrations',
+          text: 'Added Google Calendar CRUD, DuckDuckGo-backed research with page summarization, morning briefs, workspace actions, and pytest-backed backend validation.',
+        },
       ],
       technologies: ['Python', 'FastAPI', 'React', 'Tauri', 'SQLite', 'llama.cpp', 'Ollama', 'DuckDuckGo', 'Google Calendar', 'pytest'],
       href: 'https://github.com/AdamWentworth/Jarvin',

@@ -12,32 +12,42 @@ const { projects } = Astro.props;
 
 {
   projects.length > 0 ? (
-    <div class="project-grid">
+    <div class="project-showcase">
       {projects.map((project) => (
-        <article class="project-card">
-          <div>
-            <p class="item-subtitle">{project.role}</p>
+        <article class:list={['project-case', { 'project-case-featured': project.featured }]}>
+          <div class="project-main">
+            <div class="project-kicker">
+              <p class="item-subtitle">{project.role}</p>
+              {project.featured && <span class="project-feature-label">Featured build</span>}
+            </div>
             <h3>{project.name}</h3>
-            <p>{project.summary}</p>
+            <p class="project-summary">{project.summary}</p>
+            <div class="project-proof-grid" aria-label={`${project.name} engineering proof`}>
+              {project.proof.map((item) => (
+                <div class="project-proof-item">
+                  <span>{item.label}</span>
+                  <p>{item.text}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+          <aside class="project-side" aria-label={`${project.name} links and stack`}>
             <ul class="tag-list project-stack" aria-label={`${project.name} technologies`}>
               {project.technologies.map((technology) => <TechBadge name={technology} />)}
             </ul>
-          </div>
-          <ul class="detail-list">
-            {project.highlights.map((highlight) => <li>{highlight}</li>)}
-          </ul>
-          <div class="project-footer">
             {
               project.href && (
-                <a class="text-link icon-link" href={project.href} target="_blank" rel="noreferrer">
-                  <svg class="link-icon" viewBox="0 0 24 24" aria-hidden="true">
-                    <path d={siGithub.path} />
-                  </svg>
-                  GitHub repo
-                </a>
+                <div class="project-footer">
+                  <a class="text-link icon-link" href={project.href} target="_blank" rel="noreferrer">
+                    <svg class="link-icon" viewBox="0 0 24 24" aria-hidden="true">
+                      <path d={siGithub.path} />
+                    </svg>
+                    GitHub repo
+                  </a>
+                </div>
               )
             }
-          </div>
+          </aside>
         </article>
       ))}
     </div>
