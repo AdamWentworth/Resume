@@ -154,11 +154,10 @@ export const resume = {
       ],
       technologies: [
         'Music catalog operations',
-        'Metadata cleanup',
+        'Metadata QA',
         'Royalty claim readiness',
-        'Data QA',
         'Spreadsheet systems',
-        'DJ research',
+        'Artist research',
       ],
     },
     {
@@ -167,7 +166,7 @@ export const resume = {
       location: 'Vancouver, BC',
       period: 'Earlier experience',
       summary:
-        'Client-facing studio work spanning Pro Tools session management, live-floor recording support, signal flow, troubleshooting, and quality control.',
+        'Client-facing studio work spanning Pro Tools session management, live-floor recording support, signal flow, analog gear, and quality control.',
       highlights: [
         'Managed Pro Tools sessions with organized tracks, routing notes, file hygiene, takes, and backups so sessions could move cleanly from setup through handoff.',
         'Supported live-floor recording through microphone setup, signal flow, analog console routing, preamp and compressor workflows, headphone mixes, and real-time troubleshooting.',
@@ -179,9 +178,7 @@ export const resume = {
         'Recording engineering',
         'Live floor tracking',
         'Signal flow',
-        'Analog console',
-        'Preamps & compressors',
-        'Troubleshooting',
+        'Analog gear',
       ],
     },
     {
