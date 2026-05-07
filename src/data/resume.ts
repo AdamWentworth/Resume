@@ -118,7 +118,7 @@ export const resume = {
       location: 'Vancouver, BC',
       period: 'January 2024 - April 2024',
       summary:
-        "Contributed to a BCIT student client project building a desktop tool for Savepoint's AI video workflow, focused on preparing training datasets rather than model development.",
+        "Contributed to a BCIT student client project building a desktop tool for Savepoint's AI video workflow, focused on preparing training and learning datasets.",
       highlights: [
         'Worked in a 7-student team on a Rust, Tauri, TypeScript, and React desktop app for coordinating data-prep scripts and monitoring workflow progress.',
         'Collaborated in a 2-person subgroup to build Python image-processing and CLI scripts that prepared and manipulated source media into model training and learning sets.',
@@ -293,34 +293,39 @@ export const resume = {
   ],
   skills: [
     {
-      name: 'Full-Stack Product Systems',
-      summary: 'Building interfaces, APIs, service boundaries, and product flows that can actually be used.',
-      items: ['React', 'TypeScript', 'Node/Express', 'FastAPI', 'Go', 'REST APIs'],
+      name: 'Languages',
+      summary: 'Core implementation languages used across web, backend, systems, and automation work.',
+      items: ['TypeScript', 'JavaScript', 'Python', 'Go', 'C++20', 'Rust', 'SQL'],
+    },
+    {
+      name: 'Frontend & Desktop',
+      summary: 'Interfaces and client shells for practical product workflows.',
+      items: ['React', 'Tauri', 'Astro', 'Expo', 'Responsive UI', 'Accessibility'],
+    },
+    {
+      name: 'Backend & APIs',
+      summary: 'Service boundaries, API design, auth, and real-time product flows.',
+      items: ['Node/Express', 'FastAPI', 'REST APIs', 'JWT auth', 'SSE', 'Service boundaries'],
     },
     {
       name: 'Data & Infrastructure',
-      summary: 'Designing persistence, event flows, deployment paths, reverse proxies, and CI-ready workflows.',
+      summary: 'Persistence, event flow, deployment, and operational wiring.',
       items: ['PostgreSQL/PostGIS', 'MySQL', 'MongoDB', 'SQLite', 'Kafka', 'Docker', 'NGINX', 'GitHub Actions'],
     },
     {
-      name: 'Engine & Game Systems',
-      summary: 'Working close to runtime behavior: rendering, systems, data pipelines, and deterministic gameplay.',
-      items: ['C++20', 'SDL2', 'OpenGL', 'Direct3D 12', 'Lua', 'sol2', 'CMake', 'JSON'],
-    },
-    {
-      name: 'Computer Science',
-      summary: 'Coursework and project practice in the fundamentals behind maintainable software.',
-      items: ['Data structures', 'Algorithms', 'OOP', 'Networking', 'Operating systems', 'Testing'],
+      name: 'Systems & Games',
+      summary: 'Runtime systems, rendering paths, scripting, and build tooling.',
+      items: ['SDL2', 'OpenGL', 'Direct3D 12', 'Lua', 'sol2', 'CMake', 'Engine architecture'],
     },
     {
       name: 'AI & Automation',
-      summary: 'Using AI tools where I can evaluate the output and turn them into reliable software workflows.',
-      items: ['OpenAI API', 'Whisper ASR', 'llama.cpp', 'Ollama', 'Local LLMs', 'Tool execution'],
+      summary: 'Model-adjacent software, local AI tooling, and automation I can evaluate and own.',
+      items: ['OpenAI API', 'llama.cpp', 'Ollama', 'Whisper ASR', 'Python scripting', 'Tool workflows'],
     },
     {
-      name: 'Delivery & Collaboration',
-      summary: 'Keeping the work grounded in communication, documentation, handoff, and useful outcomes.',
-      items: ['Team projects', 'Client handoff', 'Documentation', 'Code review', 'Product thinking', 'Outcome focus'],
+      name: 'Fundamentals & Delivery',
+      summary: 'Computer science fundamentals and habits that keep work useful to teams.',
+      items: ['Data structures', 'Algorithms', 'OOP', 'Networking', 'Operating systems', 'Testing', 'Documentation', 'Client handoff'],
     },
   ],
   education: [
