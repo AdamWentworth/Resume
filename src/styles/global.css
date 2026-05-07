@@ -551,7 +551,7 @@ h3 {
 
 .project-summary {
   max-width: 760px;
-  margin-bottom: 0;
+  margin-bottom: 16px;
   color: var(--muted);
   font-size: 16px;
   line-height: 1.58;
@@ -621,7 +621,7 @@ h3 {
   transform: rotate(90deg);
 }
 
-.project-toggle:checked ~ .project-side .details-icon::after,
+.project-toggle:checked ~ .project-main .details-icon::after,
 .timeline-details[open] .details-icon::after {
   transform: rotate(0);
 }
@@ -636,7 +636,7 @@ h3 {
   white-space: nowrap;
 }
 
-.project-toggle:focus-visible ~ .project-side .project-details-button {
+.project-toggle:focus-visible ~ .project-main .project-details-button {
   outline: 3px solid rgba(30, 111, 232, 0.38);
   outline-offset: 4px;
 }
@@ -770,10 +770,10 @@ h3 {
 
 .education-logo {
   display: flex;
-  width: 112px;
+  width: 58px;
   height: 58px;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: center;
   overflow: hidden;
   border: 1px solid rgba(30, 111, 232, 0.14);
   border-radius: 8px;
@@ -788,13 +788,8 @@ h3 {
   object-fit: contain;
 }
 
-.education-logo-bcit {
-  width: 58px;
-  justify-content: center;
-}
-
 .education-logo-sae img {
-  width: 82px;
+  width: 48px;
   transform: translateY(1px);
 }
 

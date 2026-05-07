@@ -31,6 +31,10 @@ const { projects } = Astro.props;
               </div>
               <h3>{project.name}</h3>
               <p class="project-summary">{project.summary}</p>
+              <label class="project-details-button" for={`${detailsId}-toggle`}>
+                <span>Additional details</span>
+                <span class="details-icon" aria-hidden="true"></span>
+              </label>
             </div>
             <aside class="project-side" aria-label={`${project.name} links and stack`}>
               <ul class="tag-list project-stack" aria-label={`${project.name} technologies`}>
@@ -48,10 +52,6 @@ const { projects } = Astro.props;
                   </div>
                 )
               }
-              <label class="project-details-button" for={`${detailsId}-toggle`}>
-                <span>Additional details</span>
-                <span class="details-icon" aria-hidden="true"></span>
-              </label>
             </aside>
             <div id={detailsId} class="project-proof-grid project-expanded" aria-label={`${project.name} additional engineering details`}>
               {project.proof.map((item) => (
