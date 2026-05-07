@@ -24,8 +24,8 @@ const { projects } = Astro.props;
             <p class="project-summary">{project.summary}</p>
             <details class="project-details">
               <summary>
-                <span>Engineering details</span>
-                <span class="project-details-icon" aria-hidden="true"></span>
+                <span>Technical proof</span>
+                <span class="details-icon" aria-hidden="true"></span>
               </summary>
               <div class="project-proof-grid" aria-label={`${project.name} engineering proof`}>
                 {project.proof.map((item) => (

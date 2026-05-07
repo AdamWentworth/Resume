@@ -536,11 +536,17 @@ h3 {
   color: var(--accent-secondary);
 }
 
-.project-details {
+.project-details,
+.timeline-details,
+.skill-details,
+.education-details {
   margin-top: 16px;
 }
 
-.project-details summary {
+.project-details summary,
+.timeline-details summary,
+.skill-details summary,
+.education-details summary {
   display: inline-flex;
   width: max-content;
   max-width: 100%;
@@ -561,24 +567,37 @@ h3 {
     border-color 160ms ease;
 }
 
-.project-details summary::-webkit-details-marker {
+.timeline-details summary,
+.skill-details summary,
+.education-details summary {
+  width: 100%;
+  justify-content: space-between;
+}
+
+.project-details summary::-webkit-details-marker,
+.timeline-details summary::-webkit-details-marker,
+.skill-details summary::-webkit-details-marker,
+.education-details summary::-webkit-details-marker {
   display: none;
 }
 
-.project-details summary:hover {
+.project-details summary:hover,
+.timeline-details summary:hover,
+.skill-details summary:hover,
+.education-details summary:hover {
   border-color: rgba(30, 111, 232, 0.36);
   background: rgba(30, 111, 232, 0.1);
 }
 
-.project-details-icon {
+.details-icon {
   position: relative;
   width: 12px;
   height: 12px;
   flex: 0 0 auto;
 }
 
-.project-details-icon::before,
-.project-details-icon::after {
+.details-icon::before,
+.details-icon::after {
   content: "";
   position: absolute;
   top: 5px;
@@ -590,11 +609,14 @@ h3 {
   transition: transform 160ms ease;
 }
 
-.project-details-icon::after {
+.details-icon::after {
   transform: rotate(90deg);
 }
 
-.project-details[open] .project-details-icon::after {
+.project-details[open] .details-icon::after,
+.timeline-details[open] .details-icon::after,
+.skill-details[open] .details-icon::after,
+.education-details[open] .details-icon::after {
   transform: rotate(0);
 }
 
@@ -662,8 +684,18 @@ h3 {
   color: var(--muted);
 }
 
+.skill-details .tag-list,
+.timeline-details .tag-list,
+.education-details .education-list {
+  margin-top: 14px;
+}
+
 .education-block {
   background: rgba(255, 255, 255, 0.72);
+}
+
+.education-primary {
+  margin-top: 18px;
 }
 
 .education-list {

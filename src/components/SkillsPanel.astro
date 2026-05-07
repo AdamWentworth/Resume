@@ -8,6 +8,8 @@ interface Props {
 }
 
 const { groups, education } = Astro.props;
+const primaryEducation = education[0];
+const additionalEducation = education.slice(1);
 ---
 
 <div class="skills-layout">
@@ -16,24 +18,53 @@ const { groups, education } = Astro.props;
       <section class="skill-group" aria-labelledby={`skill-${group.name.toLowerCase().replaceAll(' ', '-')}`}>
         <h3 id={`skill-${group.name.toLowerCase().replaceAll(' ', '-')}`}>{group.name}</h3>
         <p>{group.summary}</p>
-        <ul class="tag-list">
-          {group.items.map((item) => <TechBadge name={item} />)}
-        </ul>
+        <details class="skill-details">
+          <summary>
+            <span>Relevant tools</span>
+            <span class="details-icon" aria-hidden="true"></span>
+          </summary>
+          <ul class="tag-list">
+            {group.items.map((item) => <TechBadge name={item} />)}
+          </ul>
+        </details>
       </section>
     ))}
   </div>
   <section class="education-block" aria-labelledby="education-title">
     <h3 id="education-title">Education and credentials</h3>
-    <ul class="education-list">
-      {education.map((item) => (
-        <li class="education-card">
-          <span class="education-icon" aria-hidden="true">{item.icon}</span>
+    {
+      primaryEducation ? (
+        <div class="education-card education-primary">
+          <span class="education-icon" aria-hidden="true">{primaryEducation.icon}</span>
           <span>
-            <strong>{item.credential}</strong>
-            <span>{item.institution} - {item.period}</span>
+            <strong>{primaryEducation.credential}</strong>
+            <span>{primaryEducation.institution} - {primaryEducation.period}</span>
           </span>
-        </li>
-      ))}
-    </ul>
+        </div>
+      ) : (
+        <p class="empty-state">Education details are being finalized.</p>
+      )
+    }
+    {
+      additionalEducation.length > 0 && (
+        <details class="education-details">
+          <summary>
+            <span>More credentials</span>
+            <span class="details-icon" aria-hidden="true"></span>
+          </summary>
+          <ul class="education-list">
+            {additionalEducation.map((item) => (
+              <li class="education-card">
+                <span class="education-icon" aria-hidden="true">{item.icon}</span>
+                <span>
+                  <strong>{item.credential}</strong>
+                  <span>{item.institution} - {item.period}</span>
+                </span>
+              </li>
+            ))}
+          </ul>
+        </details>
+      )
+    }
   </section>
 </div>
