@@ -948,11 +948,6 @@ h3 {
     font-size: 24px;
   }
 
-  .project-details-button {
-    width: 100%;
-    justify-content: space-between;
-  }
-
   .project-proof-grid {
     grid-template-columns: 1fr;
     gap: 14px;
