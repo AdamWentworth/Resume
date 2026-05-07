@@ -30,12 +30,23 @@ export type SkillGroup = {
   items: string[];
 };
 
+export type EducationEntry = {
+  institution: string;
+  credential: string;
+  period: string;
+  icon: string;
+};
+
 export type ResumeProfile = {
   name: string;
   role: string;
   location: string;
   siteUrl: string;
   email: string;
+  portrait: {
+    src: string;
+    alt: string;
+  };
   summary: string;
   intro: string;
   impact: string[];
@@ -47,23 +58,27 @@ export type ResumeProfile = {
   experience: ExperienceEntry[];
   projects: ProjectEntry[];
   skills: SkillGroup[];
-  education: string[];
+  education: EducationEntry[];
 };
 
 export const resume = {
   name: 'Adam Wentworth',
-  role: 'Software Engineer / BCIT Applied CS',
+  role: 'Software Engineer / Computer Science',
   location: 'Metro Vancouver, BC',
   siteUrl: 'https://adamwentworth.ca',
   email: 'adamjohnwentworth@gmail.com',
+  portrait: {
+    src: '/images/adam-portrait.jpg',
+    alt: 'Adam Wentworth smiling',
+  },
   summary:
-    'Software engineer and BCIT Applied Computer Science student building ambitious full-stack, systems, game, and local-AI projects.',
+    'Software engineer and BCIT Applied Computer Science student building ambitious full-stack, systems, games, and AI projects.',
   intro:
     'I care about useful results: designing clear systems, shipping working software, and using modern tools thoughtfully to move faster without giving up ownership of quality.',
   impact: [
-    'I am seeking Summer 2026 software engineering internships while completing my Applied Computer Science degree.',
-    'I learn fastest through self-directed projects with real architecture, deployment, and testing concerns.',
-    'I use AI as an accelerator, while staying accountable for system design, code quality, and outcomes.',
+    'I am seeking Summer 2026 software engineering internships while completing my Bachelor of Science in Applied Computer Science.',
+    'I work well in teams and take initiative through projects that force real architecture, deployment, and testing decisions.',
+    'I use AI to accelerate implementation when I understand the problem well enough to evaluate the result and deliver value faster.',
   ],
   resumePdf: {
     label: 'Download resume',
@@ -162,57 +177,57 @@ export const resume = {
       name: 'Pokemon Go Nexus',
       role: 'Full-stack developer',
       summary:
-        'Event-driven platform for Pokemon GO players with microservice boundaries, live updates, geospatial search, and production-style deployment concerns.',
+        'Full-stack Pokemon GO monorepo with a React frontend, Go and Node services, Kafka event sync, location intelligence, and multiple persistence layers.',
       highlights: [
-        'Built Kafka-backed Go services and streamed live updates to frontend clients through SSE.',
-        'Implemented secure JWT authentication with Node/Express and MongoDB.',
-        'Added PostGIS geospatial search, Dockerized deployment, NGINX proxying, tests, and automated backups.',
+        'Built an event flow from frontend update ingestion to Kafka, Go consumers, MySQL persistence, and SSE readers.',
+        'Implemented auth and service boundaries across Node/Express, Go APIs, MongoDB, MySQL, and PostGIS.',
+        'Added NGINX routing, Dockerized services, automated backups, frontend tests, and local development runbooks.',
       ],
-      technologies: ['React', 'Go', 'Kafka', 'MySQL', 'Postgres/PostGIS', 'Node', 'MongoDB', 'Docker'],
+      technologies: ['React', 'Go', 'Kafka', 'MySQL', 'Postgres/PostGIS', 'Node', 'MongoDB', 'Docker', 'NGINX', 'Vitest'],
       href: 'https://github.com/AdamWentworth/Go',
     },
     {
       name: 'Pokemon Autochess',
       role: 'Systems developer',
       summary:
-        'Custom C++20 engine and game layer for an autobattler prototype with deterministic combat, movement, and data-driven gameplay rules.',
+        'Engine-first C++20 auto-battler prototype with placement and combat states, 3D board rendering, VFX tooling, tests, and a data pipeline.',
       highlights: [
-        'Separated engine and game layers with GameLoop and GameContext boundaries.',
-        'Implemented deterministic Lua movement with A*, reservations, priority, and swap prevention.',
-        'Used sol2 to iterate on gameplay rules without recompiling C++.',
+        'Built engine core systems for the app loop, windowing, input mapping, UI, rendering, and resource caches.',
+        'Implemented game runtime systems for placement, combat, shops, movement, cards, units, and scripted rules.',
+        'Added headless tests, data validation, JSON config cooking, packaged content bundles, and release tooling.',
       ],
-      technologies: ['C++20', 'SDL2', 'OpenGL', 'Lua', 'sol2'],
+      technologies: ['C++20', 'SDL2', 'OpenGL', 'Direct3D 12', 'Lua', 'sol2', 'CMake', 'JSON'],
       href: 'https://github.com/AdamWentworth/PokemonAutochess',
     },
     {
       name: 'Jarvin',
       role: 'Software engineer',
       summary:
-        'Fully local offline voice assistant that connects speech recognition, local LLM inference, text-to-speech, observability, and testable service design.',
+        'Host-run personal AI assistant built around local models, voice processing, memory, tools, integrations, and shared desktop/mobile clients.',
       highlights: [
-        'Connected Whisper speech-to-text with local GGUF LLM inference through llama.cpp.',
-        'Built real-time audio capture with adaptive noise-gate voice activity detection.',
-        'Mounted a Gradio control UI in FastAPI with startup provisioning, observability, and tests.',
+        'Connected llama.cpp and Ollama backends with FastAPI services, conversation memory, reminders, and routines.',
+        'Built React and Tauri clients for desktop, mobile shell, host-served UI, and remote phone voice workflows.',
+        'Added Google Calendar actions, DuckDuckGo-backed research, morning briefs, workspace tools, and backend tests.',
       ],
-      technologies: ['Python', 'FastAPI', 'llama.cpp', 'asyncio', 'pytest', 'GitHub Actions'],
+      technologies: ['Python', 'FastAPI', 'React', 'Tauri', 'SQLite', 'llama.cpp', 'Ollama', 'DuckDuckGo', 'Google Calendar', 'pytest'],
       href: 'https://github.com/AdamWentworth/Jarvin',
     },
   ],
   skills: [
     {
-      name: 'Languages',
-      summary: 'Comfortable moving between application code, services, scripting, and systems-level projects.',
-      items: ['Python', 'TypeScript', 'JavaScript', 'Go', 'C++'],
-    },
-    {
-      name: 'Frameworks',
-      summary: 'Used across full-stack apps, APIs, static sites, and project UIs.',
-      items: ['React', 'Node/Express', 'FastAPI', 'Fiber', 'Astro'],
+      name: 'Full-Stack Product Systems',
+      summary: 'Building interfaces, APIs, service boundaries, and product flows that can actually be used.',
+      items: ['React', 'TypeScript', 'Node/Express', 'FastAPI', 'Go', 'REST APIs'],
     },
     {
       name: 'Data & Infrastructure',
-      summary: 'Experience with persistence, messaging, deployment, reverse proxies, and CI-ready workflows.',
-      items: ['PostgreSQL/PostGIS', 'MySQL', 'MongoDB', 'Docker', 'NGINX', 'Kafka', 'GitHub Actions'],
+      summary: 'Designing persistence, event flows, deployment paths, reverse proxies, and CI-ready workflows.',
+      items: ['PostgreSQL/PostGIS', 'MySQL', 'MongoDB', 'SQLite', 'Kafka', 'Docker', 'NGINX', 'GitHub Actions'],
+    },
+    {
+      name: 'Engine & Game Systems',
+      summary: 'Working close to runtime behavior: rendering, systems, data pipelines, and deterministic gameplay.',
+      items: ['C++20', 'SDL2', 'OpenGL', 'Direct3D 12', 'Lua', 'sol2', 'CMake', 'JSON'],
     },
     {
       name: 'Computer Science',
@@ -220,19 +235,34 @@ export const resume = {
       items: ['Data structures', 'Algorithms', 'OOP', 'Networking', 'Operating systems', 'Testing'],
     },
     {
-      name: 'AI & Media',
-      summary: 'Practical use of AI APIs, local model tooling, speech systems, and audio production experience.',
-      items: ['OpenAI API', 'Whisper ASR', 'llama.cpp', 'Local LLMs', 'Audio engineering'],
+      name: 'AI & Automation',
+      summary: 'Using AI tools where I can evaluate the output and turn them into reliable software workflows.',
+      items: ['OpenAI API', 'Whisper ASR', 'llama.cpp', 'Ollama', 'Local LLMs', 'Tool execution'],
     },
     {
-      name: 'Working Style',
-      summary: 'I bias toward shipping useful software, learning quickly, and keeping enough structure for future work.',
-      items: ['Self-directed projects', 'Product thinking', 'Documentation', 'Agile/Scrum', 'Outcome focus'],
+      name: 'Delivery & Collaboration',
+      summary: 'Keeping the work grounded in communication, documentation, handoff, and useful outcomes.',
+      items: ['Team projects', 'Client handoff', 'Documentation', 'Code review', 'Product thinking', 'Outcome focus'],
     },
   ],
   education: [
-    'Bachelor of Science in Applied Computer Science, British Columbia Institute of Technology, expected May 2027.',
-    'Diploma in Computer Information Technology, British Columbia Institute of Technology, May 2024.',
-    'Diploma in Audio Engineering & Music Production, SAE Institute, June 2020.',
+    {
+      institution: 'BCIT',
+      credential: 'Bachelor of Science in Applied Computer Science',
+      period: 'Expected May 2027',
+      icon: 'BCIT',
+    },
+    {
+      institution: 'BCIT',
+      credential: 'Diploma in Computer Information Technology',
+      period: 'May 2024',
+      icon: 'BCIT',
+    },
+    {
+      institution: 'SAE Institute',
+      credential: 'Diploma in Audio Engineering & Music Production',
+      period: 'June 2020',
+      icon: 'SAE',
+    },
   ],
 } satisfies ResumeProfile;

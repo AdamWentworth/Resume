@@ -1,10 +1,10 @@
 ---
-import type { SkillGroup } from '../data/resume';
+import type { EducationEntry, SkillGroup } from '../data/resume';
 import TechBadge from './TechBadge.astro';
 
 interface Props {
   groups: SkillGroup[];
-  education: string[];
+  education: EducationEntry[];
 }
 
 const { groups, education } = Astro.props;
@@ -24,8 +24,16 @@ const { groups, education } = Astro.props;
   </div>
   <section class="education-block" aria-labelledby="education-title">
     <h3 id="education-title">Education and credentials</h3>
-    <ul class="detail-list">
-      {education.map((item) => <li>{item}</li>)}
+    <ul class="education-list">
+      {education.map((item) => (
+        <li class="education-card">
+          <span class="education-icon" aria-hidden="true">{item.icon}</span>
+          <span>
+            <strong>{item.credential}</strong>
+            <span>{item.institution} - {item.period}</span>
+          </span>
+        </li>
+      ))}
     </ul>
   </section>
 </div>

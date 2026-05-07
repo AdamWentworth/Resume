@@ -4,12 +4,17 @@ import {
   siApple,
   siAstro,
   siCplusplus,
+  siCmake,
+  siDuckduckgo,
   siDocker,
   siExpress,
   siFastapi,
+  siGoogle,
+  siGooglecalendar,
   siGithubactions,
   siGo,
   siJavascript,
+  siJson,
   siLinux,
   siLua,
   siMongodb,
@@ -23,7 +28,11 @@ import {
   siPytest,
   siReact,
   siRiotgames,
+  siRust,
+  siSqlite,
+  siTauri,
   siTypescript,
+  siVitest,
   siYoutube,
 } from 'simple-icons';
 
@@ -45,14 +54,20 @@ const iconMap: Record<string, IconData> = {
   C: siCplusplus,
   'C++': siCplusplus,
   'C++20': siCplusplus,
+  CMake: siCmake,
   Docker: siDocker,
+  DuckDuckGo: siDuckduckgo,
   Express: siExpress,
   FastAPI: siFastapi,
+  'Google Calendar': siGooglecalendar,
+  'Google Workspace': siGoogle,
   GitHub: siGithubactions,
   'GitHub Actions': siGithubactions,
   Go: siGo,
   JavaScript: siJavascript,
+  JSON: siJson,
   Kafka: siApachekafka,
+  Linux: siLinux,
   Lua: siLua,
   macOS: siApple,
   MongoDB: siMongodb,
@@ -70,12 +85,56 @@ const iconMap: Record<string, IconData> = {
   pytest: siPytest,
   React: siReact,
   'Riot Games': siRiotgames,
+  Rust: siRust,
+  SQLite: siSqlite,
+  Tauri: siTauri,
   TypeScript: siTypescript,
+  Vitest: siVitest,
   YouTube: siYoutube,
   'llama.cpp': siOllama,
 };
 
+const customIconMap: Record<string, { label: string; color?: string; kind?: 'windows' }> = {
+  'Active Directory': { label: 'AD' },
+  Algorithms: { label: 'ALG' },
+  Analytics: { label: 'AN' },
+  asyncio: { label: 'aio' },
+  'Audio engineering': { label: 'AE' },
+  'Audio production': { label: 'AP' },
+  'Brand partnerships': { label: 'BP' },
+  'Client handoff': { label: 'CH' },
+  'Client work': { label: 'CW' },
+  'Code review': { label: 'CR' },
+  'Data QA': { label: 'QA' },
+  'Data structures': { label: 'DS' },
+  Documentation: { label: 'DOC' },
+  'Direct3D 12': { label: 'D3D' },
+  'Google Workspace': { label: 'GW' },
+  'Local LLMs': { label: 'LLM' },
+  Networking: { label: 'NET' },
+  OOP: { label: 'OOP' },
+  'Office 365': { label: '365' },
+  'Outcome focus': { label: 'OUT' },
+  'Operating systems': { label: 'OS' },
+  'Process design': { label: 'PD' },
+  'Product thinking': { label: 'PT' },
+  'Production workflows': { label: 'PW' },
+  'Quality control': { label: 'QC' },
+  'Research workflows': { label: 'RW' },
+  'REST APIs': { label: 'API' },
+  SDL2: { label: 'SDL2' },
+  sol2: { label: 'sol' },
+  'Spreadsheet systems': { label: 'SS' },
+  'Team projects': { label: 'TEAM' },
+  Testing: { label: 'TST' },
+  'Tool execution': { label: 'TOOL' },
+  Troubleshooting: { label: 'FIX' },
+  'Whisper ASR': { label: 'ASR' },
+  Windows: { label: 'WIN', color: '#0078d4', kind: 'windows' },
+};
+
 const icon = iconMap[name];
+const customIcon = customIconMap[name];
 const fallback = name
   .split(/[\s/.+-]+/)
   .filter(Boolean)
@@ -85,12 +144,21 @@ const fallback = name
   .toUpperCase();
 ---
 
-<li class:list={['tech-badge', { 'tech-badge-fallback': !icon }]} style={icon ? `--icon-color: #${icon.hex}` : undefined}>
+<li
+  class:list={['tech-badge', { 'tech-badge-fallback': !icon && !customIcon }]}
+  style={icon ? `--icon-color: #${icon.hex}` : customIcon?.color ? `--icon-color: ${customIcon.color}` : undefined}
+>
   {
     icon ? (
       <svg class="tech-icon" viewBox="0 0 24 24" aria-hidden="true">
         <path d={icon.path} />
       </svg>
+    ) : customIcon?.kind === 'windows' ? (
+      <svg class="tech-icon" viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M3 5.42 10.75 4.35v7.36H3V5.42Zm8.55-1.18L21 2.96v8.75h-9.45V4.24ZM3 12.54h7.75v7.15L3 18.62v-6.08Zm8.55 0H21v8.5l-9.45-1.24v-7.26Z" />
+      </svg>
+    ) : customIcon ? (
+      <span class="tech-custom" aria-hidden="true">{customIcon.label}</span>
     ) : (
       <span class="tech-fallback" aria-hidden="true">{fallback}</span>
     )

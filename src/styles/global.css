@@ -272,17 +272,15 @@ h3 {
   padding: 28px;
 }
 
-.profile-mark {
-  display: grid;
-  width: 72px;
-  height: 72px;
-  margin-bottom: 18px;
-  place-items: center;
+.profile-photo {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 5;
+  margin-bottom: 22px;
+  object-fit: cover;
+  object-position: center center;
   border-radius: 8px;
-  background: var(--text);
-  color: #ffffff;
-  font-size: 24px;
-  font-weight: 900;
+  background: var(--surface-muted);
 }
 
 .location {
@@ -411,9 +409,10 @@ h3 {
   fill: currentColor;
 }
 
-.tech-fallback {
+.tech-fallback,
+.tech-custom {
   display: inline-grid;
-  width: 17px;
+  min-width: 17px;
   height: 17px;
   place-items: center;
   border-radius: 5px;
@@ -422,6 +421,11 @@ h3 {
   font-size: 9px;
   font-weight: 900;
   line-height: 1;
+}
+
+.tech-custom {
+  padding: 0 4px;
+  color: var(--icon-color, var(--accent-strong));
 }
 
 .icon-link {
@@ -488,6 +492,49 @@ h3 {
 
 .education-block {
   background: rgba(255, 255, 255, 0.72);
+}
+
+.education-list {
+  display: grid;
+  gap: 12px;
+  margin: 18px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.education-card {
+  display: grid;
+  grid-template-columns: 52px minmax(0, 1fr);
+  gap: 14px;
+  align-items: center;
+}
+
+.education-icon {
+  display: grid;
+  width: 52px;
+  height: 52px;
+  place-items: center;
+  border: 1px solid rgba(30, 111, 232, 0.18);
+  border-radius: 8px;
+  background: rgba(30, 111, 232, 0.08);
+  color: var(--accent-strong);
+  font-size: 13px;
+  font-weight: 900;
+}
+
+.education-card strong,
+.education-card span span {
+  display: block;
+}
+
+.education-card strong {
+  line-height: 1.25;
+}
+
+.education-card span span {
+  color: var(--muted);
+  font-size: 14px;
+  margin-top: 3px;
 }
 
 .empty-state {
@@ -607,4 +654,5 @@ h3 {
   .education-block {
     padding: 18px;
   }
+
 }
