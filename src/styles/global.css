@@ -519,13 +519,11 @@ h3 {
   position: relative;
   display: grid;
   grid-template-columns: minmax(0, 1fr) 300px;
-  gap: 24px;
   align-items: start;
   padding: 22px;
 }
 
 .project-case-featured {
-  grid-template-columns: minmax(0, 1fr) 320px;
   background:
     linear-gradient(135deg, rgba(30, 111, 232, 0.08), rgba(255, 255, 255, 0.92) 42%),
     rgba(255, 255, 255, 0.9);
