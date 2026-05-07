@@ -33,7 +33,6 @@ import {
   siSqlite,
   siTauri,
   siTypescript,
-  siVitest,
   siYoutube,
 } from 'simple-icons';
 
@@ -79,6 +78,7 @@ type CustomIconKind =
   | 'team'
   | 'testTube'
   | 'tool'
+  | 'vitest'
   | 'windows'
   | 'wrench';
 
@@ -136,7 +136,6 @@ const iconMap: Record<string, IconData> = {
   SQLite: siSqlite,
   Tauri: siTauri,
   TypeScript: siTypescript,
-  Vitest: siVitest,
   YouTube: siYoutube,
 };
 
@@ -176,6 +175,7 @@ const customIconMap: Record<string, CustomIconData> = {
   Testing: { kind: 'testTube', color: '#0f766e' },
   'Tool execution': { kind: 'tool', color: '#64748b' },
   Troubleshooting: { kind: 'wrench', color: '#64748b' },
+  Vitest: { kind: 'vitest', color: '#729b1b' },
   'Whisper ASR': { kind: 'microphone', color: '#0284c7' },
   Windows: { kind: 'windows', color: '#0078d4' },
 };
@@ -352,6 +352,7 @@ const customShapes = customIcon ? customIconShapes[customIcon.kind] : undefined;
 const isDirect3dIcon = customIcon?.kind === 'direct3d';
 const isLlamaCppIcon = customIcon?.kind === 'llamacpp';
 const isSolIcon = customIcon?.kind === 'sol';
+const isVitestIcon = customIcon?.kind === 'vitest';
 const directXGradientId = 'directx-xii-gradient';
 const directXGlowId = 'directx-xii-glow';
 const directXClipId = 'directx-xii-clip';
@@ -408,6 +409,8 @@ const directXPath =
       <img class="tech-icon tech-icon-image tech-icon-llamacpp" src="/images/llamacpp-logo.svg" alt="" loading="lazy" decoding="async" />
     ) : isSolIcon ? (
       <img class="tech-icon tech-icon-image" src="/images/sol2-logo.png" alt="" loading="lazy" decoding="async" />
+    ) : isVitestIcon ? (
+      <img class="tech-icon tech-icon-image tech-icon-vitest" src="/images/vitest-logo.svg" alt="" loading="lazy" decoding="async" />
     ) : customShapes ? (
       <svg class="tech-icon tech-icon-custom" viewBox="0 0 24 24" aria-hidden="true">
         {customShapes.map((shape) =>
