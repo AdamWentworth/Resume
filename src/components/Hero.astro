@@ -1,0 +1,37 @@
+---
+import { resume } from '../data/resume';
+
+const prominentLinks = resume.links.filter((link) => link.prominent);
+---
+
+<section id="summary" class="hero section-band" aria-labelledby="hero-title">
+  <div class="container hero-grid">
+    <div class="hero-copy">
+      <p class="eyebrow">{resume.role}</p>
+      <h1 id="hero-title">{resume.name}</h1>
+      <p class="hero-summary">{resume.summary}</p>
+      <p class="hero-intro">{resume.intro}</p>
+      <div class="hero-actions" aria-label="Primary actions">
+        <a class="button" href={resume.resumePdf.href}>{resume.resumePdf.label}</a>
+        {prominentLinks.map((link) => (
+          <a
+            class="text-link"
+            href={link.href}
+            target={link.external ? '_blank' : undefined}
+            rel={link.external ? 'noreferrer' : undefined}
+          >
+            {link.label}
+          </a>
+        ))}
+      </div>
+    </div>
+
+    <aside class="impact-panel" aria-label="Profile highlights">
+      <div class="profile-mark" aria-hidden="true">AW</div>
+      <p class="location">{resume.location}</p>
+      <ul>
+        {resume.impact.map((item) => <li>{item}</li>)}
+      </ul>
+    </aside>
+  </div>
+</section>

@@ -1,0 +1,42 @@
+---
+import type { ProjectEntry } from '../data/resume';
+
+interface Props {
+  projects: ProjectEntry[];
+}
+
+const { projects } = Astro.props;
+---
+
+{
+  projects.length > 0 ? (
+    <div class="project-grid">
+      {projects.map((project) => (
+        <article class="project-card">
+          <div>
+            <p class="item-subtitle">{project.role}</p>
+            <h3>{project.name}</h3>
+            <p>{project.summary}</p>
+          </div>
+          <ul class="detail-list">
+            {project.highlights.map((highlight) => <li>{highlight}</li>)}
+          </ul>
+          <div class="project-footer">
+            <ul class="tag-list" aria-label={`${project.name} technologies`}>
+              {project.technologies.map((technology) => <li>{technology}</li>)}
+            </ul>
+            {
+              project.href && (
+                <a class="text-link" href={project.href} target="_blank" rel="noreferrer">
+                  View project
+                </a>
+              )
+            }
+          </div>
+        </article>
+      ))}
+    </div>
+  ) : (
+    <p class="empty-state">Project details are being finalized.</p>
+  )
+}

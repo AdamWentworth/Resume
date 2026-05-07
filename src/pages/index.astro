@@ -1,0 +1,72 @@
+---
+import ContactFooter from '../components/ContactFooter.astro';
+import ExperienceTimeline from '../components/ExperienceTimeline.astro';
+import Hero from '../components/Hero.astro';
+import ProjectGrid from '../components/ProjectGrid.astro';
+import SectionHeading from '../components/SectionHeading.astro';
+import SiteHeader from '../components/SiteHeader.astro';
+import SkillsPanel from '../components/SkillsPanel.astro';
+import { resume } from '../data/resume';
+import Layout from '../layouts/Layout.astro';
+
+const title = `${resume.name} | ${resume.role}`;
+const structuredData = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: resume.name,
+  url: resume.siteUrl,
+  email: resume.email,
+  jobTitle: resume.role,
+  address: {
+    '@type': 'PostalAddress',
+    addressCountry: 'CA',
+  },
+  sameAs: resume.links.filter((link) => link.external).map((link) => link.href),
+  knowsAbout: resume.skills.flatMap((group) => group.items),
+};
+---
+
+<Layout title={title} description={resume.summary} canonical={resume.siteUrl} structuredData={structuredData}>
+  <a class="skip-link" href="#summary">Skip to summary</a>
+  <SiteHeader />
+  <main>
+    <Hero />
+
+    <section id="experience" class="section-band" aria-labelledby="experience-title">
+      <div class="container section-grid">
+        <SectionHeading
+          eyebrow="Experience"
+          title="Work built for clarity, reliability, and impact"
+          description="A concise resume timeline for the roles and outcomes that matter most to hiring teams."
+          headingId="experience-title"
+        />
+        <ExperienceTimeline entries={resume.experience} />
+      </div>
+    </section>
+
+    <section id="projects" class="section-band section-muted" aria-labelledby="projects-title">
+      <div class="container section-grid">
+        <SectionHeading
+          eyebrow="Projects"
+          title="Selected work"
+          description="Focused examples that show product judgment, engineering execution, and practical delivery."
+          headingId="projects-title"
+        />
+        <ProjectGrid projects={resume.projects} />
+      </div>
+    </section>
+
+    <section id="skills" class="section-band" aria-labelledby="skills-title">
+      <div class="container section-grid">
+        <SectionHeading
+          eyebrow="Skills"
+          title="Engineering strengths"
+          description="A compact view of the tools, practices, and working habits Adam brings to software teams."
+          headingId="skills-title"
+        />
+        <SkillsPanel groups={resume.skills} education={resume.education} />
+      </div>
+    </section>
+  </main>
+  <ContactFooter />
+</Layout>

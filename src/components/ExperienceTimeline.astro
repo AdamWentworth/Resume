@@ -1,0 +1,37 @@
+---
+import type { ExperienceEntry } from '../data/resume';
+
+interface Props {
+  entries: ExperienceEntry[];
+}
+
+const { entries } = Astro.props;
+---
+
+{
+  entries.length > 0 ? (
+    <div class="timeline">
+      {entries.map((entry) => (
+        <article class="timeline-item">
+          <div class="timeline-meta">
+            <p>{entry.period}</p>
+            <p>{entry.location}</p>
+          </div>
+          <div class="timeline-body">
+            <h3>{entry.title}</h3>
+            <p class="item-subtitle">{entry.company}</p>
+            <p>{entry.summary}</p>
+            <ul class="detail-list">
+              {entry.highlights.map((highlight) => <li>{highlight}</li>)}
+            </ul>
+            <ul class="tag-list" aria-label={`${entry.title} technologies`}>
+              {entry.technologies.map((technology) => <li>{technology}</li>)}
+            </ul>
+          </div>
+        </article>
+      ))}
+    </div>
+  ) : (
+    <p class="empty-state">Experience details are being finalized.</p>
+  )
+}

@@ -1,0 +1,21 @@
+---
+import { resume } from '../data/resume';
+---
+
+<footer id="contact" class="contact-footer" aria-labelledby="contact-title">
+  <div class="container contact-inner">
+    <div>
+      <p class="eyebrow">Contact</p>
+      <h2 id="contact-title">Start a conversation</h2>
+      <p>
+        For roles, projects, or collaboration, email Adam or use the profile links below.
+      </p>
+    </div>
+    <div class="contact-actions">
+      <a class="button" href={`mailto:${resume.email}`}>Email Adam</a>
+      {resume.links.filter((link) => link.external).map((link) => (
+        <a class="text-link" href={link.href} target="_blank" rel="noreferrer">{link.label}</a>
+      ))}
+    </div>
+  </div>
+</footer>
