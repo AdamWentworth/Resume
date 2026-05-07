@@ -173,7 +173,7 @@ export const resume = {
       period: 'Earlier experience',
       summary:
         'Built and operated a large gaming content channel through consistent delivery, analytics, audience awareness, and brand partnerships.',
-      featuredHighlights: ['200k+ subscribers', 'Riot Games Partner'],
+      featuredHighlights: ['200k+ subscribers', 'Riot Games Partner', 'League of Legends Partner'],
       highlights: [
         'Built repeatable production workflows across planning, recording, editing, publishing, and audience feedback loops.',
         'Used analytics and audience signals to refine content formats, publishing cadence, and sponsor expectations.',

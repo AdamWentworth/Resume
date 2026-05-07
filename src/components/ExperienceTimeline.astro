@@ -25,7 +25,7 @@ const { entries } = Astro.props;
             {
               entry.featuredHighlights && entry.featuredHighlights.length > 0 && (
                 <ul class="experience-callouts" aria-label={`${entry.title} highlights`}>
-                  {entry.featuredHighlights.map((highlight) => <li>{highlight}</li>)}
+                  {entry.featuredHighlights.map((highlight) => <TechBadge name={highlight} />)}
                 </ul>
               )
             }
