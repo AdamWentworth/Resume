@@ -5,11 +5,13 @@ import {
   siAstro,
   siCplusplus,
   siCmake,
+  siCss,
   siDuckduckgo,
   siDocker,
   siExpress,
   siExpo,
   siFastapi,
+  siGit,
   siGoogle,
   siGooglecalendar,
   siGithub,
@@ -63,8 +65,10 @@ type CustomIconKind =
   | 'dataNodes'
   | 'direct3d'
   | 'document'
+  | 'fiber'
   | 'flow'
   | 'handoff'
+  | 'chi'
   | 'lightbulb'
   | 'llamacpp'
   | 'microphone'
@@ -104,6 +108,7 @@ const iconMap: Record<string, IconData> = {
   'C++': siCplusplus,
   'C++20': siCplusplus,
   CMake: siCmake,
+  CSS: siCss,
   Docker: siDocker,
   DuckDuckGo: siDuckduckgo,
   Expo: siExpo,
@@ -111,6 +116,7 @@ const iconMap: Record<string, IconData> = {
   FastAPI: siFastapi,
   'Google Calendar': siGooglecalendar,
   'Google Workspace': siGoogle,
+  Git: siGit,
   GitHub: siGithub,
   'GitHub Actions': siGithubactions,
   Go: siGo,
@@ -123,6 +129,7 @@ const iconMap: Record<string, IconData> = {
   MongoDB: siMongodb,
   MySQL: siMysql,
   NGINX: siNginx,
+  'net/http': siGo,
   Node: siNodedotjs,
   'Node/Express': siNodedotjs,
   OpenGL: siOpengl,
@@ -142,6 +149,7 @@ const iconMap: Record<string, IconData> = {
   Tauri: siTauri,
   TypeScript: siTypescript,
   YouTube: siYoutube,
+  '200k subscribers': siYoutube,
   '200k+ subscribers': siYoutube,
 };
 
@@ -168,13 +176,16 @@ const customIconMap: Record<string, CustomIconData> = {
   Documentation: { kind: 'document', color: '#64748b' },
   'Direct3D 12': { kind: 'direct3d', color: '#107c10' },
   'Engine architecture': { kind: 'dataNodes', color: '#2563eb' },
+  Fiber: { kind: 'fiber', color: '#00add8' },
   'Image processing': { kind: 'dataNodes', color: '#0891b2' },
   'JWT auth': { kind: 'checkShield', color: '#16a34a' },
   'Live floor tracking': { kind: 'microphone', color: '#0891b2' },
   'Local LLMs': { kind: 'chip', color: '#4f46e5' },
   'Metadata QA': { kind: 'dataCheck', color: '#0f766e' },
   'Metadata cleanup': { kind: 'dataCheck', color: '#0f766e' },
+  chi: { kind: 'chi', color: '#00a650' },
   'llama.cpp': { kind: 'llamacpp', color: '#ff8236' },
+  Microservices: { kind: 'network', color: '#2563eb' },
   'Music catalog operations': { kind: 'audio', color: '#7c3aed' },
   Networking: { kind: 'network', color: '#0891b2' },
   OOP: { kind: 'oop', color: '#7c3aed' },
@@ -302,6 +313,12 @@ const customIconShapes: Partial<Record<CustomIconKind, CustomShape[]>> = {
     { type: 'rect', x: 8.5, y: 14, width: 7, height: 1.6, rx: 0.8, opacity: 0.45 },
     { type: 'rect', x: 8.5, y: 17.5, width: 5, height: 1.6, rx: 0.8, opacity: 0.45 },
   ],
+  fiber: [
+    { type: 'path', d: 'M2.2 6h10.7l-1 2.6H1.1L2.2 6Z' },
+    { type: 'path', d: 'M5.1 10.8h10.7l-1.1 2.7H4l1.1-2.7Z' },
+    { type: 'path', d: 'M1.2 15.7h10.7l-1.1 2.7H0.1l1.1-2.7Z' },
+    { type: 'path', d: 'M16.3 6h7.2l-.9 2.6h-7.3l1-2.6Z', opacity: 0.32 },
+  ],
   flow: [
     { type: 'rect', x: 3, y: 4, width: 6, height: 5, rx: 1 },
     { type: 'rect', x: 15, y: 4, width: 6, height: 5, rx: 1 },
@@ -312,6 +329,11 @@ const customIconShapes: Partial<Record<CustomIconKind, CustomShape[]>> = {
     { type: 'rect', x: 3, y: 6, width: 6, height: 7, rx: 1 },
     { type: 'rect', x: 15, y: 11, width: 6, height: 7, rx: 1 },
     { type: 'path', d: 'M10 8h5v-2l5 4-5 4v-2h-5V8Zm4 8H9v2l-5-4 5-4v2h5v4Z', opacity: 0.55 },
+  ],
+  chi: [
+    { type: 'path', d: 'M4.7 8.5c0-2.5 1.6-4 4.2-4h3.5v3.1H9.3c-.9 0-1.4.4-1.4 1.2v1.5h4.5v3H7.9v1.6c0 .8.5 1.2 1.4 1.2h3.1v3.2H8.9c-2.6 0-4.2-1.5-4.2-4.1V8.5Z' },
+    { type: 'path', d: 'M13.1 4.5h3.4v5.1c.7-.7 1.6-1 2.8-1 2.6 0 4.1 1.6 4.1 4.4v6.3H20v-5.9c0-1.1-.5-1.7-1.5-1.7-1.1 0-2 .7-2 2.1v5.5h-3.4V4.5Z', opacity: 0.88 },
+    { type: 'circle', cx: 21.2, cy: 4.9, r: 2.3 },
   ],
   lightbulb: [
     { type: 'path', d: 'M12 2.8a7 7 0 0 0-4.3 12.5c.7.6 1.1 1.4 1.1 2.3h6.4c0-.9.4-1.8 1.1-2.3A7 7 0 0 0 12 2.8Z' },

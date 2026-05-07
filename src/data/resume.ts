@@ -148,11 +148,10 @@ export const resume = {
     {
       title: 'IT Support Specialist Intern',
       company: 'Firefly Systems IT Support',
-      companyHref: 'https://www.fireflysystems.net/',
       location: 'Vancouver, BC',
       period: 'May 2023 - August 2023',
       summary:
-        'Provided end-to-end technical support across desktop, mobile, cloud, networking, and account administration environments.',
+        'Provided end-to-end technical support for a now-closed IT support company across desktop, mobile, cloud, networking, and account administration environments.',
       highlights: [
         'Troubleshot Windows, macOS, Linux, hardware, networking, cloud services, and security issues for on-site and remote users.',
         'Administered access and infrastructure across Active Directory, VPNs, routers, switches, Office 365, and Google Workspace.',
@@ -170,7 +169,7 @@ export const resume = {
         'Built cleaner data workflows for music catalog operations, royalty claim readiness, and targeted research.',
       highlights: [
         'Rebuilt a disorganized song-management catalog into a standardized dataset with schemas, conventions, and validation checks.',
-        'Designed and maintained a DJ research database tracking social metrics, contact information, and placement status.',
+        'Designed and maintained an artist research database tracking social metrics, contact information, and placement status.',
         'Prepared catalog and research data for royalty claims, placements, and follow-up by normalizing metadata, ownership notes, contacts, and status fields.',
       ],
       technologies: [
@@ -211,7 +210,7 @@ export const resume = {
       period: 'Earlier experience',
       summary:
         'Built and operated a large gaming content channel through consistent delivery, analytics, audience awareness, and brand partnerships.',
-      featuredHighlights: ['200k+ subscribers', 'Riot Games Partner', 'League of Legends Partner'],
+      featuredHighlights: ['200k subscribers', 'Riot Games Partner', 'League of Legends Partner'],
       highlights: [
         'Built repeatable production workflows across planning, recording, editing, publishing, and audience feedback loops.',
         'Used analytics and audience signals to refine content formats, publishing cadence, and sponsor expectations.',
@@ -309,17 +308,17 @@ export const resume = {
     {
       name: 'Frontend & Desktop',
       summary: 'Interfaces and client shells for practical product workflows.',
-      items: ['React', 'Tauri', 'Astro', 'Expo', 'Responsive UI', 'Accessibility'],
+      items: ['React', 'Tauri', 'Astro', 'Expo', 'CSS', 'Accessibility'],
     },
     {
       name: 'Backend & APIs',
-      summary: 'Service boundaries, API design, auth, and real-time product flows.',
-      items: ['Node/Express', 'FastAPI', 'REST APIs', 'JWT auth', 'SSE', 'Service boundaries'],
+      summary: 'API design, microservice boundaries, auth, and real-time product flows.',
+      items: ['net/http', 'Fiber', 'chi', 'Node/Express', 'FastAPI', 'Microservices', 'JWT auth', 'SSE'],
     },
     {
       name: 'Data & Infrastructure',
       summary: 'Persistence, event flow, deployment, and operational wiring.',
-      items: ['PostgreSQL/PostGIS', 'MySQL', 'MongoDB', 'SQLite', 'Kafka', 'Docker', 'NGINX', 'GitHub Actions'],
+      items: ['PostgreSQL/PostGIS', 'MySQL', 'MongoDB', 'SQLite', 'Kafka', 'Docker', 'NGINX', 'Git', 'GitHub Actions'],
     },
     {
       name: 'Systems & Games',
@@ -332,9 +331,9 @@ export const resume = {
       items: ['OpenAI API', 'llama.cpp', 'Ollama', 'Whisper ASR', 'Python scripting', 'Tool workflows'],
     },
     {
-      name: 'Fundamentals & Delivery',
+      name: 'Fundamentals',
       summary: 'Computer science fundamentals and habits that keep work useful to teams.',
-      items: ['Data structures', 'Algorithms', 'OOP', 'Networking', 'Operating systems', 'Testing', 'Documentation', 'Client handoff'],
+      items: ['Data structures', 'Algorithms', 'OOP', 'Networking', 'Operating systems', 'Testing', 'Documentation'],
     },
   ],
   education: [
