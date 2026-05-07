@@ -362,6 +362,12 @@ const customIconShapes: Record<CustomIconKind, CustomShape[]> = {
 const icon = iconMap[name];
 const customIcon = customIconMap[name];
 const customShapes = customIcon ? customIconShapes[customIcon.kind] : undefined;
+const isDirect3dIcon = customIcon?.kind === 'direct3d';
+const directXGradientId = 'directx-xii-gradient';
+const directXGlowId = 'directx-xii-glow';
+const directXClipId = 'directx-xii-clip';
+const directXPath =
+  'M4 10h20l11 14 11-14h14L42 32l18 22H46L35 40 24 54H4l18-22L4 10ZM62 10h12v44H62V10ZM80 10h12v44H80V10Z';
 ---
 
 <li
@@ -372,6 +378,42 @@ const customShapes = customIcon ? customIconShapes[customIcon.kind] : undefined;
     icon ? (
       <svg class="tech-icon" viewBox="0 0 24 24" aria-hidden="true">
         <path d={icon.path} />
+      </svg>
+    ) : isDirect3dIcon ? (
+      <svg class="tech-icon tech-icon-directx" viewBox="0 0 96 64" aria-hidden="true">
+        <defs>
+          <linearGradient id={directXGradientId} x1="0" x2="0" y1="8" y2="56" gradientUnits="userSpaceOnUse">
+            <stop offset="0" stop-color="#02a51f" />
+            <stop offset="0.28" stop-color="#78f06f" />
+            <stop offset="0.5" stop-color="#efffed" />
+            <stop offset="0.72" stop-color="#79e66f" />
+            <stop offset="1" stop-color="#028a19" />
+          </linearGradient>
+          <filter id={directXGlowId} x="-22%" y="-34%" width="144%" height="168%">
+            <feGaussianBlur stdDeviation="3.4" result="blur" />
+            <feFlood flood-color="#00ff38" flood-opacity="0.75" />
+            <feComposite in2="blur" operator="in" />
+            <feMerge>
+              <feMergeNode />
+              <feMergeNode in="SourceGraphic" />
+            </feMerge>
+          </filter>
+          <clipPath id={directXClipId}>
+            <path d={directXPath} />
+          </clipPath>
+        </defs>
+        <g filter={`url(#${directXGlowId})`}>
+          <path d={directXPath} fill={`url(#${directXGradientId})`} />
+          <g clip-path={`url(#${directXClipId})`}>
+            <rect x="0" y="13" width="96" height="4" fill="#052f09" opacity="0.24" />
+            <rect x="0" y="19" width="96" height="4" fill="#ffffff" opacity="0.26" />
+            <rect x="0" y="26" width="96" height="5" fill="#0ba82a" opacity="0.28" />
+            <rect x="0" y="34" width="96" height="5" fill="#ffffff" opacity="0.24" />
+            <rect x="0" y="42" width="96" height="5" fill="#0a8e22" opacity="0.32" />
+            <rect x="0" y="50" width="96" height="3" fill="#ffffff" opacity="0.2" />
+          </g>
+          <path d={directXPath} fill="none" stroke="#ddffd9" stroke-width="1.4" opacity="0.32" />
+        </g>
       </svg>
     ) : customShapes ? (
       <svg class="tech-icon tech-icon-custom" viewBox="0 0 24 24" aria-hidden="true">
