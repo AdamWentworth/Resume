@@ -479,6 +479,12 @@ h3 {
   height: 16px;
 }
 
+.tech-icon-league {
+  width: 18px;
+  height: 18px;
+  border-radius: 4px;
+}
+
 .tech-icon-directx {
   width: 21px;
   height: 15px;

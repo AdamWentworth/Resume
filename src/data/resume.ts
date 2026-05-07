@@ -178,7 +178,7 @@ export const resume = {
         'Built repeatable production workflows across planning, recording, editing, publishing, and audience feedback loops.',
         'Used analytics and audience signals to refine content formats, publishing cadence, and sponsor expectations.',
       ],
-      technologies: ['YouTube', 'Riot Games', 'Analytics', 'Production workflows'],
+      technologies: ['Analytics', 'Production workflows'],
     },
   ],
   projects: [

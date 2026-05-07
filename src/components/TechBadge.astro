@@ -16,7 +16,6 @@ import {
   siGo,
   siJavascript,
   siJson,
-  siLeagueoflegends,
   siLinux,
   siLua,
   siMongodb,
@@ -115,7 +114,6 @@ const iconMap: Record<string, IconData> = {
   JavaScript: siJavascript,
   JSON: siJson,
   Kafka: siApachekafka,
-  'League of Legends Partner': siLeagueoflegends,
   Linux: siLinux,
   Lua: siLua,
   macOS: siApple,
@@ -368,6 +366,7 @@ const isDirect3dIcon = customIcon?.kind === 'direct3d';
 const isLlamaCppIcon = customIcon?.kind === 'llamacpp';
 const isSolIcon = customIcon?.kind === 'sol';
 const isVitestIcon = customIcon?.kind === 'vitest';
+const isLeagueIcon = name === 'League of Legends Partner';
 const directXGradientId = 'directx-xii-gradient';
 const directXGlowId = 'directx-xii-glow';
 const directXClipId = 'directx-xii-clip';
@@ -426,6 +425,8 @@ const directXPath =
       <img class="tech-icon tech-icon-image" src="/images/sol2-logo.png" alt="" loading="lazy" decoding="async" />
     ) : isVitestIcon ? (
       <img class="tech-icon tech-icon-image tech-icon-vitest" src="/images/vitest-logo.svg" alt="" loading="lazy" decoding="async" />
+    ) : isLeagueIcon ? (
+      <img class="tech-icon tech-icon-image tech-icon-league" src="/images/league-of-legends-icon.png" alt="" loading="lazy" decoding="async" />
     ) : customShapes ? (
       <svg class="tech-icon tech-icon-custom" viewBox="0 0 24 24" aria-hidden="true">
         {customShapes.map((shape) =>
