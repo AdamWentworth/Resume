@@ -292,10 +292,10 @@ export const resume = {
         },
         {
           label: 'Integrations',
-          text: 'Added Google Calendar CRUD, DuckDuckGo-backed research with page summarization, morning briefs, workspace actions, and pytest-backed backend validation.',
+          text: 'Added workspace actions, DuckDuckGo-backed research with page summarization, morning briefs, and pytest-backed backend validation.',
         },
       ],
-      technologies: ['Python', 'FastAPI', 'React', 'Tauri', 'SQLite', 'llama.cpp', 'Ollama', 'DuckDuckGo', 'Google Calendar', 'pytest'],
+      technologies: ['Python', 'FastAPI', 'React', 'Tauri', 'SQLite', 'llama.cpp', 'Ollama'],
       href: 'https://github.com/AdamWentworth/Jarvin',
     },
   ],
