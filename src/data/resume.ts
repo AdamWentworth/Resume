@@ -312,8 +312,8 @@ export const resume = {
     },
     {
       name: 'Backend & APIs',
-      summary: 'API design, microservice boundaries, auth, and real-time product flows.',
-      items: ['net/http', 'Fiber', 'chi', 'Node/Express', 'FastAPI', 'Microservices', 'JWT auth', 'SSE'],
+      summary: 'Microservice design, Go/Node/Python API frameworks, auth, and real-time product flows.',
+      items: ['Microservices', 'Fiber', 'chi', 'net/http', 'Node/Express', 'FastAPI', 'JWT auth', 'SSE'],
     },
     {
       name: 'Data & Infrastructure',
