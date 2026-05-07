@@ -22,6 +22,16 @@ const { entries } = Astro.props;
             <h3>{entry.title}</h3>
             <p class="item-subtitle">{entry.company}</p>
             <p>{entry.summary}</p>
+            {
+              entry.featuredHighlights && entry.featuredHighlights.length > 0 && (
+                <ul class="experience-callouts" aria-label={`${entry.title} highlights`}>
+                  {entry.featuredHighlights.map((highlight) => <li>{highlight}</li>)}
+                </ul>
+              )
+            }
+            <ul class="tag-list timeline-stack" aria-label={`${entry.title} technologies`}>
+              {entry.technologies.map((technology) => <TechBadge name={technology} />)}
+            </ul>
             <details class="timeline-details">
               <summary>
                 <span>Role details</span>
@@ -29,9 +39,6 @@ const { entries } = Astro.props;
               </summary>
               <ul class="detail-list">
                 {entry.highlights.map((highlight) => <li>{highlight}</li>)}
-              </ul>
-              <ul class="tag-list" aria-label={`${entry.title} technologies`}>
-                {entry.technologies.map((technology) => <TechBadge name={technology} />)}
               </ul>
             </details>
           </div>

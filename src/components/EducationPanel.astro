@@ -1,0 +1,30 @@
+---
+import type { EducationEntry } from '../data/resume';
+
+interface Props {
+  education: EducationEntry[];
+}
+
+const { education } = Astro.props;
+---
+
+{
+  education.length > 0 ? (
+    <div class="education-grid">
+      {education.map((item) => (
+        <article class="education-card education-card-large">
+          <span class:list={['education-logo', `education-logo-${item.icon.toLowerCase()}`]} aria-hidden="true">
+            <img src={item.logo.src} alt="" loading="lazy" decoding="async" />
+          </span>
+          <div>
+            <h3>{item.credential}</h3>
+            <p>{item.institution}</p>
+            <span>{item.period}</span>
+          </div>
+        </article>
+      ))}
+    </div>
+  ) : (
+    <p class="empty-state">Education details are being finalized.</p>
+  )
+}

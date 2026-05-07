@@ -1,5 +1,6 @@
 ---
 import ContactFooter from '../components/ContactFooter.astro';
+import EducationPanel from '../components/EducationPanel.astro';
 import ExperienceTimeline from '../components/ExperienceTimeline.astro';
 import Hero from '../components/Hero.astro';
 import ProjectGrid from '../components/ProjectGrid.astro';
@@ -52,7 +53,19 @@ const structuredData = {
           description="A compact view of the tools, practices, and working habits I bring to software teams."
           headingId="skills-title"
         />
-        <SkillsPanel groups={resume.skills} education={resume.education} />
+        <SkillsPanel groups={resume.skills} />
+      </div>
+    </section>
+
+    <section id="education" class="section-band section-compact section-muted" aria-labelledby="education-title">
+      <div class="container section-grid">
+        <SectionHeading
+          eyebrow="Education"
+          title="Education and credentials"
+          description="Current Applied Computer Science study, earlier computing diploma work, and audio production training."
+          headingId="education-title"
+        />
+        <EducationPanel education={resume.education} />
       </div>
     </section>
 

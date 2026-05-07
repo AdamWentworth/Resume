@@ -11,6 +11,7 @@ export type ExperienceEntry = {
   location: string;
   period: string;
   summary: string;
+  featuredHighlights?: string[];
   highlights: string[];
   technologies: string[];
 };
@@ -39,6 +40,9 @@ export type EducationEntry = {
   credential: string;
   period: string;
   icon: string;
+  logo: {
+    src: string;
+  };
 };
 
 export type ResumeProfile = {
@@ -169,9 +173,10 @@ export const resume = {
       period: 'Earlier experience',
       summary:
         'Built and operated a large gaming content channel through consistent delivery, analytics, audience awareness, and brand partnerships.',
+      featuredHighlights: ['200k+ subscribers', 'Riot Games Partner'],
       highlights: [
-        'Grew the channel past 200k subscribers through repeatable production workflows and audience-informed iteration.',
-        'Participated as a Riot Games Partner and managed the expectations that come with a public-facing creative platform.',
+        'Built repeatable production workflows across planning, recording, editing, publishing, and audience feedback loops.',
+        'Used analytics and audience signals to refine content formats, publishing cadence, and sponsor expectations.',
       ],
       technologies: ['YouTube', 'Riot Games', 'Analytics', 'Production workflows'],
     },
@@ -193,6 +198,10 @@ export const resume = {
           text: 'Designed frontend update batching through Kafka producers and Go consumers into MySQL persistence and SSE readers.',
         },
         {
+          label: 'Clients',
+          text: 'Built around a React web app, Expo mobile shell, shared contracts, shared UI tokens, IndexedDB state, and live update flows.',
+        },
+        {
           label: 'Delivery',
           text: 'Added Docker and NGINX service wiring, backups, shared frontend packages, Vitest coverage, and docs for local and deployment workflows.',
         },
@@ -209,6 +218,10 @@ export const resume = {
         {
           label: 'Engine',
           text: 'Built reusable engine modules for app lifecycle, system registration, resources, UI, camera and board rendering, model loading, animation, and render caches.',
+        },
+        {
+          label: 'Rendering',
+          text: 'Maintained OpenGL and Direct3D 12 paths with shader/resource caches, runtime smoke tests, and optimized render hot paths.',
         },
         {
           label: 'Runtime',
@@ -231,6 +244,10 @@ export const resume = {
         {
           label: 'Local host',
           text: 'Connected llama.cpp and Ollama backends through FastAPI with conversation history, profile memory, reminders, routines, and safe host-side tools.',
+        },
+        {
+          label: 'Voice',
+          text: 'Built remote phone voice flows with phone microphone capture, host-side transcription, and phone speaker playback for replies.',
         },
         {
           label: 'Clients',
@@ -283,18 +300,27 @@ export const resume = {
       credential: 'Bachelor of Science in Applied Computer Science',
       period: 'Expected May 2027',
       icon: 'BCIT',
+      logo: {
+        src: '/images/bcit-logo.svg',
+      },
     },
     {
       institution: 'BCIT',
       credential: 'Diploma in Computer Information Technology',
       period: 'May 2024',
       icon: 'BCIT',
+      logo: {
+        src: '/images/bcit-logo.svg',
+      },
     },
     {
       institution: 'SAE Institute',
       credential: 'Diploma in Audio Engineering & Music Production',
       period: 'June 2020',
       icon: 'SAE',
+      logo: {
+        src: '/images/sae-institute-logo.png',
+      },
     },
   ],
 } satisfies ResumeProfile;
