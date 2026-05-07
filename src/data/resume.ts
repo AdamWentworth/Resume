@@ -114,22 +114,22 @@ export const resume = {
   experience: [
     {
       title: 'DevOps Engineer Intern',
-      company: 'LeVere Entertainment Inc. / Savepoint',
-      location: 'Vancouver, BC (Remote)',
+      company: 'LeVere Entertainment Inc. / Savepoint Client Project / BCIT',
+      location: 'Vancouver, BC',
       period: 'January 2024 - April 2024',
       summary:
-        "Worked on a 7-person team building internal desktop and data tooling for Savepoint's AI ad engine and digital-replica training workflows.",
+        "Contributed to a BCIT student client project building a desktop tool for Savepoint's AI video workflow, focused on preparing training datasets rather than model development.",
       highlights: [
-        'Designed Python image-processing and CLI scripts to automate dataset preparation and manipulation for model training.',
-        'Contributed to a Rust, Tauri, TypeScript, and React desktop app for data preparation, PAGI.ai integration, and training-progress monitoring.',
-        'Deployed and managed Azure VMs to run training jobs with different parameters and compare output quality.',
+        'Worked in a 7-student team on a Rust, Tauri, TypeScript, and React desktop app for coordinating data-prep scripts and monitoring workflow progress.',
+        'Collaborated in a 2-person subgroup to build Python image-processing and CLI scripts that prepared and manipulated source media into model training and learning sets.',
+        'Connected lower-level Python automation beneath the Tauri frontend and helped integrate third-party tooling including PAGI.ai.',
       ],
-      technologies: ['Rust', 'Tauri', 'TypeScript', 'React', 'Python', 'PyTorch', 'Azure VMs', 'Image processing', 'CLI tools'],
+      technologies: ['Rust', 'Tauri', 'TypeScript', 'React', 'Python', 'Image processing', 'CLI tools'],
     },
     {
       title: 'Full-Stack Developer',
       company: 'Innota Client Project / BCIT',
-      location: 'Burnaby, BC',
+      location: 'Vancouver, BC',
       period: 'September 2023 - December 2023',
       summary:
         'Contributed to a semester-long client project for a PDF-based study workspace with AI writing tools, deployment work, and handoff responsibilities.',
