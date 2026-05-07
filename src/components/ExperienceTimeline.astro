@@ -1,5 +1,6 @@
 ---
 import type { ExperienceEntry } from '../data/resume';
+import TechBadge from './TechBadge.astro';
 
 interface Props {
   entries: ExperienceEntry[];
@@ -25,7 +26,7 @@ const { entries } = Astro.props;
               {entry.highlights.map((highlight) => <li>{highlight}</li>)}
             </ul>
             <ul class="tag-list" aria-label={`${entry.title} technologies`}>
-              {entry.technologies.map((technology) => <li>{technology}</li>)}
+              {entry.technologies.map((technology) => <TechBadge name={technology} />)}
             </ul>
           </div>
         </article>

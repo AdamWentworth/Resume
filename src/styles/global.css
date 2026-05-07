@@ -385,7 +385,8 @@ h3 {
   margin-top: 18px;
 }
 
-.tag-list li {
+.tag-list li,
+.tech-badge {
   border: 1px solid rgba(30, 111, 232, 0.2);
   border-radius: 999px;
   background: rgba(30, 111, 232, 0.08);
@@ -394,6 +395,44 @@ h3 {
   font-weight: 750;
   line-height: 1.2;
   padding: 7px 10px;
+}
+
+.tech-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.tech-icon {
+  width: 15px;
+  height: 15px;
+  flex: 0 0 auto;
+  color: var(--icon-color, var(--accent-strong));
+  fill: currentColor;
+}
+
+.tech-fallback {
+  display: inline-grid;
+  width: 17px;
+  height: 17px;
+  place-items: center;
+  border-radius: 5px;
+  background: rgba(22, 77, 163, 0.12);
+  color: var(--accent-strong);
+  font-size: 9px;
+  font-weight: 900;
+  line-height: 1;
+}
+
+.icon-link {
+  gap: 8px;
+}
+
+.link-icon {
+  width: 18px;
+  height: 18px;
+  flex: 0 0 auto;
+  fill: currentColor;
 }
 
 .project-grid {
@@ -420,7 +459,11 @@ h3 {
 }
 
 .project-footer {
-  margin-top: 22px;
+  margin-top: 0;
+}
+
+.project-stack {
+  margin-top: 16px;
 }
 
 .skills-layout {
@@ -437,6 +480,10 @@ h3 {
 .skill-group,
 .education-block {
   padding: 22px;
+}
+
+.skill-group p {
+  color: var(--muted);
 }
 
 .education-block {

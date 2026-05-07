@@ -1,5 +1,7 @@
 ---
 import type { ProjectEntry } from '../data/resume';
+import { siGithub } from 'simple-icons';
+import TechBadge from './TechBadge.astro';
 
 interface Props {
   projects: ProjectEntry[];
@@ -17,18 +19,21 @@ const { projects } = Astro.props;
             <p class="item-subtitle">{project.role}</p>
             <h3>{project.name}</h3>
             <p>{project.summary}</p>
+            <ul class="tag-list project-stack" aria-label={`${project.name} technologies`}>
+              {project.technologies.map((technology) => <TechBadge name={technology} />)}
+            </ul>
           </div>
           <ul class="detail-list">
             {project.highlights.map((highlight) => <li>{highlight}</li>)}
           </ul>
           <div class="project-footer">
-            <ul class="tag-list" aria-label={`${project.name} technologies`}>
-              {project.technologies.map((technology) => <li>{technology}</li>)}
-            </ul>
             {
               project.href && (
-                <a class="text-link" href={project.href} target="_blank" rel="noreferrer">
-                  View project
+                <a class="text-link icon-link" href={project.href} target="_blank" rel="noreferrer">
+                  <svg class="link-icon" viewBox="0 0 24 24" aria-hidden="true">
+                    <path d={siGithub.path} />
+                  </svg>
+                  GitHub repo
                 </a>
               )
             }

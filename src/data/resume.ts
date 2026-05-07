@@ -26,6 +26,7 @@ export type ProjectEntry = {
 
 export type SkillGroup = {
   name: string;
+  summary: string;
   items: string[];
 };
 
@@ -60,9 +61,9 @@ export const resume = {
   intro:
     'I care about useful results: designing clear systems, shipping working software, and using modern tools thoughtfully to move faster without giving up ownership of quality.',
   impact: [
-    'Internship candidate for Summer 2026; expected BSc Applied Computer Science graduation in May 2027.',
-    'Strongest work comes from self-directed projects with real architecture, deployment, and testing concerns.',
-    'Uses AI as an accelerator while staying accountable for system design, code quality, and outcomes.',
+    'I am seeking Summer 2026 software engineering internships while completing my Applied Computer Science degree.',
+    'I learn fastest through self-directed projects with real architecture, deployment, and testing concerns.',
+    'I use AI as an accelerator, while staying accountable for system design, code quality, and outcomes.',
   ],
   resumePdf: {
     label: 'Download resume',
@@ -88,6 +89,20 @@ export const resume = {
     },
   ],
   experience: [
+    {
+      title: 'Full-Stack Developer',
+      company: 'Innota Client Project / BCIT',
+      location: 'Burnaby, BC',
+      period: 'September 2023 - December 2023',
+      summary:
+        'Contributed to a semester-long client project for a PDF-based study workspace with AI writing tools, deployment work, and handoff responsibilities.',
+      highlights: [
+        'Refactored and shipped React UI and REST APIs through peer review and changing client requirements.',
+        'Implemented PDF upload, ingestion, and AI actions including summarize, paraphrase, bullets, translate, and elaborate through the OpenAI API.',
+        'Containerized the app with Docker and supported production deployment and handoff for the client team.',
+      ],
+      technologies: ['MongoDB', 'Express', 'React', 'Node', 'Docker', 'OpenAI API'],
+    },
     {
       title: 'IT Support Specialist Intern',
       company: 'Firefly Systems IT Support',
@@ -116,17 +131,30 @@ export const resume = {
       technologies: ['Data QA', 'Spreadsheet systems', 'Research workflows', 'Process design'],
     },
     {
-      title: 'Recording Engineer & Content Creator',
-      company: 'Hipposonic Studios / CaptainMonkHD',
+      title: 'Recording Engineer',
+      company: 'Hipposonic Studios',
       location: 'Vancouver, BC',
       period: 'Earlier experience',
       summary:
-        'Client-facing technical and creative work that shaped a strong bias for delivery, iteration, and audience-aware output.',
+        'Client-facing studio work combining technical troubleshooting, communication, and quality control in a production environment.',
       highlights: [
-        'Worked in studio environments requiring technical troubleshooting, communication, and quality control.',
-        'Built a YouTube channel past 200k subscribers and participated as a Riot Games Partner through consistent, analytics-informed production.',
+        'Supported recording sessions where reliability, fast problem solving, and clear communication mattered in real time.',
+        'Built practical audio production judgment before transitioning deeper into software engineering.',
       ],
-      technologies: ['Client work', 'Audio production', 'Analytics', 'Content systems'],
+      technologies: ['Client work', 'Audio production', 'Troubleshooting', 'Quality control'],
+    },
+    {
+      title: 'YouTube Content Creator',
+      company: 'CaptainMonkHD',
+      location: 'Vancouver, BC',
+      period: 'Earlier experience',
+      summary:
+        'Built and operated a large gaming content channel through consistent delivery, analytics, audience awareness, and brand partnerships.',
+      highlights: [
+        'Grew the channel past 200k subscribers through repeatable production workflows and audience-informed iteration.',
+        'Participated as a Riot Games Partner and managed the expectations that come with a public-facing creative platform.',
+      ],
+      technologies: ['YouTube', 'Riot Games', 'Analytics', 'Production workflows'],
     },
   ],
   projects: [
@@ -136,10 +164,9 @@ export const resume = {
       summary:
         'Event-driven platform for Pokemon GO players with microservice boundaries, live updates, geospatial search, and production-style deployment concerns.',
       highlights: [
-        'Built Kafka-backed Go producer and consumer services with MySQL and streamed live updates to frontend clients through SSE.',
-        'Implemented a Node/Express auth service with JWT access and refresh tokens in secure cookies backed by MongoDB.',
-        'Added Postgres/PostGIS geospatial search using spatial indexes and polygon queries.',
-        'Containerized with Docker and NGINX, including reverse proxying, rate limiting, security headers, frontend tests, and automated backups.',
+        'Built Kafka-backed Go services and streamed live updates to frontend clients through SSE.',
+        'Implemented secure JWT authentication with Node/Express and MongoDB.',
+        'Added PostGIS geospatial search, Dockerized deployment, NGINX proxying, tests, and automated backups.',
       ],
       technologies: ['React', 'Go', 'Kafka', 'MySQL', 'Postgres/PostGIS', 'Node', 'MongoDB', 'Docker'],
       href: 'https://github.com/AdamWentworth/Go',
@@ -150,9 +177,9 @@ export const resume = {
       summary:
         'Custom C++20 engine and game layer for an autobattler prototype with deterministic combat, movement, and data-driven gameplay rules.',
       highlights: [
-        'Designed an engine/game boundary with GameLoop and GameContext to decouple gameplay from SDL and avoid global singletons.',
-        'Implemented deterministic Lua movement with A*, priority, reservations, and swap prevention for reproducible simulations.',
-        'Created a modular Lua rules layer through sol2 to iterate on gameplay without recompiling C++.',
+        'Separated engine and game layers with GameLoop and GameContext boundaries.',
+        'Implemented deterministic Lua movement with A*, reservations, priority, and swap prevention.',
+        'Used sol2 to iterate on gameplay rules without recompiling C++.',
       ],
       technologies: ['C++20', 'SDL2', 'OpenGL', 'Lua', 'sol2'],
       href: 'https://github.com/AdamWentworth/PokemonAutochess',
@@ -163,65 +190,48 @@ export const resume = {
       summary:
         'Fully local offline voice assistant that connects speech recognition, local LLM inference, text-to-speech, observability, and testable service design.',
       highlights: [
-        'Integrated Whisper-based speech-to-text with a local GGUF LLM runtime through llama.cpp for offline chat responses.',
-        'Implemented real-time audio capture with adaptive noise-gate voice activity detection for more reliable utterance handling.',
-        'Auto-provisioned and loaded the local model at startup, with a Gradio UI mounted in FastAPI for control, observability, and testing.',
+        'Connected Whisper speech-to-text with local GGUF LLM inference through llama.cpp.',
+        'Built real-time audio capture with adaptive noise-gate voice activity detection.',
+        'Mounted a Gradio control UI in FastAPI with startup provisioning, observability, and tests.',
       ],
       technologies: ['Python', 'FastAPI', 'llama.cpp', 'asyncio', 'pytest', 'GitHub Actions'],
       href: 'https://github.com/AdamWentworth/Jarvin',
-    },
-    {
-      name: 'Innota',
-      role: 'Full-stack developer',
-      summary:
-        'Student-team PDF study workspace with AI writing tools, production features, deployment handoff, and client-driven iteration.',
-      highlights: [
-        'Refactored and shipped React UI and REST APIs through peer review and changing client requirements.',
-        'Implemented PDF upload, ingestion, and AI actions including summarize, paraphrase, bullets, translate, and elaborate through the OpenAI API.',
-        'Containerized the app with Docker and supported production deployment and handoff.',
-      ],
-      technologies: ['MongoDB', 'Express', 'React', 'Node', 'Docker', 'OpenAI API'],
-    },
-    {
-      name: 'Phlosion',
-      role: 'Independent product lab',
-      summary:
-        'Planned company and project hub for production-level tools, experiments, demos, changelogs, and future monetization.',
-      highlights: [
-        'Keeps AdamWentworth.ca focused on the person, resume, and hiring story.',
-        'Gives larger projects a branded home where they can stand on their own as products.',
-      ],
-      technologies: ['Next.js', 'Tailwind CSS', 'Vercel', 'Product pages'],
     },
   ],
   skills: [
     {
       name: 'Languages',
+      summary: 'Comfortable moving between application code, services, scripting, and systems-level projects.',
       items: ['Python', 'TypeScript', 'JavaScript', 'Go', 'C++'],
     },
     {
       name: 'Frameworks',
+      summary: 'Used across full-stack apps, APIs, static sites, and project UIs.',
       items: ['React', 'Node/Express', 'FastAPI', 'Fiber', 'Astro'],
     },
     {
       name: 'Data & Infrastructure',
+      summary: 'Experience with persistence, messaging, deployment, reverse proxies, and CI-ready workflows.',
       items: ['PostgreSQL/PostGIS', 'MySQL', 'MongoDB', 'Docker', 'NGINX', 'Kafka', 'GitHub Actions'],
     },
     {
       name: 'Computer Science',
+      summary: 'Coursework and project practice in the fundamentals behind maintainable software.',
       items: ['Data structures', 'Algorithms', 'OOP', 'Networking', 'Operating systems', 'Testing'],
     },
     {
       name: 'AI & Media',
+      summary: 'Practical use of AI APIs, local model tooling, speech systems, and audio production experience.',
       items: ['OpenAI API', 'Whisper ASR', 'llama.cpp', 'Local LLMs', 'Audio engineering'],
     },
     {
       name: 'Working Style',
+      summary: 'I bias toward shipping useful software, learning quickly, and keeping enough structure for future work.',
       items: ['Self-directed projects', 'Product thinking', 'Documentation', 'Agile/Scrum', 'Outcome focus'],
     },
   ],
   education: [
-    'BSc Applied Computer Science, British Columbia Institute of Technology, expected May 2027.',
+    'Bachelor of Science in Applied Computer Science, British Columbia Institute of Technology, expected May 2027.',
     'Diploma in Computer Information Technology, British Columbia Institute of Technology, May 2024.',
     'Diploma in Audio Engineering & Music Production, SAE Institute, June 2020.',
   ],

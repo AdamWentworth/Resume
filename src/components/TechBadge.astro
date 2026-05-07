@@ -1,0 +1,99 @@
+---
+import {
+  siApachekafka,
+  siApple,
+  siAstro,
+  siCplusplus,
+  siDocker,
+  siExpress,
+  siFastapi,
+  siGithubactions,
+  siGo,
+  siJavascript,
+  siLinux,
+  siLua,
+  siMongodb,
+  siMysql,
+  siNginx,
+  siNodedotjs,
+  siOllama,
+  siOpengl,
+  siPostgresql,
+  siPython,
+  siPytest,
+  siReact,
+  siRiotgames,
+  siTypescript,
+  siYoutube,
+} from 'simple-icons';
+
+interface IconData {
+  hex: string;
+  path: string;
+  title: string;
+}
+
+interface Props {
+  name: string;
+}
+
+const { name } = Astro.props;
+
+const iconMap: Record<string, IconData> = {
+  Astro: siAstro,
+  Apple: siApple,
+  C: siCplusplus,
+  'C++': siCplusplus,
+  'C++20': siCplusplus,
+  Docker: siDocker,
+  Express: siExpress,
+  FastAPI: siFastapi,
+  GitHub: siGithubactions,
+  'GitHub Actions': siGithubactions,
+  Go: siGo,
+  JavaScript: siJavascript,
+  Kafka: siApachekafka,
+  Lua: siLua,
+  macOS: siApple,
+  MongoDB: siMongodb,
+  MySQL: siMysql,
+  NGINX: siNginx,
+  Node: siNodedotjs,
+  'Node/Express': siNodedotjs,
+  'Operating systems': siLinux,
+  OpenGL: siOpengl,
+  Postgres: siPostgresql,
+  'Postgres/PostGIS': siPostgresql,
+  PostgreSQL: siPostgresql,
+  'PostgreSQL/PostGIS': siPostgresql,
+  Python: siPython,
+  pytest: siPytest,
+  React: siReact,
+  'Riot Games': siRiotgames,
+  TypeScript: siTypescript,
+  YouTube: siYoutube,
+  'llama.cpp': siOllama,
+};
+
+const icon = iconMap[name];
+const fallback = name
+  .split(/[\s/.+-]+/)
+  .filter(Boolean)
+  .slice(0, 2)
+  .map((part) => part[0])
+  .join('')
+  .toUpperCase();
+---
+
+<li class:list={['tech-badge', { 'tech-badge-fallback': !icon }]} style={icon ? `--icon-color: #${icon.hex}` : undefined}>
+  {
+    icon ? (
+      <svg class="tech-icon" viewBox="0 0 24 24" aria-hidden="true">
+        <path d={icon.path} />
+      </svg>
+    ) : (
+      <span class="tech-fallback" aria-hidden="true">{fallback}</span>
+    )
+  }
+  <span>{name}</span>
+</li>

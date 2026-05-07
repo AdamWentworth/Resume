@@ -1,5 +1,6 @@
 ---
 import type { SkillGroup } from '../data/resume';
+import TechBadge from './TechBadge.astro';
 
 interface Props {
   groups: SkillGroup[];
@@ -14,8 +15,9 @@ const { groups, education } = Astro.props;
     {groups.map((group) => (
       <section class="skill-group" aria-labelledby={`skill-${group.name.toLowerCase().replaceAll(' ', '-')}`}>
         <h3 id={`skill-${group.name.toLowerCase().replaceAll(' ', '-')}`}>{group.name}</h3>
+        <p>{group.summary}</p>
         <ul class="tag-list">
-          {group.items.map((item) => <li>{item}</li>)}
+          {group.items.map((item) => <TechBadge name={item} />)}
         </ul>
       </section>
     ))}
