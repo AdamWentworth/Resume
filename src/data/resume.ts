@@ -150,8 +150,18 @@ export const resume = {
       highlights: [
         'Rebuilt a disorganized song-management catalog into a standardized dataset with schemas, conventions, and validation checks.',
         'Designed and maintained a DJ research database tracking social metrics, contact information, and placement status.',
+        'Prepared catalog and research data for royalty claims, placements, and follow-up by normalizing metadata, ownership notes, contacts, and status fields.',
       ],
-      technologies: ['Data QA', 'Spreadsheet systems', 'Research workflows', 'Process design'],
+      technologies: [
+        'Music catalog operations',
+        'Metadata cleanup',
+        'Royalty claim readiness',
+        'Data QA',
+        'Spreadsheet systems',
+        'A&R research',
+        'DJ research',
+        'Process design',
+      ],
     },
     {
       title: 'Recording Engineer',
@@ -159,12 +169,25 @@ export const resume = {
       location: 'Vancouver, BC',
       period: 'Earlier experience',
       summary:
-        'Client-facing studio work combining technical troubleshooting, communication, and quality control in a production environment.',
+        'Client-facing studio work spanning Pro Tools session management, live-floor recording support, signal flow, troubleshooting, and quality control.',
       highlights: [
-        'Supported recording sessions where reliability, fast problem solving, and clear communication mattered in real time.',
+        'Managed Pro Tools sessions with organized tracks, routing notes, file hygiene, takes, and backups so sessions could move cleanly from setup through handoff.',
+        'Supported live-floor recording through microphone setup, signal flow, analog console routing, preamp and compressor workflows, headphone mixes, and real-time troubleshooting.',
         'Built practical audio production judgment before transitioning deeper into software engineering.',
       ],
-      technologies: ['Client work', 'Audio production', 'Troubleshooting', 'Quality control'],
+      technologies: [
+        'Pro Tools',
+        'Session management',
+        'Recording engineering',
+        'Live floor tracking',
+        'Signal flow',
+        'Analog console',
+        'Preamps & compressors',
+        'Audio engineering',
+        'Client work',
+        'Troubleshooting',
+        'Quality control',
+      ],
     },
     {
       title: 'YouTube Content Creator',
