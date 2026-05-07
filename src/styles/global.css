@@ -435,6 +435,11 @@ h3 {
   object-fit: contain;
 }
 
+.tech-icon-llamacpp {
+  width: 16px;
+  height: 16px;
+}
+
 .tech-icon-directx {
   width: 21px;
   height: 15px;
