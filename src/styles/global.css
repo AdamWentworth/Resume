@@ -262,6 +262,17 @@ h3 {
   padding: 8px 10px;
 }
 
+.link-with-icon {
+  gap: 8px;
+}
+
+.link-icon {
+  width: 16px;
+  height: 16px;
+  flex: 0 0 auto;
+  fill: currentColor;
+}
+
 .impact-panel,
 .project-case,
 .skills-card,
@@ -404,6 +415,17 @@ h3 {
 .timeline-body .item-subtitle {
   margin-bottom: 14px;
   color: var(--accent-secondary);
+}
+
+.experience-company-link {
+  display: flex;
+  width: fit-content;
+  text-decoration: none;
+  transition: color 160ms ease;
+}
+
+.experience-company-link:hover {
+  color: var(--accent-strong);
 }
 
 .experience-callouts {

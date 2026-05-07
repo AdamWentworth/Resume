@@ -1,4 +1,5 @@
 ---
+import ActionIcon from './ActionIcon.astro';
 import { resume } from '../data/resume';
 
 const prominentLinks = resume.links.filter((link) => link.prominent);
@@ -15,11 +16,12 @@ const prominentLinks = resume.links.filter((link) => link.prominent);
         <a class="button" href={resume.resumePdf.href}>{resume.resumePdf.label}</a>
         {prominentLinks.map((link) => (
           <a
-            class="text-link"
+            class="text-link link-with-icon"
             href={link.href}
             target={link.external ? '_blank' : undefined}
             rel={link.external ? 'noreferrer' : undefined}
           >
+            <ActionIcon label={link.label} />
             {link.label}
           </a>
         ))}

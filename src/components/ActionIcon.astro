@@ -1,0 +1,26 @@
+---
+import { siGithub } from 'simple-icons';
+
+interface Props {
+  label: string;
+}
+
+const { label } = Astro.props;
+const key = label.toLowerCase();
+---
+
+{
+  key.includes('github') ? (
+    <svg class="link-icon" viewBox="0 0 24 24" aria-hidden="true">
+      <path d={siGithub.path} />
+    </svg>
+  ) : key.includes('linkedin') ? (
+    <svg class="link-icon" viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M5 4.8a2.2 2.2 0 1 1 0 4.4 2.2 2.2 0 0 1 0-4.4ZM3.2 10.4h3.6V20H3.2v-9.6Zm5.6 0h3.4v1.3c.5-.8 1.5-1.6 3.1-1.6 3.3 0 3.9 2.2 3.9 5V20h-3.6v-4.3c0-1 0-2.4-1.5-2.4s-1.7 1.1-1.7 2.3V20H8.8v-9.6Z" />
+    </svg>
+  ) : (
+    <svg class="link-icon" viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M4 6h16c1.1 0 2 .9 2 2v8c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V8c0-1.1.9-2 2-2Zm0 2v.4l8 4.8 8-4.8V8H4Zm0 2.7V16h16v-5.3l-8 4.8-8-4.8Z" />
+    </svg>
+  )
+}

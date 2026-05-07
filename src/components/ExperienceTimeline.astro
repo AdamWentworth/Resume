@@ -20,7 +20,15 @@ const { entries } = Astro.props;
           </div>
           <div class="timeline-body">
             <h3>{entry.title}</h3>
-            <p class="item-subtitle">{entry.company}</p>
+            {
+              entry.companyHref ? (
+                <a class="item-subtitle experience-company-link" href={entry.companyHref} target="_blank" rel="noreferrer">
+                  {entry.company}
+                </a>
+              ) : (
+                <p class="item-subtitle">{entry.company}</p>
+              )
+            }
             <p>{entry.summary}</p>
             {
               entry.featuredHighlights && entry.featuredHighlights.length > 0 && (

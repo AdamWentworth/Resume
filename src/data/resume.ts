@@ -8,6 +8,7 @@ export type ResumeLink = {
 export type ExperienceEntry = {
   title: string;
   company: string;
+  companyHref?: string;
   location: string;
   period: string;
   summary: string;
@@ -114,7 +115,8 @@ export const resume = {
   experience: [
     {
       title: 'DevOps Engineer Intern',
-      company: 'LeVere Entertainment Inc. / Savepoint Client Project / BCIT',
+      company: 'LeVere / Savepoint Client Project / BCIT',
+      companyHref: 'https://mysavepoint.com/',
       location: 'Vancouver, BC',
       period: 'January 2024 - April 2024',
       summary:
@@ -129,6 +131,7 @@ export const resume = {
     {
       title: 'Full-Stack Developer',
       company: 'Innota Client Project / BCIT',
+      companyHref: 'https://innota.ai/',
       location: 'Vancouver, BC',
       period: 'September 2023 - December 2023',
       summary:
@@ -143,6 +146,7 @@ export const resume = {
     {
       title: 'IT Support Specialist Intern',
       company: 'Firefly Systems IT Support',
+      companyHref: 'https://www.fireflysystems.net/',
       location: 'Vancouver, BC',
       period: 'May 2023 - August 2023',
       summary:
@@ -157,6 +161,7 @@ export const resume = {
     {
       title: 'Operations & Data Coordinator',
       company: 'Reliant Music',
+      companyHref: 'https://www.reliantmusic.com/',
       location: 'Vancouver, BC',
       period: 'August 2020 - February 2023',
       summary:
@@ -177,6 +182,7 @@ export const resume = {
     {
       title: 'Recording Engineer',
       company: 'Hipposonic Studios',
+      companyHref: 'https://www.hipposonicstudio.com/',
       location: 'Vancouver, BC',
       period: 'Earlier experience',
       summary:
@@ -198,6 +204,7 @@ export const resume = {
     {
       title: 'YouTube Content Creator',
       company: 'CaptainMonkHD',
+      companyHref: 'https://www.youtube.com/@captainmonkhd',
       location: 'Vancouver, BC',
       period: 'Earlier experience',
       summary:

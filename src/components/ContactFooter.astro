@@ -1,4 +1,5 @@
 ---
+import ActionIcon from './ActionIcon.astro';
 import { resume } from '../data/resume';
 ---
 
@@ -13,9 +14,15 @@ import { resume } from '../data/resume';
       </p>
     </div>
     <div class="contact-actions">
-      <a class="button" href={`mailto:${resume.email}`}>Email Adam</a>
+      <a class="button link-with-icon" href={`mailto:${resume.email}`}>
+        <ActionIcon label="Email" />
+        Email Adam
+      </a>
       {resume.links.filter((link) => link.external).map((link) => (
-        <a class="text-link" href={link.href} target="_blank" rel="noreferrer">{link.label}</a>
+        <a class="text-link link-with-icon" href={link.href} target="_blank" rel="noreferrer">
+          <ActionIcon label={link.label} />
+          {link.label}
+        </a>
       ))}
     </div>
   </div>
