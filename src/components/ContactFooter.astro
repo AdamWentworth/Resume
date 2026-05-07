@@ -9,8 +9,8 @@ import { resume } from '../data/resume';
       <p class="eyebrow">Contact</p>
       <h2 id="contact-title">Start a conversation</h2>
       <p>
-        For Summer 2026 internships, software roles, project conversations, or collaboration,
-        email Adam or use the profile links below.
+        For Summer 2026 internships, software roles, project conversations, or collaboration, email Adam or use the
+        profile links below.
       </p>
     </div>
     <div class="contact-actions">
@@ -18,12 +18,16 @@ import { resume } from '../data/resume';
         <ActionIcon label="Email" />
         Email Adam
       </a>
-      {resume.links.filter((link) => link.external).map((link) => (
-        <a class="text-link link-with-icon" href={link.href} target="_blank" rel="noreferrer">
-          <ActionIcon label={link.label} />
-          {link.label}
-        </a>
-      ))}
+      {
+        resume.links
+          .filter((link) => link.external)
+          .map((link) => (
+            <a class="text-link link-with-icon" href={link.href} target="_blank" rel="noreferrer">
+              <ActionIcon label={link.label} />
+              {link.label}
+            </a>
+          ))
+      }
     </div>
   </div>
 </footer>

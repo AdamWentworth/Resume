@@ -18,12 +18,6 @@ const { projects } = Astro.props;
 
         return (
           <article class:list={['project-case', { 'project-case-featured': project.featured }]}>
-            <input
-              id={`${detailsId}-toggle`}
-              class="project-toggle"
-              type="checkbox"
-              aria-controls={detailsId}
-            />
             <div class="project-main">
               <div class="project-kicker">
                 <p class="item-subtitle">{project.role}</p>
@@ -31,36 +25,42 @@ const { projects } = Astro.props;
               </div>
               <h3>{project.name}</h3>
               <p class="project-summary">{project.summary}</p>
-              <label class="project-details-button" for={`${detailsId}-toggle`}>
-                <span>Additional details</span>
-                <span class="details-icon" aria-hidden="true"></span>
-              </label>
             </div>
+            <details class="project-details">
+              <summary class="project-details-button" aria-controls={detailsId}>
+                <span>Additional details</span>
+                <span class="details-icon" aria-hidden="true" />
+              </summary>
+              <div
+                id={detailsId}
+                class="project-proof-grid project-expanded"
+                aria-label={`${project.name} additional engineering details`}
+              >
+                {project.proof.map((item) => (
+                  <div class="project-proof-item">
+                    <span>{item.label}</span>
+                    <p>{item.text}</p>
+                  </div>
+                ))}
+              </div>
+            </details>
             <aside class="project-side" aria-label={`${project.name} links and stack`}>
               <ul class="tag-list project-stack" aria-label={`${project.name} technologies`}>
-                {project.technologies.map((technology) => <TechBadge name={technology} />)}
+                {project.technologies.map((technology) => (
+                  <TechBadge name={technology} />
+                ))}
               </ul>
-              {
-                project.href && (
-                  <div class="project-footer">
-                    <a class="text-link icon-link" href={project.href} target="_blank" rel="noreferrer">
-                      <svg class="link-icon" viewBox="0 0 24 24" aria-hidden="true">
-                        <path d={siGithub.path} />
-                      </svg>
-                      GitHub repo
-                    </a>
-                  </div>
-                )
-              }
-            </aside>
-            <div id={detailsId} class="project-proof-grid project-expanded" aria-label={`${project.name} additional engineering details`}>
-              {project.proof.map((item) => (
-                <div class="project-proof-item">
-                  <span>{item.label}</span>
-                  <p>{item.text}</p>
+              {project.href && (
+                <div class="project-footer">
+                  <a class="text-link icon-link" href={project.href} target="_blank" rel="noreferrer">
+                    <svg class="link-icon" viewBox="0 0 24 24" aria-hidden="true">
+                      <path d={siGithub.path} />
+                    </svg>
+                    GitHub repo
+                  </a>
                 </div>
-              ))}
-            </div>
+              )}
+            </aside>
           </article>
         );
       })}

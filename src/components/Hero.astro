@@ -14,17 +14,19 @@ const prominentLinks = resume.links.filter((link) => link.prominent);
       <p class="hero-intro">{resume.intro}</p>
       <div class="hero-actions" aria-label="Primary actions">
         <a class="button" href={resume.resumePdf.href}>{resume.resumePdf.label}</a>
-        {prominentLinks.map((link) => (
-          <a
-            class="text-link link-with-icon"
-            href={link.href}
-            target={link.external ? '_blank' : undefined}
-            rel={link.external ? 'noreferrer' : undefined}
-          >
-            <ActionIcon label={link.label} />
-            {link.label}
-          </a>
-        ))}
+        {
+          prominentLinks.map((link) => (
+            <a
+              class="text-link link-with-icon"
+              href={link.href}
+              target={link.external ? '_blank' : undefined}
+              rel={link.external ? 'noreferrer' : undefined}
+            >
+              <ActionIcon label={link.label} />
+              {link.label}
+            </a>
+          ))
+        }
       </div>
     </div>
 

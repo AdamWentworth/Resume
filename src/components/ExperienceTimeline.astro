@@ -20,33 +20,40 @@ const { entries } = Astro.props;
           </div>
           <div class="timeline-body">
             <h3>{entry.title}</h3>
-            {
-              entry.companyHref ? (
-                <a class="item-subtitle experience-company-link" href={entry.companyHref} target="_blank" rel="noreferrer">
-                  {entry.company}
-                </a>
-              ) : (
-                <p class="item-subtitle">{entry.company}</p>
-              )
-            }
+            {entry.companyHref ? (
+              <a
+                class="item-subtitle experience-company-link"
+                href={entry.companyHref}
+                target="_blank"
+                rel="noreferrer"
+              >
+                {entry.company}
+              </a>
+            ) : (
+              <p class="item-subtitle">{entry.company}</p>
+            )}
             <p>{entry.summary}</p>
-            {
-              entry.featuredHighlights && entry.featuredHighlights.length > 0 && (
-                <ul class="experience-callouts" aria-label={`${entry.title} highlights`}>
-                  {entry.featuredHighlights.map((highlight) => <TechBadge name={highlight} />)}
-                </ul>
-              )
-            }
+            {entry.featuredHighlights && entry.featuredHighlights.length > 0 && (
+              <ul class="experience-callouts" aria-label={`${entry.title} highlights`}>
+                {entry.featuredHighlights.map((highlight) => (
+                  <TechBadge name={highlight} />
+                ))}
+              </ul>
+            )}
             <ul class="tag-list timeline-stack" aria-label={`${entry.title} technologies`}>
-              {entry.technologies.map((technology) => <TechBadge name={technology} />)}
+              {entry.technologies.map((technology) => (
+                <TechBadge name={technology} />
+              ))}
             </ul>
             <details class="timeline-details">
               <summary>
                 <span>Role details</span>
-                <span class="details-icon" aria-hidden="true"></span>
+                <span class="details-icon" aria-hidden="true" />
               </summary>
               <ul class="detail-list">
-                {entry.highlights.map((highlight) => <li>{highlight}</li>)}
+                {entry.highlights.map((highlight) => (
+                  <li>{highlight}</li>
+                ))}
               </ul>
             </details>
           </div>

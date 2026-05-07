@@ -1,92 +1,9 @@
 ---
-import {
-  siApachekafka,
-  siApple,
-  siAstro,
-  siCplusplus,
-  siCmake,
-  siCss,
-  siDuckduckgo,
-  siDocker,
-  siExpress,
-  siExpo,
-  siFastapi,
-  siGit,
-  siGoogle,
-  siGooglecalendar,
-  siGithub,
-  siGithubactions,
-  siGo,
-  siJavascript,
-  siJson,
-  siLinux,
-  siLua,
-  siMongodb,
-  siMysql,
-  siNginx,
-  siNodedotjs,
-  siOllama,
-  siOpengl,
-  siPostgresql,
-  siProtools,
-  siPython,
-  siPytest,
-  siReact,
-  siRiotgames,
-  siRust,
-  siSqlite,
-  siTauri,
-  siTypescript,
-  siYoutube,
-} from 'simple-icons';
-
-interface IconData {
-  hex: string;
-  path: string;
-  title: string;
-}
+import { customIconMap, iconMap, type CustomIconKind } from '../data/techIcons';
 
 interface Props {
   name: string;
 }
-
-type CustomIconKind =
-  | 'activeDirectory'
-  | 'ai'
-  | 'algorithm'
-  | 'analytics'
-  | 'api'
-  | 'audio'
-  | 'checkShield'
-  | 'chip'
-  | 'client'
-  | 'codeReview'
-  | 'dataCheck'
-  | 'dataNodes'
-  | 'direct3d'
-  | 'document'
-  | 'fiber'
-  | 'flow'
-  | 'handoff'
-  | 'chi'
-  | 'lightbulb'
-  | 'llamacpp'
-  | 'microphone'
-  | 'network'
-  | 'office'
-  | 'oop'
-  | 'operatingSystems'
-  | 'outcome'
-  | 'production'
-  | 'sdl'
-  | 'sol'
-  | 'spreadsheet'
-  | 'team'
-  | 'testTube'
-  | 'tool'
-  | 'vitest'
-  | 'windows'
-  | 'wrench';
 
 type CustomShape =
   | { type: 'path'; d: string; opacity?: number }
@@ -94,133 +11,7 @@ type CustomShape =
   | { type: 'rect'; x: number; y: number; width: number; height: number; rx?: number; opacity?: number }
   | { type: 'text'; value: string; x: number; y: number; size: number; opacity?: number };
 
-type CustomIconData = {
-  kind: CustomIconKind;
-  color?: string;
-};
-
 const { name } = Astro.props;
-
-const iconMap: Record<string, IconData> = {
-  Astro: siAstro,
-  Apple: siApple,
-  C: siCplusplus,
-  'C++': siCplusplus,
-  'C++20': siCplusplus,
-  CMake: siCmake,
-  CSS: siCss,
-  Docker: siDocker,
-  DuckDuckGo: siDuckduckgo,
-  Expo: siExpo,
-  Express: siExpress,
-  FastAPI: siFastapi,
-  'Google Calendar': siGooglecalendar,
-  'Google Workspace': siGoogle,
-  Git: siGit,
-  GitHub: siGithub,
-  'GitHub Actions': siGithubactions,
-  Go: siGo,
-  JavaScript: siJavascript,
-  JSON: siJson,
-  Kafka: siApachekafka,
-  Linux: siLinux,
-  Lua: siLua,
-  macOS: siApple,
-  MongoDB: siMongodb,
-  MySQL: siMysql,
-  NGINX: siNginx,
-  'net/http': siGo,
-  Node: siNodedotjs,
-  'Node/Express': siNodedotjs,
-  OpenGL: siOpengl,
-  Ollama: siOllama,
-  Postgres: siPostgresql,
-  'Postgres/PostGIS': siPostgresql,
-  PostgreSQL: siPostgresql,
-  'PostgreSQL/PostGIS': siPostgresql,
-  'Pro Tools': siProtools,
-  Python: siPython,
-  pytest: siPytest,
-  React: siReact,
-  'Riot Games': siRiotgames,
-  'Riot Games Partner': siRiotgames,
-  Rust: siRust,
-  SQLite: siSqlite,
-  Tauri: siTauri,
-  TypeScript: siTypescript,
-  YouTube: siYoutube,
-  '200k subscribers': siYoutube,
-  '200k+ subscribers': siYoutube,
-};
-
-const customIconMap: Record<string, CustomIconData> = {
-  'A&R research': { kind: 'client', color: '#7c3aed' },
-  'Active Directory': { kind: 'activeDirectory', color: '#0078d4' },
-  Algorithms: { kind: 'algorithm', color: '#7c3aed' },
-  'Analog gear': { kind: 'tool', color: '#7c3aed' },
-  'Analog console': { kind: 'audio', color: '#7c3aed' },
-  'Artist research': { kind: 'analytics', color: '#0f766e' },
-  Analytics: { kind: 'analytics', color: '#0f766e' },
-  asyncio: { kind: 'flow', color: '#2563eb' },
-  'Audio engineering': { kind: 'audio', color: '#7c3aed' },
-  'Audio production': { kind: 'audio', color: '#7c3aed' },
-  Accessibility: { kind: 'outcome', color: '#16a34a' },
-  'Brand partnerships': { kind: 'client', color: '#a855f7' },
-  'CLI tools': { kind: 'tool', color: '#64748b' },
-  'Client handoff': { kind: 'handoff', color: '#0891b2' },
-  'Client work': { kind: 'client', color: '#a855f7' },
-  'Code review': { kind: 'codeReview', color: '#2563eb' },
-  'Data QA': { kind: 'dataCheck', color: '#0f766e' },
-  'Data structures': { kind: 'dataNodes', color: '#2563eb' },
-  'DJ research': { kind: 'analytics', color: '#0f766e' },
-  Documentation: { kind: 'document', color: '#64748b' },
-  'Direct3D 12': { kind: 'direct3d', color: '#107c10' },
-  'Engine architecture': { kind: 'dataNodes', color: '#2563eb' },
-  Fiber: { kind: 'fiber', color: '#00add8' },
-  'Image processing': { kind: 'dataNodes', color: '#0891b2' },
-  'JWT auth': { kind: 'checkShield', color: '#16a34a' },
-  'Live floor tracking': { kind: 'microphone', color: '#0891b2' },
-  'Local LLMs': { kind: 'chip', color: '#4f46e5' },
-  'Metadata QA': { kind: 'dataCheck', color: '#0f766e' },
-  'Metadata cleanup': { kind: 'dataCheck', color: '#0f766e' },
-  chi: { kind: 'chi', color: '#00a650' },
-  'llama.cpp': { kind: 'llamacpp', color: '#ff8236' },
-  Microservices: { kind: 'network', color: '#2563eb' },
-  'Music catalog operations': { kind: 'audio', color: '#7c3aed' },
-  Networking: { kind: 'network', color: '#0891b2' },
-  OOP: { kind: 'oop', color: '#7c3aed' },
-  'Office 365': { kind: 'office', color: '#d83b01' },
-  'Operating systems': { kind: 'operatingSystems', color: '#475569' },
-  'OpenAI API': { kind: 'ai', color: '#111827' },
-  'Outcome focus': { kind: 'outcome', color: '#16a34a' },
-  'Process design': { kind: 'flow', color: '#2563eb' },
-  'Product thinking': { kind: 'lightbulb', color: '#ca8a04' },
-  'Production workflows': { kind: 'production', color: '#be123c' },
-  'Preamps & compressors': { kind: 'tool', color: '#be123c' },
-  'Python scripting': { kind: 'tool', color: '#3776ab' },
-  'Quality control': { kind: 'checkShield', color: '#16a34a' },
-  'Recording engineering': { kind: 'microphone', color: '#7c3aed' },
-  'Research workflows': { kind: 'client', color: '#2563eb' },
-  'REST APIs': { kind: 'api', color: '#0284c7' },
-  'Royalty claim readiness': { kind: 'outcome', color: '#16a34a' },
-  SDL2: { kind: 'sdl', color: '#17395f' },
-  SQL: { kind: 'dataNodes', color: '#2563eb' },
-  'Session management': { kind: 'document', color: '#64748b' },
-  'Signal flow': { kind: 'flow', color: '#2563eb' },
-  sol2: { kind: 'sol', color: '#ffb300' },
-  SSE: { kind: 'flow', color: '#0284c7' },
-  'Spreadsheet systems': { kind: 'spreadsheet', color: '#15803d' },
-  'Responsive UI': { kind: 'lightbulb', color: '#2563eb' },
-  'Service boundaries': { kind: 'api', color: '#0284c7' },
-  'Team projects': { kind: 'team', color: '#2563eb' },
-  Testing: { kind: 'testTube', color: '#0f766e' },
-  'Tool workflows': { kind: 'flow', color: '#64748b' },
-  'Tool execution': { kind: 'tool', color: '#64748b' },
-  Troubleshooting: { kind: 'wrench', color: '#64748b' },
-  Vitest: { kind: 'vitest', color: '#729b1b' },
-  'Whisper ASR': { kind: 'microphone', color: '#0284c7' },
-  Windows: { kind: 'windows', color: '#0078d4' },
-};
 
 const customIconShapes: Partial<Record<CustomIconKind, CustomShape[]>> = {
   activeDirectory: [
@@ -238,7 +29,11 @@ const customIconShapes: Partial<Record<CustomIconKind, CustomShape[]>> = {
     { type: 'circle', cx: 12, cy: 19.8, r: 1.8, opacity: 0.72 },
     { type: 'circle', cx: 5.3, cy: 15.8, r: 1.8, opacity: 0.72 },
     { type: 'circle', cx: 5.3, cy: 8.2, r: 1.8, opacity: 0.72 },
-    { type: 'path', d: 'M11 5.8h2v4.1h-2V5.8Zm4 5 2.7-1.6 1 1.7-2.8 1.6-1-1.7Zm.9 2.7 2.8 1.6-1 1.7-2.7-1.6.9-1.7ZM11 14.1h2v4.1h-2v-4.1ZM5.3 15.1l2.8-1.6.9 1.7-2.7 1.6-1-1.7Zm0-4.2 1-1.7L9 10.8l-.9 1.7-2.8-1.6Z', opacity: 0.35 },
+    {
+      type: 'path',
+      d: 'M11 5.8h2v4.1h-2V5.8Zm4 5 2.7-1.6 1 1.7-2.8 1.6-1-1.7Zm.9 2.7 2.8 1.6-1 1.7-2.7-1.6.9-1.7ZM11 14.1h2v4.1h-2v-4.1ZM5.3 15.1l2.8-1.6.9 1.7-2.7 1.6-1-1.7Zm0-4.2 1-1.7L9 10.8l-.9 1.7-2.8-1.6Z',
+      opacity: 0.35,
+    },
   ],
   algorithm: [
     { type: 'rect', x: 4, y: 3, width: 7, height: 5, rx: 1 },
@@ -251,12 +46,6 @@ const customIconShapes: Partial<Record<CustomIconKind, CustomShape[]>> = {
     { type: 'rect', x: 10.2, y: 8, width: 3.5, height: 12, rx: 0.8 },
     { type: 'rect', x: 16.5, y: 4, width: 3.5, height: 16, rx: 0.8 },
     { type: 'path', d: 'M3 21h18v-2H3v2Z', opacity: 0.4 },
-  ],
-  api: [
-    { type: 'circle', cx: 5.5, cy: 12, r: 2.5 },
-    { type: 'circle', cx: 18.5, cy: 7, r: 2.5 },
-    { type: 'circle', cx: 18.5, cy: 17, r: 2.5 },
-    { type: 'path', d: 'M8 11.2 16.1 8l.8 1.9-8.1 3.2L8 11.2Zm.8 1.7 8.1 3.2-.8 1.9L8 14.8l.8-1.9Z', opacity: 0.5 },
   ],
   audio: [
     { type: 'rect', x: 4, y: 9, width: 2.4, height: 6, rx: 1.2 },
@@ -274,23 +63,12 @@ const customIconShapes: Partial<Record<CustomIconKind, CustomShape[]>> = {
     { type: 'circle', cx: 18, cy: 13, r: 2 },
     { type: 'path', d: 'm7.2 18 1.5-1.5 1.8 1.8 4.7-5.2 1.5 1.3-6.2 6.9L7.2 18Z' },
   ],
-  chip: [
-    { type: 'rect', x: 6, y: 6, width: 12, height: 12, rx: 2 },
-    { type: 'rect', x: 9, y: 9, width: 6, height: 6, rx: 1, opacity: 0.35 },
-    { type: 'path', d: 'M8 2h2v4H8V2Zm6 0h2v4h-2V2ZM8 18h2v4H8v-4Zm6 0h2v4h-2v-4ZM2 8h4v2H2V8Zm0 6h4v2H2v-2Zm16-6h4v2h-4V8Zm0 6h4v2h-4v-2Z', opacity: 0.55 },
-  ],
-  client: [
-    { type: 'circle', cx: 8, cy: 7.5, r: 3 },
-    { type: 'circle', cx: 16, cy: 7.5, r: 3, opacity: 0.65 },
-    { type: 'path', d: 'M3.5 19.5c.6-4 2.6-6 5.8-6 2.2 0 3.8 1 4.8 2.8.8-1.8 2.4-2.8 4.6-2.8 2.1 0 3.5 2.1 3.8 6H3.5Z' },
-  ],
-  codeReview: [
-    { type: 'path', d: 'm8.5 6-5.5 6 5.5 6 1.6-1.5L6 12l4.1-4.5L8.5 6Zm7 0-1.6 1.5L18 12l-4.1 4.5 1.6 1.5 5.5-6-5.5-6Z' },
-    { type: 'path', d: 'm10 12.8 1.7-1.7 2 2 4.5-5 1.7 1.5-6.2 6.9-3.7-3.7Z', opacity: 0.45 },
-  ],
   dataCheck: [
     { type: 'text', value: 'QA', x: 8.5, y: 10, size: 6.7 },
-    { type: 'path', d: 'M4 14h7v1.7H4V14Zm0 3.3h9.5V19H4v-1.7Zm10.4-3.2 1.4-1.4 1.4 1.4 3.1-3.5 1.5 1.3-4.6 5.2-2.8-3Z' },
+    {
+      type: 'path',
+      d: 'M4 14h7v1.7H4V14Zm0 3.3h9.5V19H4v-1.7Zm10.4-3.2 1.4-1.4 1.4 1.4 3.1-3.5 1.5 1.3-4.6 5.2-2.8-3Z',
+    },
     { type: 'path', d: 'M4 5h8v1.8H4V5Zm0 3.4h6v1.7H4V8.4Z', opacity: 0.55 },
   ],
   dataNodes: [
@@ -305,7 +83,11 @@ const customIconShapes: Partial<Record<CustomIconKind, CustomShape[]>> = {
     { type: 'path', d: 'M0.6 4h4.7l2.9 4.7L11.1 4h4.7l-5.1 8 5.3 8h-4.7l-3.1-4.9L5.1 20H0.4l5.4-8L0.6 4Z' },
     { type: 'rect', x: 16.4, y: 4, width: 3.2, height: 16, rx: 0.8 },
     { type: 'rect', x: 20.8, y: 4, width: 3.2, height: 16, rx: 0.8 },
-    { type: 'path', d: 'M1.2 7.1h3.5l1 1.6H2.2l-1-1.6Zm12.8 0h1.1l-1 1.6h-1.2l1.1-1.6Zm2.9 0h2.2v1.6h-2.2V7.1Zm4.4 0h2.2v1.6h-2.2V7.1ZM3.5 11.2h3.1l1 1.6H4.5l-1-1.6Zm6.4 0h2.8l-1 1.6H8.9l1-1.6Zm7 0h2.2v1.6h-2.2v-1.6Zm4.4 0h2.2v1.6h-2.2v-1.6ZM2 15.3h3.1l-1.1 1.6H1l1-1.6Zm10.8 0h2.8l1.1 1.6h-2.9l-1-1.6Zm4.1 0h2.2v1.6h-2.2v-1.6Zm4.4 0h2.2v1.6h-2.2v-1.6Z', opacity: 0.28 },
+    {
+      type: 'path',
+      d: 'M1.2 7.1h3.5l1 1.6H2.2l-1-1.6Zm12.8 0h1.1l-1 1.6h-1.2l1.1-1.6Zm2.9 0h2.2v1.6h-2.2V7.1Zm4.4 0h2.2v1.6h-2.2V7.1ZM3.5 11.2h3.1l1 1.6H4.5l-1-1.6Zm6.4 0h2.8l-1 1.6H8.9l1-1.6Zm7 0h2.2v1.6h-2.2v-1.6Zm4.4 0h2.2v1.6h-2.2v-1.6ZM2 15.3h3.1l-1.1 1.6H1l1-1.6Zm10.8 0h2.8l1.1 1.6h-2.9l-1-1.6Zm4.1 0h2.2v1.6h-2.2v-1.6Zm4.4 0h2.2v1.6h-2.2v-1.6Z',
+      opacity: 0.28,
+    },
   ],
   document: [
     { type: 'path', d: 'M6 3h8l4 4v14H6V3Zm7 1.5V8h3.5L13 4.5Z' },
@@ -325,24 +107,25 @@ const customIconShapes: Partial<Record<CustomIconKind, CustomShape[]>> = {
     { type: 'rect', x: 9, y: 15, width: 6, height: 5, rx: 1 },
     { type: 'path', d: 'M9 6h6v2H9V6Zm2 3h2v6h-2V9Z', opacity: 0.5 },
   ],
-  handoff: [
-    { type: 'rect', x: 3, y: 6, width: 6, height: 7, rx: 1 },
-    { type: 'rect', x: 15, y: 11, width: 6, height: 7, rx: 1 },
-    { type: 'path', d: 'M10 8h5v-2l5 4-5 4v-2h-5V8Zm4 8H9v2l-5-4 5-4v2h5v4Z', opacity: 0.55 },
-  ],
   chi: [
-    { type: 'path', d: 'M4.7 8.5c0-2.5 1.6-4 4.2-4h3.5v3.1H9.3c-.9 0-1.4.4-1.4 1.2v1.5h4.5v3H7.9v1.6c0 .8.5 1.2 1.4 1.2h3.1v3.2H8.9c-2.6 0-4.2-1.5-4.2-4.1V8.5Z' },
-    { type: 'path', d: 'M13.1 4.5h3.4v5.1c.7-.7 1.6-1 2.8-1 2.6 0 4.1 1.6 4.1 4.4v6.3H20v-5.9c0-1.1-.5-1.7-1.5-1.7-1.1 0-2 .7-2 2.1v5.5h-3.4V4.5Z', opacity: 0.88 },
+    {
+      type: 'path',
+      d: 'M4.7 8.5c0-2.5 1.6-4 4.2-4h3.5v3.1H9.3c-.9 0-1.4.4-1.4 1.2v1.5h4.5v3H7.9v1.6c0 .8.5 1.2 1.4 1.2h3.1v3.2H8.9c-2.6 0-4.2-1.5-4.2-4.1V8.5Z',
+    },
+    {
+      type: 'path',
+      d: 'M13.1 4.5h3.4v5.1c.7-.7 1.6-1 2.8-1 2.6 0 4.1 1.6 4.1 4.4v6.3H20v-5.9c0-1.1-.5-1.7-1.5-1.7-1.1 0-2 .7-2 2.1v5.5h-3.4V4.5Z',
+      opacity: 0.88,
+    },
     { type: 'circle', cx: 21.2, cy: 4.9, r: 2.3 },
-  ],
-  lightbulb: [
-    { type: 'path', d: 'M12 2.8a7 7 0 0 0-4.3 12.5c.7.6 1.1 1.4 1.1 2.3h6.4c0-.9.4-1.8 1.1-2.3A7 7 0 0 0 12 2.8Z' },
-    { type: 'rect', x: 9, y: 18.5, width: 6, height: 2, rx: 1, opacity: 0.55 },
-    { type: 'path', d: 'M10 21h4v1.2h-4V21Z', opacity: 0.4 },
   ],
   microphone: [
     { type: 'rect', x: 9, y: 3, width: 6, height: 11, rx: 3 },
-    { type: 'path', d: 'M6 10h2c0 3 1.5 5 4 5s4-2 4-5h2c0 3.8-2 6.5-5 7v3h3v2H8v-2h3v-3c-3-.5-5-3.2-5-7Z', opacity: 0.55 },
+    {
+      type: 'path',
+      d: 'M6 10h2c0 3 1.5 5 4 5s4-2 4-5h2c0 3.8-2 6.5-5 7v3h3v2H8v-2h3v-3c-3-.5-5-3.2-5-7Z',
+      opacity: 0.55,
+    },
   ],
   network: [
     { type: 'circle', cx: 12, cy: 12, r: 3 },
@@ -350,7 +133,11 @@ const customIconShapes: Partial<Record<CustomIconKind, CustomShape[]>> = {
     { type: 'circle', cx: 19, cy: 6, r: 2.2 },
     { type: 'circle', cx: 5, cy: 18, r: 2.2 },
     { type: 'circle', cx: 19, cy: 18, r: 2.2 },
-    { type: 'path', d: 'm6.5 7.6 4 3.2-1.2 1.6-4-3.2 1.2-1.6Zm11-1.6 1.2 1.6-4 3.2-1.2-1.6 4-3.2ZM9.3 11.6l1.2 1.6-4 3.2-1.2-1.6 4-3.2Zm5.4 0 4 3.2-1.2 1.6-4-3.2 1.2-1.6Z', opacity: 0.45 },
+    {
+      type: 'path',
+      d: 'm6.5 7.6 4 3.2-1.2 1.6-4-3.2 1.2-1.6Zm11-1.6 1.2 1.6-4 3.2-1.2-1.6 4-3.2ZM9.3 11.6l1.2 1.6-4 3.2-1.2-1.6 4-3.2Zm5.4 0 4 3.2-1.2 1.6-4-3.2 1.2-1.6Z',
+      opacity: 0.45,
+    },
   ],
   office: [
     { type: 'path', d: 'M4 5.5 12 2l8 3.5v13L12 22l-8-3.5v-13Zm4 2v9l4 1.8V5.7L8 7.5Zm6-1.8v12.6l3-1.3V7l-3-1.3Z' },
@@ -388,25 +175,22 @@ const customIconShapes: Partial<Record<CustomIconKind, CustomShape[]>> = {
     { type: 'rect', x: 16, y: 10.5, width: 4, height: 3, rx: 0.6, opacity: 0.72 },
     { type: 'path', d: 'M4 17h7v1.7H4V17Zm9 0h7v1.7h-7V17Z', opacity: 0.55 },
   ],
-  team: [
-    { type: 'circle', cx: 12, cy: 7, r: 3 },
-    { type: 'circle', cx: 5.8, cy: 9, r: 2.3, opacity: 0.65 },
-    { type: 'circle', cx: 18.2, cy: 9, r: 2.3, opacity: 0.65 },
-    { type: 'path', d: 'M3 20c.7-4.2 3.6-6.2 9-6.2s8.3 2 9 6.2H3Z' },
-  ],
   testTube: [
     { type: 'path', d: 'M8 3h8v2h-2v6.8l5.1 6.9c.9 1.2.1 3.3-1.5 3.3H6.4c-1.6 0-2.4-2.1-1.5-3.3l5.1-6.9V5H8V3Z' },
     { type: 'path', d: 'M8 17h8l1.4 2H6.6L8 17Z', opacity: 0.45 },
   ],
   tool: [
-    { type: 'path', d: 'M17.8 3.2a5.8 5.8 0 0 0-6.6 7.5l-8 8 2.6 2.6 8-8a5.8 5.8 0 0 0 7.5-6.6l-3.7 3.7-2.2-2.2 3.7-3.7c-.4-.5-.8-.9-1.3-1.3Z' },
+    {
+      type: 'path',
+      d: 'M17.8 3.2a5.8 5.8 0 0 0-6.6 7.5l-8 8 2.6 2.6 8-8a5.8 5.8 0 0 0 7.5-6.6l-3.7 3.7-2.2-2.2 3.7-3.7c-.4-.5-.8-.9-1.3-1.3Z',
+    },
     { type: 'path', d: 'm12 4 2.5 5 5 2.5-5 2.5-2.5 5-2.5-5-5-2.5 5-2.5L12 4Z', opacity: 0.22 },
   ],
   windows: [
-    { type: 'path', d: 'M3 5.42 10.75 4.35v7.36H3V5.42Zm8.55-1.18L21 2.96v8.75h-9.45V4.24ZM3 12.54h7.75v7.15L3 18.62v-6.08Zm8.55 0H21v8.5l-9.45-1.24v-7.26Z' },
-  ],
-  wrench: [
-    { type: 'path', d: 'M17.9 3.1a5.5 5.5 0 0 0-6.1 7.1l-8.4 8.4 2.8 2.8 8.4-8.4a5.5 5.5 0 0 0 7.1-6.1l-3.8 3.8-2.7-2.7 3.8-3.8a5.2 5.2 0 0 0-1.1-1.1Z' },
+    {
+      type: 'path',
+      d: 'M3 5.42 10.75 4.35v7.36H3V5.42Zm8.55-1.18L21 2.96v8.75h-9.45V4.24ZM3 12.54h7.75v7.15L3 18.62v-6.08Zm8.55 0H21v8.5l-9.45-1.24v-7.26Z',
+    },
   ],
 };
 
@@ -418,9 +202,10 @@ const isLlamaCppIcon = customIcon?.kind === 'llamacpp';
 const isSolIcon = customIcon?.kind === 'sol';
 const isVitestIcon = customIcon?.kind === 'vitest';
 const isLeagueIcon = name === 'League of Legends Partner';
-const directXGradientId = 'directx-xii-gradient';
-const directXGlowId = 'directx-xii-glow';
-const directXClipId = 'directx-xii-clip';
+const iconId = name.toLowerCase().replace(/[^a-z0-9]+/g, '-');
+const directXGradientId = `directx-xii-gradient-${iconId}`;
+const directXGlowId = `directx-xii-glow-${iconId}`;
+const directXClipId = `directx-xii-clip-${iconId}`;
 const directXPath =
   'M4 10h20l11 14 11-14h14L42 32l18 22H46L35 40 24 54H4l18-22L4 10ZM62 10h12v44H62V10ZM80 10h12v44H80V10Z';
 ---
@@ -471,13 +256,31 @@ const directXPath =
         </g>
       </svg>
     ) : isLlamaCppIcon ? (
-      <img class="tech-icon tech-icon-image tech-icon-llamacpp" src="/images/llamacpp-logo.svg" alt="" loading="lazy" decoding="async" />
+      <img
+        class="tech-icon tech-icon-image tech-icon-llamacpp"
+        src="/images/llamacpp-logo.svg"
+        alt=""
+        loading="lazy"
+        decoding="async"
+      />
     ) : isSolIcon ? (
       <img class="tech-icon tech-icon-image" src="/images/sol2-logo.png" alt="" loading="lazy" decoding="async" />
     ) : isVitestIcon ? (
-      <img class="tech-icon tech-icon-image tech-icon-vitest" src="/images/vitest-logo.svg" alt="" loading="lazy" decoding="async" />
+      <img
+        class="tech-icon tech-icon-image tech-icon-vitest"
+        src="/images/vitest-logo.svg"
+        alt=""
+        loading="lazy"
+        decoding="async"
+      />
     ) : isLeagueIcon ? (
-      <img class="tech-icon tech-icon-image tech-icon-league" src="/images/league-of-legends-icon.svg" alt="" loading="lazy" decoding="async" />
+      <img
+        class="tech-icon tech-icon-image tech-icon-league"
+        src="/images/league-of-legends-icon.svg"
+        alt=""
+        loading="lazy"
+        decoding="async"
+      />
     ) : customShapes ? (
       <svg class="tech-icon tech-icon-custom" viewBox="0 0 24 24" aria-hidden="true">
         {customShapes.map((shape) =>

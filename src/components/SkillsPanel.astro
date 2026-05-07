@@ -10,14 +10,18 @@ const { groups } = Astro.props;
 ---
 
 <section class="skills-card" aria-label="Engineering skills">
-  {groups.map((group) => (
-    <div class="skill-row">
-      <div class="skill-row-heading">
-        <h3>{group.name}</h3>
+  {
+    groups.map((group) => (
+      <div class="skill-row">
+        <div class="skill-row-heading">
+          <h3>{group.name}</h3>
+        </div>
+        <ul class="skill-icon-list" aria-label={`${group.name} skills`}>
+          {group.items.map((item) => (
+            <TechBadge name={item} />
+          ))}
+        </ul>
       </div>
-      <ul class="skill-icon-list" aria-label={`${group.name} skills`}>
-        {group.items.map((item) => <TechBadge name={item} />)}
-      </ul>
-    </div>
-  ))}
+    ))
+  }
 </section>
