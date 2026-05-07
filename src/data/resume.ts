@@ -113,6 +113,20 @@ export const resume = {
   ],
   experience: [
     {
+      title: 'DevOps Engineer Intern',
+      company: 'LeVere Entertainment Inc. / Savepoint',
+      location: 'Vancouver, BC (Remote)',
+      period: 'January 2024 - April 2024',
+      summary:
+        "Worked on a 7-person team building internal desktop and data tooling for Savepoint's AI ad engine and digital-replica training workflows.",
+      highlights: [
+        'Designed Python image-processing and CLI scripts to automate dataset preparation and manipulation for model training.',
+        'Contributed to a Rust, Tauri, TypeScript, and React desktop app for data preparation, PAGI.ai integration, and training-progress monitoring.',
+        'Deployed and managed Azure VMs to run training jobs with different parameters and compare output quality.',
+      ],
+      technologies: ['Rust', 'Tauri', 'TypeScript', 'React', 'Python', 'PyTorch', 'Azure VMs', 'Image processing', 'CLI tools'],
+    },
+    {
       title: 'Full-Stack Developer',
       company: 'Innota Client Project / BCIT',
       location: 'Burnaby, BC',
