@@ -158,9 +158,7 @@ export const resume = {
         'Royalty claim readiness',
         'Data QA',
         'Spreadsheet systems',
-        'A&R research',
         'DJ research',
-        'Process design',
       ],
     },
     {
@@ -183,10 +181,7 @@ export const resume = {
         'Signal flow',
         'Analog console',
         'Preamps & compressors',
-        'Audio engineering',
-        'Client work',
         'Troubleshooting',
-        'Quality control',
       ],
     },
     {
