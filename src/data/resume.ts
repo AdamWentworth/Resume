@@ -182,7 +182,7 @@ export const resume = {
       role: 'Full-stack product system',
       featured: true,
       summary:
-        'A full-stack Pokemon GO platform and data ecosystem for tracking, managing, and trading collections. It spans React web/mobile clients, Go and Express services, Kafka event sync, geospatial search, persistent storage, reverse proxying, and operational runbooks.',
+        'A full-stack Pokemon GO platform with React web/mobile clients, Go and Express services, Kafka event sync, geospatial search, and persistent storage.',
       proof: [
         {
           label: 'Architecture',
@@ -204,7 +204,7 @@ export const resume = {
       name: 'Pokemon Autochess',
       role: 'C++ engine and game systems',
       summary:
-        'An engine-first C++20 game prototype for a Pokemon-inspired auto-battler. It proves lower-level systems thinking through app loop/window/input infrastructure, OpenGL and Direct3D 12 rendering backends, Lua-driven gameplay, VFX tooling, data cooking, and headless tests.',
+        'An engine-first C++20 auto-battler prototype with app loop/window/input infrastructure, OpenGL and Direct3D 12 rendering, Lua gameplay, VFX tooling, and headless tests.',
       proof: [
         {
           label: 'Engine',
@@ -226,7 +226,7 @@ export const resume = {
       name: 'Jarvin',
       role: 'Local AI assistant platform',
       summary:
-        'A host-run personal AI assistant focused on useful assistant systems around local models: voice, memory, tools, integrations, planning, and desktop/mobile clients. The goal is not a custom foundation model; it is a reliable assistant stack around models I can run and evaluate.',
+        'A host-run personal AI assistant stack around local models, voice workflows, memory, tools, integrations, planning, and shared desktop/mobile clients.',
       proof: [
         {
           label: 'Local host',

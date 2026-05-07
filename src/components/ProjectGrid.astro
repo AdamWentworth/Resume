@@ -22,14 +22,20 @@ const { projects } = Astro.props;
             </div>
             <h3>{project.name}</h3>
             <p class="project-summary">{project.summary}</p>
-            <div class="project-proof-grid" aria-label={`${project.name} engineering proof`}>
-              {project.proof.map((item) => (
-                <div class="project-proof-item">
-                  <span>{item.label}</span>
-                  <p>{item.text}</p>
-                </div>
-              ))}
-            </div>
+            <details class="project-details">
+              <summary>
+                <span>Engineering details</span>
+                <span class="project-details-icon" aria-hidden="true"></span>
+              </summary>
+              <div class="project-proof-grid" aria-label={`${project.name} engineering proof`}>
+                {project.proof.map((item) => (
+                  <div class="project-proof-item">
+                    <span>{item.label}</span>
+                    <p>{item.text}</p>
+                  </div>
+                ))}
+              </div>
+            </details>
           </div>
           <aside class="project-side" aria-label={`${project.name} links and stack`}>
             <ul class="tag-list project-stack" aria-label={`${project.name} technologies`}>

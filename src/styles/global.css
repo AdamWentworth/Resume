@@ -488,9 +488,9 @@ h3 {
 .project-case {
   display: grid;
   grid-template-columns: minmax(0, 1fr) 300px;
-  gap: 28px;
+  gap: 24px;
   align-items: start;
-  padding: 26px;
+  padding: 22px;
 }
 
 .project-case-featured {
@@ -501,6 +501,7 @@ h3 {
 }
 
 .project-main h3 {
+  margin-bottom: 8px;
   font-size: 28px;
 }
 
@@ -525,20 +526,83 @@ h3 {
 
 .project-summary {
   max-width: 760px;
+  margin-bottom: 0;
   color: var(--muted);
-  font-size: 17px;
-  line-height: 1.65;
+  font-size: 16px;
+  line-height: 1.58;
 }
 
 .project-case .item-subtitle {
   color: var(--accent-secondary);
 }
 
+.project-details {
+  margin-top: 16px;
+}
+
+.project-details summary {
+  display: inline-flex;
+  width: max-content;
+  max-width: 100%;
+  align-items: center;
+  gap: 9px;
+  border: 1px solid rgba(30, 111, 232, 0.22);
+  border-radius: 8px;
+  background: rgba(30, 111, 232, 0.06);
+  color: var(--accent-strong);
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 800;
+  line-height: 1.2;
+  list-style: none;
+  padding: 8px 10px;
+  transition:
+    background 160ms ease,
+    border-color 160ms ease;
+}
+
+.project-details summary::-webkit-details-marker {
+  display: none;
+}
+
+.project-details summary:hover {
+  border-color: rgba(30, 111, 232, 0.36);
+  background: rgba(30, 111, 232, 0.1);
+}
+
+.project-details-icon {
+  position: relative;
+  width: 12px;
+  height: 12px;
+  flex: 0 0 auto;
+}
+
+.project-details-icon::before,
+.project-details-icon::after {
+  content: "";
+  position: absolute;
+  top: 5px;
+  left: 1px;
+  width: 10px;
+  height: 2px;
+  border-radius: 999px;
+  background: currentColor;
+  transition: transform 160ms ease;
+}
+
+.project-details-icon::after {
+  transform: rotate(90deg);
+}
+
+.project-details[open] .project-details-icon::after {
+  transform: rotate(0);
+}
+
 .project-proof-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 18px;
-  margin-top: 24px;
+  margin-top: 18px;
 }
 
 .project-proof-item {
@@ -776,6 +840,11 @@ h3 {
 
   .project-main h3 {
     font-size: 24px;
+  }
+
+  .project-details summary {
+    width: 100%;
+    justify-content: space-between;
   }
 
   .project-proof-grid {
