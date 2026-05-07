@@ -655,7 +655,6 @@ h3 {
   grid-column: 1 / -1;
   margin-top: 0;
   padding-top: 16px;
-  border-top: 1px solid rgba(30, 111, 232, 0.12);
 }
 
 .project-proof-grid {
