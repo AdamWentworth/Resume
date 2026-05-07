@@ -59,6 +59,7 @@ export type ResumeProfile = {
   summary: string;
   intro: string;
   impact: string[];
+  profileFacts: string[];
   resumePdf: {
     label: string;
     href: string;
@@ -89,6 +90,7 @@ export const resume = {
     'I work well in teams and take initiative through projects that force real architecture, deployment, and testing decisions.',
     'I use AI to accelerate implementation when I understand the problem well enough to evaluate the result and deliver value faster.',
   ],
+  profileFacts: ['BCIT Applied CS', 'Summer 2026 internships'],
   resumePdf: {
     label: 'Download resume',
     href: '/resume.pdf',
@@ -114,8 +116,8 @@ export const resume = {
   ],
   experience: [
     {
-      title: 'DevOps Engineer Intern',
-      company: 'LeVere / Savepoint Client Project / BCIT',
+      title: 'Software Developer Intern',
+      company: 'Savepoint Client Project / BCIT',
       companyHref: 'https://mysavepoint.com/',
       location: 'Vancouver, BC',
       period: 'January 2024 - April 2024',

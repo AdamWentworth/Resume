@@ -33,10 +33,13 @@ const prominentLinks = resume.links.filter((link) => link.prominent);
         <div class="profile-copy">
           <p class="profile-name">{resume.name}</p>
           <p class="location">{resume.location}</p>
+          <ul class="profile-facts" aria-label="Profile facts">
+            {resume.profileFacts.map((fact) => <li>{fact}</li>)}
+          </ul>
         </div>
         <img class="profile-photo" src={resume.portrait.src} alt={resume.portrait.alt} width="720" height="900" />
       </div>
-      <ul>
+      <ul class="impact-list">
         {resume.impact.map((item) => <li>{item}</li>)}
       </ul>
     </aside>
