@@ -64,7 +64,7 @@ export type ResumeProfile = {
 export const resume = {
   name: 'Adam Wentworth',
   role: 'Software Engineer / Computer Science',
-  location: 'Metro Vancouver, BC',
+  location: 'Vancouver, BC',
   siteUrl: 'https://adamwentworth.ca',
   email: 'adamjohnwentworth@gmail.com',
   portrait: {
