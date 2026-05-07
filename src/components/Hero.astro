@@ -27,8 +27,13 @@ const prominentLinks = resume.links.filter((link) => link.prominent);
     </div>
 
     <aside class="impact-panel" aria-label="Profile highlights">
-      <img class="profile-photo" src={resume.portrait.src} alt={resume.portrait.alt} width="720" height="880" />
-      <p class="location">{resume.location}</p>
+      <div class="profile-header">
+        <div class="profile-copy">
+          <p class="profile-name">{resume.name}</p>
+          <p class="location">{resume.location}</p>
+        </div>
+        <img class="profile-photo" src={resume.portrait.src} alt={resume.portrait.alt} width="720" height="900" />
+      </div>
       <ul>
         {resume.impact.map((item) => <li>{item}</li>)}
       </ul>

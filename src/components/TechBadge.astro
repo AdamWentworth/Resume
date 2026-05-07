@@ -46,6 +46,50 @@ interface Props {
   name: string;
 }
 
+type CustomIconKind =
+  | 'activeDirectory'
+  | 'ai'
+  | 'algorithm'
+  | 'analytics'
+  | 'api'
+  | 'audio'
+  | 'checkShield'
+  | 'chip'
+  | 'client'
+  | 'codeReview'
+  | 'dataCheck'
+  | 'dataNodes'
+  | 'direct3d'
+  | 'document'
+  | 'flow'
+  | 'handoff'
+  | 'lightbulb'
+  | 'microphone'
+  | 'network'
+  | 'office'
+  | 'oop'
+  | 'outcome'
+  | 'production'
+  | 'sdl'
+  | 'sol'
+  | 'spreadsheet'
+  | 'team'
+  | 'testTube'
+  | 'tool'
+  | 'windows'
+  | 'wrench';
+
+type CustomShape =
+  | { type: 'path'; d: string; opacity?: number }
+  | { type: 'circle'; cx: number; cy: number; r: number; opacity?: number }
+  | { type: 'rect'; x: number; y: number; width: number; height: number; rx?: number; opacity?: number }
+  | { type: 'text'; value: string; x: number; y: number; size: number; opacity?: number };
+
+type CustomIconData = {
+  kind: CustomIconKind;
+  color?: string;
+};
+
 const { name } = Astro.props;
 
 const iconMap: Record<string, IconData> = {
@@ -94,58 +138,217 @@ const iconMap: Record<string, IconData> = {
   'llama.cpp': siOllama,
 };
 
-const customIconMap: Record<string, { label: string; color?: string; kind?: 'windows' }> = {
-  'Active Directory': { label: 'AD' },
-  Algorithms: { label: 'ALG' },
-  Analytics: { label: 'AN' },
-  asyncio: { label: 'aio' },
-  'Audio engineering': { label: 'AE' },
-  'Audio production': { label: 'AP' },
-  'Brand partnerships': { label: 'BP' },
-  'Client handoff': { label: 'CH' },
-  'Client work': { label: 'CW' },
-  'Code review': { label: 'CR' },
-  'Data QA': { label: 'QA' },
-  'Data structures': { label: 'DS' },
-  Documentation: { label: 'DOC' },
-  'Direct3D 12': { label: 'D3D' },
-  'Google Workspace': { label: 'GW' },
-  'Local LLMs': { label: 'LLM' },
-  Networking: { label: 'NET' },
-  OOP: { label: 'OOP' },
-  'Office 365': { label: '365' },
-  'Outcome focus': { label: 'OUT' },
-  'Operating systems': { label: 'OS' },
-  'Process design': { label: 'PD' },
-  'Product thinking': { label: 'PT' },
-  'Production workflows': { label: 'PW' },
-  'Quality control': { label: 'QC' },
-  'Research workflows': { label: 'RW' },
-  'REST APIs': { label: 'API' },
-  SDL2: { label: 'SDL2' },
-  sol2: { label: 'sol' },
-  'Spreadsheet systems': { label: 'SS' },
-  'Team projects': { label: 'TEAM' },
-  Testing: { label: 'TST' },
-  'Tool execution': { label: 'TOOL' },
-  Troubleshooting: { label: 'FIX' },
-  'Whisper ASR': { label: 'ASR' },
-  Windows: { label: 'WIN', color: '#0078d4', kind: 'windows' },
+const customIconMap: Record<string, CustomIconData> = {
+  'Active Directory': { kind: 'activeDirectory', color: '#0078d4' },
+  Algorithms: { kind: 'algorithm', color: '#7c3aed' },
+  Analytics: { kind: 'analytics', color: '#0f766e' },
+  asyncio: { kind: 'flow', color: '#2563eb' },
+  'Audio engineering': { kind: 'audio', color: '#7c3aed' },
+  'Audio production': { kind: 'audio', color: '#7c3aed' },
+  'Brand partnerships': { kind: 'client', color: '#a855f7' },
+  'Client handoff': { kind: 'handoff', color: '#0891b2' },
+  'Client work': { kind: 'client', color: '#a855f7' },
+  'Code review': { kind: 'codeReview', color: '#2563eb' },
+  'Data QA': { kind: 'dataCheck', color: '#0f766e' },
+  'Data structures': { kind: 'dataNodes', color: '#2563eb' },
+  Documentation: { kind: 'document', color: '#64748b' },
+  'Direct3D 12': { kind: 'direct3d', color: '#107c10' },
+  'Local LLMs': { kind: 'chip', color: '#4f46e5' },
+  Networking: { kind: 'network', color: '#0891b2' },
+  OOP: { kind: 'oop', color: '#7c3aed' },
+  'Office 365': { kind: 'office', color: '#d83b01' },
+  'OpenAI API': { kind: 'ai', color: '#111827' },
+  'Outcome focus': { kind: 'outcome', color: '#16a34a' },
+  'Process design': { kind: 'flow', color: '#2563eb' },
+  'Product thinking': { kind: 'lightbulb', color: '#ca8a04' },
+  'Production workflows': { kind: 'production', color: '#be123c' },
+  'Quality control': { kind: 'checkShield', color: '#16a34a' },
+  'Research workflows': { kind: 'client', color: '#2563eb' },
+  'REST APIs': { kind: 'api', color: '#0284c7' },
+  SDL2: { kind: 'sdl', color: '#17395f' },
+  sol2: { kind: 'sol', color: '#1d4ed8' },
+  'Spreadsheet systems': { kind: 'spreadsheet', color: '#15803d' },
+  'Team projects': { kind: 'team', color: '#2563eb' },
+  Testing: { kind: 'testTube', color: '#0f766e' },
+  'Tool execution': { kind: 'tool', color: '#64748b' },
+  Troubleshooting: { kind: 'wrench', color: '#64748b' },
+  'Whisper ASR': { kind: 'microphone', color: '#0284c7' },
+  Windows: { kind: 'windows', color: '#0078d4' },
+};
+
+const customIconShapes: Record<CustomIconKind, CustomShape[]> = {
+  activeDirectory: [
+    { type: 'rect', x: 9, y: 3, width: 6, height: 5, rx: 1 },
+    { type: 'rect', x: 3, y: 16, width: 5, height: 5, rx: 1 },
+    { type: 'rect', x: 9.5, y: 16, width: 5, height: 5, rx: 1 },
+    { type: 'rect', x: 16, y: 16, width: 5, height: 5, rx: 1 },
+    { type: 'path', d: 'M11 8h2v4h6v4h-2v-2H7v2H5v-4h6V8Z', opacity: 0.55 },
+  ],
+  ai: [
+    { type: 'circle', cx: 12, cy: 12, r: 3.2 },
+    { type: 'circle', cx: 12, cy: 4.2, r: 1.8, opacity: 0.72 },
+    { type: 'circle', cx: 18.7, cy: 8.2, r: 1.8, opacity: 0.72 },
+    { type: 'circle', cx: 18.7, cy: 15.8, r: 1.8, opacity: 0.72 },
+    { type: 'circle', cx: 12, cy: 19.8, r: 1.8, opacity: 0.72 },
+    { type: 'circle', cx: 5.3, cy: 15.8, r: 1.8, opacity: 0.72 },
+    { type: 'circle', cx: 5.3, cy: 8.2, r: 1.8, opacity: 0.72 },
+    { type: 'path', d: 'M11 5.8h2v4.1h-2V5.8Zm4 5 2.7-1.6 1 1.7-2.8 1.6-1-1.7Zm.9 2.7 2.8 1.6-1 1.7-2.7-1.6.9-1.7ZM11 14.1h2v4.1h-2v-4.1ZM5.3 15.1l2.8-1.6.9 1.7-2.7 1.6-1-1.7Zm0-4.2 1-1.7L9 10.8l-.9 1.7-2.8-1.6Z', opacity: 0.35 },
+  ],
+  algorithm: [
+    { type: 'rect', x: 4, y: 3, width: 7, height: 5, rx: 1 },
+    { type: 'path', d: 'M16.5 2.8 21.2 7.5 16.5 12.2 11.8 7.5 16.5 2.8Z' },
+    { type: 'rect', x: 4, y: 16, width: 7, height: 5, rx: 1 },
+    { type: 'path', d: 'M11 5h2v2h-2V5Zm-4 3h2v8H7V8Zm8.7 4.7 1.4 1.4-4.5 4.5-1.4-1.4 4.5-4.5Z', opacity: 0.45 },
+  ],
+  analytics: [
+    { type: 'rect', x: 4, y: 13, width: 3.5, height: 7, rx: 0.8 },
+    { type: 'rect', x: 10.2, y: 8, width: 3.5, height: 12, rx: 0.8 },
+    { type: 'rect', x: 16.5, y: 4, width: 3.5, height: 16, rx: 0.8 },
+    { type: 'path', d: 'M3 21h18v-2H3v2Z', opacity: 0.4 },
+  ],
+  api: [
+    { type: 'circle', cx: 5.5, cy: 12, r: 2.5 },
+    { type: 'circle', cx: 18.5, cy: 7, r: 2.5 },
+    { type: 'circle', cx: 18.5, cy: 17, r: 2.5 },
+    { type: 'path', d: 'M8 11.2 16.1 8l.8 1.9-8.1 3.2L8 11.2Zm.8 1.7 8.1 3.2-.8 1.9L8 14.8l.8-1.9Z', opacity: 0.5 },
+  ],
+  audio: [
+    { type: 'rect', x: 4, y: 9, width: 2.4, height: 6, rx: 1.2 },
+    { type: 'rect', x: 8, y: 5, width: 2.4, height: 14, rx: 1.2 },
+    { type: 'rect', x: 12, y: 8, width: 2.4, height: 8, rx: 1.2 },
+    { type: 'rect', x: 16, y: 3, width: 2.4, height: 18, rx: 1.2 },
+    { type: 'rect', x: 20, y: 10, width: 1.8, height: 4, rx: 0.9 },
+  ],
+  checkShield: [
+    { type: 'path', d: 'M12 2.5 20 5.8v5.8c0 5-3.4 8.7-8 10-4.6-1.3-8-5-8-10V5.8l8-3.3Z' },
+    { type: 'path', d: 'm9.6 12.4-1.7 1.7 3 3 5.7-6.2-1.7-1.6-4 4.3-1.3-1.2Z', opacity: 0.45 },
+  ],
+  chip: [
+    { type: 'rect', x: 6, y: 6, width: 12, height: 12, rx: 2 },
+    { type: 'rect', x: 9, y: 9, width: 6, height: 6, rx: 1, opacity: 0.35 },
+    { type: 'path', d: 'M8 2h2v4H8V2Zm6 0h2v4h-2V2ZM8 18h2v4H8v-4Zm6 0h2v4h-2v-4ZM2 8h4v2H2V8Zm0 6h4v2H2v-2Zm16-6h4v2h-4V8Zm0 6h4v2h-4v-2Z', opacity: 0.55 },
+  ],
+  client: [
+    { type: 'circle', cx: 8, cy: 7.5, r: 3 },
+    { type: 'circle', cx: 16, cy: 7.5, r: 3, opacity: 0.65 },
+    { type: 'path', d: 'M3.5 19.5c.6-4 2.6-6 5.8-6 2.2 0 3.8 1 4.8 2.8.8-1.8 2.4-2.8 4.6-2.8 2.1 0 3.5 2.1 3.8 6H3.5Z' },
+  ],
+  codeReview: [
+    { type: 'path', d: 'm8.5 6-5.5 6 5.5 6 1.6-1.5L6 12l4.1-4.5L8.5 6Zm7 0-1.6 1.5L18 12l-4.1 4.5 1.6 1.5 5.5-6-5.5-6Z' },
+    { type: 'path', d: 'm10 12.8 1.7-1.7 2 2 4.5-5 1.7 1.5-6.2 6.9-3.7-3.7Z', opacity: 0.45 },
+  ],
+  dataCheck: [
+    { type: 'path', d: 'M5 6c0-2.2 14-2.2 14 0v10c0 2.2-14 2.2-14 0V6Z' },
+    { type: 'path', d: 'M5 6c0 2.2 14 2.2 14 0v2.5c0 2.2-14 2.2-14 0V6Zm4.2 7.8 1.7-1.7 2 2 4.3-4.8 1.7 1.5-6 6.7-3.7-3.7Z', opacity: 0.45 },
+  ],
+  dataNodes: [
+    { type: 'rect', x: 3, y: 5, width: 5, height: 5, rx: 1 },
+    { type: 'rect', x: 9.5, y: 5, width: 5, height: 5, rx: 1 },
+    { type: 'rect', x: 16, y: 5, width: 5, height: 5, rx: 1 },
+    { type: 'rect', x: 7, y: 15, width: 5, height: 5, rx: 1 },
+    { type: 'rect', x: 14, y: 15, width: 5, height: 5, rx: 1 },
+    { type: 'path', d: 'M8 7h1.5v2H8V7Zm6.5 0H16v2h-1.5V7Zm-2.7 3h1.8v5h-1.8v-5Z', opacity: 0.45 },
+  ],
+  direct3d: [
+    { type: 'path', d: 'M12 2.5 21 7.2v9.6l-9 4.7-9-4.7V7.2l9-4.7Zm0 3L6 8.6l6 3.1 6-3.1-6-3.1Z' },
+    { type: 'path', d: 'M5 10.1v5.4l5.7 3v-5.4L5 10.1Zm14 0-5.7 3v5.4l5.7-3v-5.4Z', opacity: 0.45 },
+    { type: 'text', value: 'D3D', x: 12, y: 13.7, size: 5.4, opacity: 0.72 },
+  ],
+  document: [
+    { type: 'path', d: 'M6 3h8l4 4v14H6V3Zm7 1.5V8h3.5L13 4.5Z' },
+    { type: 'rect', x: 8.5, y: 10.5, width: 7, height: 1.6, rx: 0.8, opacity: 0.45 },
+    { type: 'rect', x: 8.5, y: 14, width: 7, height: 1.6, rx: 0.8, opacity: 0.45 },
+    { type: 'rect', x: 8.5, y: 17.5, width: 5, height: 1.6, rx: 0.8, opacity: 0.45 },
+  ],
+  flow: [
+    { type: 'rect', x: 3, y: 4, width: 6, height: 5, rx: 1 },
+    { type: 'rect', x: 15, y: 4, width: 6, height: 5, rx: 1 },
+    { type: 'rect', x: 9, y: 15, width: 6, height: 5, rx: 1 },
+    { type: 'path', d: 'M9 6h6v2H9V6Zm2 3h2v6h-2V9Z', opacity: 0.5 },
+  ],
+  handoff: [
+    { type: 'rect', x: 3, y: 6, width: 6, height: 7, rx: 1 },
+    { type: 'rect', x: 15, y: 11, width: 6, height: 7, rx: 1 },
+    { type: 'path', d: 'M10 8h5v-2l5 4-5 4v-2h-5V8Zm4 8H9v2l-5-4 5-4v2h5v4Z', opacity: 0.55 },
+  ],
+  lightbulb: [
+    { type: 'path', d: 'M12 2.8a7 7 0 0 0-4.3 12.5c.7.6 1.1 1.4 1.1 2.3h6.4c0-.9.4-1.8 1.1-2.3A7 7 0 0 0 12 2.8Z' },
+    { type: 'rect', x: 9, y: 18.5, width: 6, height: 2, rx: 1, opacity: 0.55 },
+    { type: 'path', d: 'M10 21h4v1.2h-4V21Z', opacity: 0.4 },
+  ],
+  microphone: [
+    { type: 'rect', x: 9, y: 3, width: 6, height: 11, rx: 3 },
+    { type: 'path', d: 'M6 10h2c0 3 1.5 5 4 5s4-2 4-5h2c0 3.8-2 6.5-5 7v3h3v2H8v-2h3v-3c-3-.5-5-3.2-5-7Z', opacity: 0.55 },
+  ],
+  network: [
+    { type: 'circle', cx: 12, cy: 12, r: 3 },
+    { type: 'circle', cx: 5, cy: 6, r: 2.2 },
+    { type: 'circle', cx: 19, cy: 6, r: 2.2 },
+    { type: 'circle', cx: 5, cy: 18, r: 2.2 },
+    { type: 'circle', cx: 19, cy: 18, r: 2.2 },
+    { type: 'path', d: 'm6.5 7.6 4 3.2-1.2 1.6-4-3.2 1.2-1.6Zm11-1.6 1.2 1.6-4 3.2-1.2-1.6 4-3.2ZM9.3 11.6l1.2 1.6-4 3.2-1.2-1.6 4-3.2Zm5.4 0 4 3.2-1.2 1.6-4-3.2 1.2-1.6Z', opacity: 0.45 },
+  ],
+  office: [
+    { type: 'path', d: 'M4 5.5 12 2l8 3.5v13L12 22l-8-3.5v-13Zm4 2v9l4 1.8V5.7L8 7.5Zm6-1.8v12.6l3-1.3V7l-3-1.3Z' },
+  ],
+  oop: [
+    { type: 'path', d: 'M7 3 13 6v6l-6 3-6-3V6l6-3Zm10 6 6 3v6l-6 3-6-3v-6l6-3Z' },
+    { type: 'path', d: 'M7 6.2 3.8 7.8 7 9.4l3.2-1.6L7 6.2Zm10 6L13.8 14l3.2 1.6 3.2-1.6-3.2-1.8Z', opacity: 0.45 },
+  ],
+  outcome: [
+    { type: 'rect', x: 4, y: 3, width: 2, height: 18, rx: 1 },
+    { type: 'path', d: 'M7 4h11l-2 4 2 4H7V4Zm3.4 11.3 1.7-1.7 1.8 1.8 4.1-4.5 1.7 1.5-5.8 6.4-3.5-3.5Z' },
+  ],
+  production: [
+    { type: 'path', d: 'M4 5h16v14H4V5Zm6 4v6l5-3-5-3Z' },
+    { type: 'path', d: 'M5.5 6.5h3l-2 2h-3l2-2Zm5 0h3l-2 2h-3l2-2Zm5 0h3l-2 2h-3l2-2Z', opacity: 0.45 },
+  ],
+  sdl: [
+    { type: 'path', d: 'M3.1 15.6c4.7 4.4 14.3 3.1 18-3.1l1.2.9C18.2 21 6.7 22 2 17l1.1-1.4Z', opacity: 0.4 },
+    { type: 'circle', cx: 19.2, cy: 14.3, r: 1.6 },
+    { type: 'circle', cx: 15.5, cy: 17.1, r: 1, opacity: 0.72 },
+    { type: 'circle', cx: 10.7, cy: 18.1, r: 0.8, opacity: 0.62 },
+    { type: 'text', value: 'SDL', x: 10.7, y: 11.6, size: 9.2 },
+  ],
+  sol: [
+    { type: 'circle', cx: 8, cy: 9, r: 4 },
+    { type: 'circle', cx: 16, cy: 15, r: 4, opacity: 0.65 },
+    { type: 'path', d: 'M9.8 11.6 14 14l-1.8 2.4L8 14l1.8-2.4Z', opacity: 0.5 },
+    { type: 'text', value: 'sol', x: 12, y: 13.7, size: 7.2, opacity: 0.72 },
+  ],
+  spreadsheet: [
+    { type: 'rect', x: 4, y: 4, width: 16, height: 16, rx: 1.5 },
+    { type: 'path', d: 'M4 8h16v2H4V8Zm0 4h16v2H4v-2Zm5-8h2v16H9V4Zm5 0h2v16h-2V4Z', opacity: 0.42 },
+  ],
+  team: [
+    { type: 'circle', cx: 12, cy: 7, r: 3 },
+    { type: 'circle', cx: 5.8, cy: 9, r: 2.3, opacity: 0.65 },
+    { type: 'circle', cx: 18.2, cy: 9, r: 2.3, opacity: 0.65 },
+    { type: 'path', d: 'M3 20c.7-4.2 3.6-6.2 9-6.2s8.3 2 9 6.2H3Z' },
+  ],
+  testTube: [
+    { type: 'path', d: 'M8 3h8v2h-2v6.8l5.1 6.9c.9 1.2.1 3.3-1.5 3.3H6.4c-1.6 0-2.4-2.1-1.5-3.3l5.1-6.9V5H8V3Z' },
+    { type: 'path', d: 'M8 17h8l1.4 2H6.6L8 17Z', opacity: 0.45 },
+  ],
+  tool: [
+    { type: 'path', d: 'M17.8 3.2a5.8 5.8 0 0 0-6.6 7.5l-8 8 2.6 2.6 8-8a5.8 5.8 0 0 0 7.5-6.6l-3.7 3.7-2.2-2.2 3.7-3.7c-.4-.5-.8-.9-1.3-1.3Z' },
+    { type: 'path', d: 'm12 4 2.5 5 5 2.5-5 2.5-2.5 5-2.5-5-5-2.5 5-2.5L12 4Z', opacity: 0.22 },
+  ],
+  windows: [
+    { type: 'path', d: 'M3 5.42 10.75 4.35v7.36H3V5.42Zm8.55-1.18L21 2.96v8.75h-9.45V4.24ZM3 12.54h7.75v7.15L3 18.62v-6.08Zm8.55 0H21v8.5l-9.45-1.24v-7.26Z' },
+  ],
+  wrench: [
+    { type: 'path', d: 'M17.9 3.1a5.5 5.5 0 0 0-6.1 7.1l-8.4 8.4 2.8 2.8 8.4-8.4a5.5 5.5 0 0 0 7.1-6.1l-3.8 3.8-2.7-2.7 3.8-3.8a5.2 5.2 0 0 0-1.1-1.1Z' },
+  ],
 };
 
 const icon = iconMap[name];
 const customIcon = customIconMap[name];
-const fallback = name
-  .split(/[\s/.+-]+/)
-  .filter(Boolean)
-  .slice(0, 2)
-  .map((part) => part[0])
-  .join('')
-  .toUpperCase();
+const customShapes = customIcon ? customIconShapes[customIcon.kind] : undefined;
 ---
 
 <li
-  class:list={['tech-badge', { 'tech-badge-fallback': !icon && !customIcon }]}
+  class:list={['tech-badge', { 'tech-badge-custom': customIcon }]}
   style={icon ? `--icon-color: #${icon.hex}` : customIcon?.color ? `--icon-color: ${customIcon.color}` : undefined}
 >
   {
@@ -153,14 +356,33 @@ const fallback = name
       <svg class="tech-icon" viewBox="0 0 24 24" aria-hidden="true">
         <path d={icon.path} />
       </svg>
-    ) : customIcon?.kind === 'windows' ? (
-      <svg class="tech-icon" viewBox="0 0 24 24" aria-hidden="true">
-        <path d="M3 5.42 10.75 4.35v7.36H3V5.42Zm8.55-1.18L21 2.96v8.75h-9.45V4.24ZM3 12.54h7.75v7.15L3 18.62v-6.08Zm8.55 0H21v8.5l-9.45-1.24v-7.26Z" />
+    ) : customShapes ? (
+      <svg class="tech-icon tech-icon-custom" viewBox="0 0 24 24" aria-hidden="true">
+        {customShapes.map((shape) =>
+          shape.type === 'path' ? (
+            <path d={shape.d} opacity={shape.opacity} />
+          ) : shape.type === 'circle' ? (
+            <circle cx={shape.cx} cy={shape.cy} r={shape.r} opacity={shape.opacity} />
+          ) : shape.type === 'text' ? (
+            <text class="tech-icon-text" x={shape.x} y={shape.y} font-size={shape.size} opacity={shape.opacity}>
+              {shape.value}
+            </text>
+          ) : (
+            <rect
+              x={shape.x}
+              y={shape.y}
+              width={shape.width}
+              height={shape.height}
+              rx={shape.rx}
+              opacity={shape.opacity}
+            />
+          ),
+        )}
       </svg>
-    ) : customIcon ? (
-      <span class="tech-custom" aria-hidden="true">{customIcon.label}</span>
     ) : (
-      <span class="tech-fallback" aria-hidden="true">{fallback}</span>
+      <svg class="tech-icon tech-icon-custom" viewBox="0 0 24 24" aria-hidden="true">
+        <path d="m8.5 6-5.5 6 5.5 6 1.6-1.5L6 12l4.1-4.5L8.5 6Zm7 0-1.6 1.5L18 12l-4.1 4.5 1.6 1.5 5.5-6-5.5-6Z" />
+      </svg>
     )
   }
   <span>{name}</span>
