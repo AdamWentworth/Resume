@@ -283,7 +283,7 @@ h1 {
 
 .hero-title-brand {
   width: 100%;
-  max-width: 760px;
+  max-width: 720px;
   margin-bottom: 14px;
   font-size: 0;
   line-height: 0;
@@ -308,11 +308,11 @@ h1 {
 }
 
 .hero-title-wordmark {
-  width: min(100%, 360px);
-  max-width: min(100%, 360px);
+  width: 100%;
+  max-width: none;
   min-width: 0;
   height: auto;
-  flex: 0 1 360px;
+  flex: 1 1 0;
 }
 
 h2 {
@@ -1119,9 +1119,9 @@ h3 {
   }
 
   .hero-title-wordmark {
-    width: min(52vw, calc(100% - 80px));
-    max-width: min(52vw, calc(100% - 80px));
-    flex-basis: auto;
+    width: 100%;
+    max-width: none;
+    flex: 1 1 0;
   }
 
   .timeline-item {
