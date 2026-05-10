@@ -309,10 +309,10 @@ h1 {
 
 .hero-title-wordmark {
   width: 100%;
-  max-width: none;
+  max-width: min(100%, 445px);
   min-width: 0;
   height: auto;
-  flex: 1 1 0;
+  flex: 0 1 445px;
 }
 
 h2 {
@@ -1119,9 +1119,9 @@ h3 {
   }
 
   .hero-title-wordmark {
-    width: 100%;
-    max-width: none;
-    flex: 1 1 0;
+    width: min(64vw, calc(100% - 80px));
+    max-width: min(64vw, calc(100% - 80px));
+    flex-basis: auto;
   }
 
   .timeline-item {
