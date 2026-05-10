@@ -284,7 +284,7 @@ h1 {
 .hero-title-brand {
   width: 100%;
   max-width: 760px;
-  margin-bottom: 22px;
+  margin-bottom: 14px;
   font-size: 0;
   line-height: 0;
 }
@@ -293,16 +293,16 @@ h1 {
   display: flex;
   width: 100%;
   align-items: center;
-  gap: clamp(14px, 2.4vw, 28px);
+  gap: clamp(12px, 2vw, 24px);
   overflow: hidden;
-  border-radius: 8px;
-  background: rgba(255, 255, 255, 0.46);
-  padding: clamp(16px, 2.2vw, 30px);
-  box-shadow: 0 18px 54px rgba(30, 111, 232, 0.12);
+  border-radius: 0;
+  background: transparent;
+  padding: 0;
+  box-shadow: none;
 }
 
 .hero-title-mark {
-  width: clamp(92px, 13vw, 164px);
+  width: clamp(86px, 11vw, 136px);
   height: auto;
   flex: 0 0 auto;
 }
@@ -326,7 +326,7 @@ h3 {
 
 .hero-summary {
   max-width: 720px;
-  margin-bottom: 18px;
+  margin-bottom: 14px;
   color: #1a2b42;
   font-size: 22px;
   line-height: 1.45;
@@ -343,7 +343,7 @@ h3 {
   flex-wrap: wrap;
   align-items: center;
   gap: 12px;
-  margin-top: 28px;
+  margin-top: 22px;
 }
 
 .text-link {
@@ -1109,16 +1109,16 @@ h3 {
   }
 
   .hero-title-lockup {
-    gap: 12px;
-    padding: 14px;
+    gap: 10px;
+    padding: 0;
   }
 
   .hero-title-mark {
-    width: clamp(78px, 24vw, 104px);
+    width: clamp(70px, 20vw, 88px);
   }
 
   .hero-title-wordmark {
-    max-width: calc(100% - 90px);
+    max-width: calc(100% - 80px);
   }
 
   .timeline-item {
