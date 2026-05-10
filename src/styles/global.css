@@ -40,6 +40,7 @@ html {
 body {
   margin: 0;
   min-width: 320px;
+  overflow-x: hidden;
   background: var(--bg);
   color: var(--text);
   font-size: 16px;
@@ -82,6 +83,16 @@ a {
   outline-offset: 4px;
 }
 
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  clip-path: inset(50%);
+}
+
 .skip-link {
   position: fixed;
   top: 12px;
@@ -115,18 +126,37 @@ a {
 
 .header-inner {
   display: flex;
-  min-height: 76px;
+  min-height: 88px;
   align-items: center;
   justify-content: space-between;
   gap: 20px;
+  min-width: 0;
 }
 
 .brand {
   display: flex;
-  width: 192px;
+  width: clamp(248px, 24vw, 310px);
   flex: 0 0 auto;
   align-items: center;
+  gap: 10px;
+  overflow: hidden;
+  border-radius: 8px;
   text-decoration: none;
+}
+
+.brand img {
+  height: auto;
+}
+
+.brand-mark-image {
+  width: 54px;
+  flex: 0 0 54px;
+}
+
+.brand-wordmark-image {
+  width: min(224px, calc(100% - 64px));
+  flex: 1 1 auto;
+  min-width: 0;
 }
 
 .site-nav {
@@ -134,6 +164,8 @@ a {
   flex-wrap: wrap;
   justify-content: center;
   gap: 4px;
+  min-width: 0;
+  max-width: 100%;
 }
 
 .site-nav a,
@@ -214,6 +246,7 @@ a {
 }
 
 .hero-copy {
+  min-width: 0;
   max-width: 760px;
 }
 
@@ -246,6 +279,39 @@ h1 {
   max-width: 820px;
   margin-bottom: 24px;
   font-size: 64px;
+}
+
+.hero-title-brand {
+  width: 100%;
+  max-width: 760px;
+  margin-bottom: 22px;
+  font-size: 0;
+  line-height: 0;
+}
+
+.hero-title-lockup {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  gap: clamp(14px, 2.4vw, 28px);
+  overflow: hidden;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.46);
+  padding: clamp(16px, 2.2vw, 30px);
+  box-shadow: 0 18px 54px rgba(30, 111, 232, 0.12);
+}
+
+.hero-title-mark {
+  width: clamp(92px, 13vw, 164px);
+  height: auto;
+  flex: 0 0 auto;
+}
+
+.hero-title-wordmark {
+  width: 100%;
+  min-width: 0;
+  height: auto;
+  flex: 1 1 auto;
 }
 
 h2 {
@@ -988,6 +1054,8 @@ h3 {
   .header-inner {
     align-items: stretch;
     gap: 12px;
+    max-width: calc(100vw - 28px);
+    overflow: hidden;
   }
 
   .section-band {
@@ -1011,13 +1079,14 @@ h3 {
   }
 
   .brand {
-    width: 164px;
+    width: 236px;
   }
 
   .site-nav {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
     width: 100%;
+    max-width: 100%;
     gap: 6px;
   }
 
@@ -1031,6 +1100,25 @@ h3 {
 
   .header-inner .button-compact {
     width: 100%;
+  }
+
+  .hero-copy,
+  .hero-title-brand {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .hero-title-lockup {
+    gap: 12px;
+    padding: 14px;
+  }
+
+  .hero-title-mark {
+    width: clamp(78px, 24vw, 104px);
+  }
+
+  .hero-title-wordmark {
+    max-width: calc(100% - 90px);
   }
 
   .timeline-item {
@@ -1063,6 +1151,10 @@ h3 {
 @media (max-width: 420px) {
   .container {
     width: min(1120px, calc(100% - 24px));
+  }
+
+  .header-inner {
+    max-width: calc(100vw - 24px);
   }
 
   .hero-actions {

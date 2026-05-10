@@ -9,7 +9,13 @@ const prominentLinks = resume.links.filter((link) => link.prominent);
   <div class="container hero-grid">
     <div class="hero-copy">
       <p class="eyebrow">{resume.role}</p>
-      <h1 id="hero-title">{resume.name}</h1>
+      <h1 id="hero-title" class="hero-title-brand">
+        <span class="hero-title-lockup" aria-hidden="true">
+          <img class="hero-title-mark" src="/assets/aw-mark.png" alt="" width="640" height="640" />
+          <img class="hero-title-wordmark" src="/assets/aw-wordmark.png" alt="" width="1270" height="205" />
+        </span>
+        <span class="sr-only">{resume.name}</span>
+      </h1>
       <p class="hero-summary">{resume.summary}</p>
       <p class="hero-intro">{resume.intro}</p>
       <div class="hero-actions" aria-label="Primary actions">

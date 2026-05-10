@@ -14,7 +14,8 @@ const navItems = [
 <header class="site-header">
   <div class="container header-inner">
     <a class="brand" href="/" aria-label={`${resume.name} home`}>
-      <img src="/assets/adam.svg" alt="" width="192" height="48" />
+      <img class="brand-mark-image" src="/assets/aw-mark.png" alt="" width="640" height="640" />
+      <img class="brand-wordmark-image" src="/assets/aw-wordmark.png" alt="" width="1270" height="205" />
     </a>
     <nav class="site-nav" aria-label="Primary navigation">
       {navItems.map((item) => <a href={item.href}>{item.label}</a>)}
