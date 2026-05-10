@@ -308,11 +308,11 @@ h1 {
 }
 
 .hero-title-wordmark {
-  width: min(100%, 540px);
-  max-width: min(100%, 540px);
+  width: min(100%, 360px);
+  max-width: min(100%, 360px);
   min-width: 0;
   height: auto;
-  flex: 0 1 540px;
+  flex: 0 1 360px;
 }
 
 h2 {
@@ -1119,8 +1119,8 @@ h3 {
   }
 
   .hero-title-wordmark {
-    width: min(58vw, calc(100% - 80px));
-    max-width: min(58vw, calc(100% - 80px));
+    width: min(52vw, calc(100% - 80px));
+    max-width: min(52vw, calc(100% - 80px));
     flex-basis: auto;
   }
 
