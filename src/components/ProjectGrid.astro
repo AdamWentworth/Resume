@@ -91,3 +91,135 @@ const { projects } = Astro.props;
     <p class="empty-state">Project details are being finalized.</p>
   )
 }
+
+<script>
+  const setupProjectDetailsAnimation = () => {
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+    const detailsElements = document.querySelectorAll('.project-details');
+
+    const visibleHeaderOffset = () => {
+      const header = document.querySelector('.site-header');
+
+      if (!(header instanceof HTMLElement)) {
+        return 0;
+      }
+
+      const position = window.getComputedStyle(header).position;
+      return position === 'sticky' || position === 'fixed' ? header.getBoundingClientRect().height : 0;
+    };
+
+    const scrollExpandedContentIntoView = (expanded: Element | null) => {
+      if (!(expanded instanceof HTMLElement)) {
+        return;
+      }
+
+      const rect = expanded.getBoundingClientRect();
+      const targetTop = Math.max(0, window.scrollY + rect.top - visibleHeaderOffset() - 18);
+      window.scrollTo({
+        top: targetTop,
+        behavior: reduceMotion.matches ? 'auto' : 'smooth',
+      });
+    };
+
+    detailsElements.forEach((details) => {
+      if (!(details instanceof HTMLDetailsElement) || details.dataset.animationReady === 'true') {
+        return;
+      }
+
+      const summary = details.querySelector('summary');
+      const expanded = details.querySelector('.project-expanded');
+
+      if (!(summary instanceof HTMLElement) || !(expanded instanceof HTMLElement)) {
+        return;
+      }
+
+      details.dataset.animationReady = 'true';
+      details.classList.add('project-details-enhanced');
+
+      const resetExpandedStyles = () => {
+        expanded.style.height = '';
+        expanded.style.opacity = '';
+        expanded.style.overflow = '';
+        delete details.dataset.animating;
+      };
+
+      const openDetails = () => {
+        details.open = true;
+
+        if (reduceMotion.matches) {
+          resetExpandedStyles();
+          scrollExpandedContentIntoView(expanded);
+          return;
+        }
+
+        details.dataset.animating = 'open';
+        expanded.style.height = '0px';
+        expanded.style.opacity = '0';
+        expanded.style.overflow = 'hidden';
+
+        requestAnimationFrame(() => {
+          expanded.style.height = `${expanded.scrollHeight}px`;
+          expanded.style.opacity = '1';
+          scrollExpandedContentIntoView(expanded);
+        });
+
+        const handleOpenEnd = (event: TransitionEvent) => {
+          if (event.propertyName === 'height' && details.dataset.animating === 'open') {
+            expanded.removeEventListener('transitionend', handleOpenEnd);
+            resetExpandedStyles();
+          }
+        };
+
+        expanded.addEventListener('transitionend', handleOpenEnd);
+      };
+
+      const closeDetails = () => {
+        if (reduceMotion.matches) {
+          details.open = false;
+          resetExpandedStyles();
+          return;
+        }
+
+        details.dataset.animating = 'close';
+        expanded.style.height = `${expanded.scrollHeight}px`;
+        expanded.style.opacity = '1';
+        expanded.style.overflow = 'hidden';
+
+        requestAnimationFrame(() => {
+          expanded.style.height = '0px';
+          expanded.style.opacity = '0';
+        });
+
+        const handleCloseEnd = (event: TransitionEvent) => {
+          if (event.propertyName === 'height' && details.dataset.animating === 'close') {
+            expanded.removeEventListener('transitionend', handleCloseEnd);
+            details.open = false;
+            resetExpandedStyles();
+          }
+        };
+
+        expanded.addEventListener('transitionend', handleCloseEnd);
+      };
+
+      summary.addEventListener('click', (event) => {
+        event.preventDefault();
+
+        if (details.dataset.animating) {
+          return;
+        }
+
+        if (details.open) {
+          closeDetails();
+        } else {
+          openDetails();
+        }
+      });
+    });
+  };
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', setupProjectDetailsAnimation, { once: true });
+  } else {
+    setupProjectDetailsAnimation();
+  }
+</script>
