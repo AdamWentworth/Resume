@@ -3,6 +3,19 @@ import { mkdir, writeFile } from 'node:fs/promises';
 import { dirname, resolve } from 'node:path';
 import { promisify } from 'node:util';
 import { fileURLToPath, pathToFileURL } from 'node:url';
+import {
+  additionalItems,
+  availability,
+  experienceBullets,
+  github,
+  headline,
+  linkedIn,
+  phone,
+  profile,
+  projectBullets,
+  projectDates,
+  skills,
+} from './resume-document.mjs';
 
 const execFileAsync = promisify(execFile);
 const repoRoot = resolve(dirname(fileURLToPath(import.meta.url)), '..');
@@ -11,67 +24,6 @@ const { resume } = await import(pathToFileURL(resolve(repoRoot, 'src/data/resume
 const outputPath = resolve(repoRoot, 'public/resume.pdf');
 const artifactDir = resolve(repoRoot, '.artifacts/resume-pdf');
 const htmlPath = resolve(artifactDir, 'resume.html');
-
-const phone = '604-726-7888';
-const github = 'github.com/AdamWentworth';
-const linkedIn = 'linkedin.com/in/adam-john-wentworth';
-
-const projectDates = new Map([
-  ['Pokemon Go Nexus', 'September 2023 - Present'],
-  ['WinRift', '2026 - Present'],
-  ['Pokemon Autochess', 'April 2025 - Present'],
-]);
-
-const projectBullets = new Map([
-  [
-    'Pokemon Go Nexus',
-    [
-      'Built Go services, Kafka-backed update flow, MySQL persistence, and SSE readers for live Pokemon GO collection updates.',
-      'Implemented auth, geospatial Postgres/PostGIS search, React clients, Docker/NGINX deployment, backups, and frontend tests.',
-    ],
-  ],
-  [
-    'WinRift',
-    [
-      'Built Go API, Riot Games API collector worker, monitor, and patch archive tooling for League analytics workflows.',
-      'Normalized match, timeline, rank, and static-data payloads into ClickHouse read models for champion guides and live scouting.',
-    ],
-  ],
-  [
-    'Pokemon Autochess',
-    [
-      'Built C++20 engine modules for app lifecycle, UI, camera/board rendering, model loading, animation, and render caches.',
-      'Composed deterministic runtime systems with Lua tuning, OpenGL and Direct3D 12 paths, VFX tooling, and smoke tests.',
-    ],
-  ],
-]);
-
-const experienceBullets = new Map([
-  [
-    'Software Developer Intern',
-    [
-      'Built Python image-processing and CLI scripts for AI video training-data preparation inside a Rust/Tauri/React desktop workflow.',
-    ],
-  ],
-  [
-    'Full-Stack Developer',
-    [
-      'Shipped React UI and REST APIs for a PDF study workspace, including upload/ingestion, OpenAI writing actions, Docker, and handoff.',
-    ],
-  ],
-  [
-    'IT Support Specialist Intern',
-    [
-      'Supported Windows, macOS, Linux, hardware, cloud, networking, Active Directory, VPN, Office 365, and Google Workspace environments.',
-    ],
-  ],
-  [
-    'Operations & Data Coordinator',
-    [
-      'Rebuilt music catalog and artist research data into QA-ready spreadsheet systems for royalty claims, placements, and follow-up.',
-    ],
-  ],
-]);
 
 function escapeHtml(value) {
   return String(value)
@@ -102,28 +54,6 @@ function entry({ title, meta, stack, bullets }) {
     </article>
   `;
 }
-
-const skills = [
-  ['Languages', ['TypeScript', 'JavaScript', 'Python', 'Go', 'C++20', 'Rust', 'SQL']],
-  [
-    'Backend/Data',
-    [
-      'Microservices',
-      'net/http',
-      'Fiber',
-      'Node/Express',
-      'FastAPI',
-      'PostgreSQL/PostGIS',
-      'MySQL',
-      'MongoDB',
-      'ClickHouse',
-      'Kafka',
-    ],
-  ],
-  ['Frontend/Desktop', ['React', 'Astro', 'Expo', 'Tauri', 'CSS', 'Accessibility']],
-  ['Systems/Infra', ['SDL2', 'OpenGL', 'Direct3D 12', 'Lua', 'sol2', 'CMake', 'Docker', 'NGINX', 'GitHub Actions']],
-  ['AI/Automation', ['OpenAI API', 'llama.cpp', 'Ollama', 'Whisper ASR', 'Python scripting']],
-];
 
 const projectEntries = resume.projects
   .map((project) =>
@@ -312,15 +242,12 @@ const html = `<!doctype html>
   <body>
     <header>
       <h1>${escapeHtml(resume.name)}</h1>
-      <p class="headline">Software Engineer | Go Backends | C++ Systems | Full-Stack Products</p>
+      <p class="headline">${escapeHtml(headline)}</p>
       <p class="contact-line">${contactLine}</p>
-      <p class="contact-line">BCIT BSc Applied Computer Science, expected May 2027 | Seeking 2027 software engineering roles</p>
+      <p class="contact-line">${escapeHtml(availability)}</p>
     </header>
 
-    ${section(
-      'Profile',
-      `<p class="summary">Software engineer and BCIT Applied Computer Science student building full-stack products, Go services, C++ game systems, and AI-adjacent tooling. I use modern AI coding workflows to move faster while keeping ownership of design, testing, and production quality.</p>`,
-    )}
+    ${section('Profile', `<p class="summary">${escapeHtml(profile)}</p>`)}
 
     ${section(
       'Skills',
@@ -338,8 +265,9 @@ const html = `<!doctype html>
     ${section(
       'Additional',
       `<div class="additional">
-        <span><strong>CaptainMonkHD:</strong> YouTube creator with 200k+ subscribers, Riot Games Partner, analytics-driven production, and brand partnerships.</span>
-        <span><strong>Recording engineer:</strong> Client-facing studio work, Pro Tools sessions, signal flow, live-floor tracking, and technical troubleshooting.</span>
+        ${additionalItems
+          .map((item) => `<span><strong>${escapeHtml(item.label)}:</strong> ${escapeHtml(item.text)}</span>`)
+          .join('')}
       </div>`,
     )}
   </body>

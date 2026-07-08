@@ -11,6 +11,8 @@
     "format": "prettier --write .",
     "format:check": "prettier --check .",
     "lint": "npm run check && npm run format:check",
+    "resume": "npm run resume:md && npm run resume:pdf",
+    "resume:md": "node scripts/render-resume-md.mjs && prettier --write RESUME.md",
     "resume:pdf": "node scripts/render-resume-pdf.mjs",
     "test": "vitest run",
     "test:watch": "vitest",

@@ -20,6 +20,7 @@ Brand and social assets live in `public/assets/`. Resume and favicon assets live
 
 ```plaintext
 Resume/
+|-- RESUME.md                # Generated Markdown resume
 |-- public/
 |   |-- assets/                # Adam Wentworth brand marks and social card
 |   |-- images/                # Portrait, education logos, local tech marks
@@ -123,6 +124,9 @@ npm run preview
 | `npm run format`       | Format the repo with Prettier         |
 | `npm run format:check` | Verify formatting without writing     |
 | `npm run lint`         | Run Astro check and formatting check  |
+| `npm run resume`       | Regenerate `RESUME.md` and PDF resume |
+| `npm run resume:md`    | Regenerate the Markdown resume        |
+| `npm run resume:pdf`   | Regenerate the downloadable PDF       |
 | `npm run test`         | Run Vitest contract tests             |
 | `npm run build`        | Build the static Astro output         |
 | `npm run verify`       | Run lint, tests, and production build |
@@ -167,17 +171,19 @@ Edit `src/data/resume.ts` for:
 - education and credential details
 - contact links and resume PDF path
 
-### Update The Resume PDF
+### Update Resume Documents
 
-Replace:
+The website, Markdown resume, and PDF resume are generated from repo-local sources:
 
-```plaintext
-public/resume.pdf
-```
+- `src/data/resume.ts` holds the primary site content.
+- `scripts/resume-document.mjs` holds the condensed print/Markdown resume selections.
+- `RESUME.md` is generated Markdown.
+- `public/resume.pdf` is generated from a local HTML print layout.
 
 Then run:
 
 ```bash
+npm run resume
 npm run verify
 ```
 
