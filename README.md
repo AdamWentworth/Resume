@@ -59,7 +59,7 @@ The repo is intentionally content-driven. Most resume changes should happen in `
 
 ## Product Surface
 
-- **Hero and summary**: name lockup, role, location, profile facts, internship intent, portrait, resume PDF, email, LinkedIn, and GitHub links.
+- **Hero and summary**: name lockup, role, location, profile facts, career intent, portrait, resume PDF, email, LinkedIn, and GitHub links.
 - **Project case studies**: selected engineering work with role framing, proof points, technology badges, and GitHub links.
 - **Technical skills**: grouped matrix for languages, frontend/desktop, backend/API work, data/infrastructure, systems/games, AI/automation, and fundamentals.
 - **Education**: credential cards for current and completed education with local logo assets.

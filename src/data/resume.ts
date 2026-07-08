@@ -28,6 +28,7 @@ export type ProjectEntry = {
   }[];
   technologies: string[];
   href?: string;
+  phlosionDemoHref?: string;
 };
 
 export type SkillGroup = {
@@ -86,11 +87,11 @@ export const resume = {
   intro:
     'I care about useful results: designing clear systems, shipping working software, and using modern tools thoughtfully to move faster without giving up ownership of quality.',
   impact: [
-    'I am seeking Summer 2026 software engineering internships while completing my Bachelor of Science in Applied Computer Science.',
+    'I am entering my final year of BCIT Applied Computer Science and expect to graduate in May 2027.',
     'I work well in teams and take initiative through projects that force real architecture, deployment, and testing decisions.',
     'I use AI to accelerate implementation when I understand the problem well enough to evaluate the result and deliver value faster.',
   ],
-  profileFacts: ['BCIT Applied CS', 'Summer 2026 internships'],
+  profileFacts: ['BCIT Applied CS', 'Graduating May 2027', 'Seeking 2027 software roles'],
   resumePdf: {
     label: 'Download resume',
     href: '/resume.pdf',
@@ -255,7 +256,35 @@ export const resume = {
         'NGINX',
         'Vitest',
       ],
-      href: 'https://github.com/AdamWentworth/Go',
+      href: 'https://github.com/AdamWentworth/PokeGoNexus',
+      phlosionDemoHref: 'https://phlosion.com/?demo=nexus#demo-stage',
+    },
+    {
+      name: 'WinRift',
+      role: 'Go game analytics backend',
+      summary:
+        'A League of Legends analytics platform with a Go API, Riot Games API collector worker, ClickHouse read models, React UI, Docker deployment, and rate-limit-aware data ingestion.',
+      proof: [
+        {
+          label: 'Go core',
+          text: 'Built separate Go API, Riot Games API collector worker, monitor, and patch archive entrypoints around game-data collection and analytics reads.',
+        },
+        {
+          label: 'Data pipeline',
+          text: 'Normalized Riot Games match, timeline, rank, and static-data payloads into ClickHouse tables and app-facing read models.',
+        },
+        {
+          label: 'Operations',
+          text: 'Documented private-server deployment with Docker Compose, environment isolation, worker health checks, and GitHub Actions image delivery.',
+        },
+        {
+          label: 'Product surface',
+          text: 'Built champion guides, matchup views, tier lists, summoner profiles, and live scouting flows on top of stored analytics.',
+        },
+      ],
+      technologies: ['Go', 'net/http', 'ClickHouse', 'Riot API', 'React', 'TypeScript', 'Docker', 'GitHub Actions'],
+      href: 'https://github.com/AdamWentworth/WinRift',
+      phlosionDemoHref: 'https://phlosion.com/?demo=winrift#demo-stage',
     },
     {
       name: 'Pokemon Autochess',
@@ -282,32 +311,7 @@ export const resume = {
       ],
       technologies: ['C++20', 'SDL2', 'OpenGL', 'Direct3D 12', 'Lua', 'sol2', 'CMake', 'JSON'],
       href: 'https://github.com/AdamWentworth/PokemonAutochess',
-    },
-    {
-      name: 'Jarvin',
-      role: 'Local AI assistant platform',
-      summary:
-        'A host-run personal AI assistant stack around local models, voice workflows, memory, tools, integrations, planning, and shared desktop/mobile clients.',
-      proof: [
-        {
-          label: 'Local host',
-          text: 'Connected llama.cpp and Ollama backends through FastAPI with conversation history, profile memory, reminders, routines, and safe host-side tools.',
-        },
-        {
-          label: 'Voice',
-          text: 'Built remote phone voice flows with phone microphone capture, host-side transcription, and phone speaker playback for replies.',
-        },
-        {
-          label: 'Clients',
-          text: 'Built a shared React client, Tauri desktop app, Tauri Android shell, and remote phone voice path over local network or WireGuard.',
-        },
-        {
-          label: 'Integrations',
-          text: 'Added workspace actions, DuckDuckGo-backed research with page summarization, morning briefs, and pytest-backed backend validation.',
-        },
-      ],
-      technologies: ['Python', 'FastAPI', 'React', 'Tauri', 'SQLite', 'llama.cpp', 'Ollama'],
-      href: 'https://github.com/AdamWentworth/Jarvin',
+      phlosionDemoHref: 'https://phlosion.com/?demo=autochess#demo-stage',
     },
   ],
   skills: [

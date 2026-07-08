@@ -52,12 +52,34 @@ const { projects } = Astro.props;
               </ul>
               {project.href && (
                 <div class="project-footer">
-                  <a class="text-link icon-link" href={project.href} target="_blank" rel="noreferrer">
-                    <svg class="link-icon" viewBox="0 0 24 24" aria-hidden="true">
-                      <path d={siGithub.path} />
-                    </svg>
-                    GitHub repo
-                  </a>
+                  <div class="project-links">
+                    <a class="text-link icon-link" href={project.href} target="_blank" rel="noreferrer">
+                      <svg class="link-icon" viewBox="0 0 24 24" aria-hidden="true">
+                        <path d={siGithub.path} />
+                      </svg>
+                      GitHub repo
+                    </a>
+                    {project.phlosionDemoHref && (
+                      <a
+                        class="text-link icon-link project-demo-link"
+                        href={project.phlosionDemoHref}
+                        target="_blank"
+                        rel="noreferrer"
+                        aria-label={`View ${project.name} demo on Phlosion Software Project Lab`}
+                        title={`View ${project.name} demo on Phlosion Software Project Lab`}
+                      >
+                        <img
+                          class="phlosion-link-mark"
+                          src="/images/phlosion-mark.png"
+                          alt=""
+                          width="911"
+                          height="911"
+                          loading="lazy"
+                        />
+                        Demo on Phlosion
+                      </a>
+                    )}
+                  </div>
                 </div>
               )}
             </aside>

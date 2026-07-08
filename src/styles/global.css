@@ -648,6 +648,27 @@ h3 {
   gap: 18px;
 }
 
+.project-lab-callout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 24px;
+  border: 1px solid rgba(30, 111, 232, 0.18);
+  border-radius: 8px;
+  background: linear-gradient(135deg, rgba(30, 111, 232, 0.1), rgba(255, 255, 255, 0.9) 48%), rgba(255, 255, 255, 0.88);
+  box-shadow: var(--shadow);
+  padding: 22px;
+}
+
+.project-lab-callout h3 {
+  margin-bottom: 8px;
+}
+
+.project-lab-callout p:last-child {
+  margin-bottom: 0;
+  color: var(--muted);
+}
+
 .project-case {
   position: relative;
   display: grid;
@@ -824,6 +845,24 @@ h3 {
 
 .project-footer {
   margin-top: 0;
+}
+
+.project-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 10px;
+}
+
+.project-demo-link {
+  color: var(--accent-strong);
+}
+
+.phlosion-link-mark {
+  width: 18px;
+  height: 18px;
+  flex: 0 0 auto;
+  object-fit: contain;
+  filter: drop-shadow(0 2px 4px rgba(13, 23, 38, 0.12));
 }
 
 .project-stack {
@@ -1021,6 +1060,15 @@ h3 {
       'expanded';
   }
 
+  .project-lab-callout {
+    grid-template-columns: 1fr;
+    align-items: start;
+  }
+
+  .project-lab-callout .button {
+    width: fit-content;
+  }
+
   .project-main {
     margin-bottom: 0;
   }
@@ -1135,6 +1183,7 @@ h3 {
 
   .impact-panel,
   .project-case,
+  .project-lab-callout,
   .education-card-large {
     padding: 18px;
   }

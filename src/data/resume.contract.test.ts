@@ -18,7 +18,7 @@ const allHrefValues = () => [
   resume.resumePdf.href,
   resume.portrait.src,
   ...resume.links.map((link) => link.href),
-  ...resume.projects.flatMap((project) => (project.href ? [project.href] : [])),
+  ...resume.projects.flatMap((project) => [project.href, project.phlosionDemoHref].filter((href) => Boolean(href))),
   ...resume.experience.flatMap((entry) => (entry.companyHref ? [entry.companyHref] : [])),
   ...resume.education.map((entry) => entry.logo.src),
   ...Object.values(imageIconMap).map((icon) => icon.src),
@@ -66,6 +66,7 @@ describe('resume content contract', () => {
       expect(project.summary).toBeTruthy();
       expect(project.technologies.length).toBeGreaterThan(0);
       expect(project.href).toMatch(/^https:\/\/github\.com\/AdamWentworth\//);
+      expect(project.phlosionDemoHref).toMatch(/^https:\/\/phlosion\.com\/\?demo=[a-z-]+#demo-stage$/);
       expect(project.proof.length).toBeGreaterThanOrEqual(3);
       expect(new Set(project.proof.map((item) => item.label)).size).toBe(project.proof.length);
     }
