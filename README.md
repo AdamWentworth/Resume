@@ -2,9 +2,9 @@
 
 ## About
 
-I built AdamWentworth.ca as my personal resume and project portfolio. It brings together my resume highlights, selected engineering case studies, technical skills, education, experience, contact links, and downloadable PDF resume in one fast, accessible site.
+This repository contains the source for my personal resume and project portfolio, [AdamWentworth.ca](https://adamwentworth.ca). The site brings together resume highlights, selected engineering case studies, technical skills, education, experience, contact links, and a downloadable PDF resume in one fast, accessible place.
 
-This site complements [phlosion.com](https://phlosion.com): I use AdamWentworth.ca to share my professional background and recruiting context, while Phlosion is my broader product lab for individual software builds.
+The site complements [phlosion.com](https://phlosion.com): AdamWentworth.ca focuses on professional background and recruiting context, while Phlosion provides a broader product-lab view of individual software builds.
 
 ## Tech Stack
 
@@ -15,16 +15,16 @@ This site complements [phlosion.com](https://phlosion.com): I use AdamWentworth.
 [![Prettier](https://img.shields.io/badge/Formatting-Prettier-F7B93E?logo=prettier&logoColor=black)](https://prettier.io/)
 [![Vercel](https://img.shields.io/badge/Deployment-Vercel-000000?logo=vercel&logoColor=white)](https://vercel.com/)
 
-| Layer     | Technology                                       | How I use it                                                       |
+| Layer     | Technology                                       | Purpose                                                            |
 | --------- | ------------------------------------------------ | ------------------------------------------------------------------ |
-| Framework | Astro                                            | Generate a fast, lightweight static site                           |
-| Language  | TypeScript                                       | Type my resume data and content contract tests                     |
-| Styling   | Plain CSS                                        | Build the responsive design in `src/styles/global.css`             |
-| Metadata  | Astro layout, JSON-LD, Open Graph, Twitter cards | Publish structured data, canonical URLs, and social previews       |
-| Assets    | Public static assets                             | Serve my brand marks, portrait, education logos, icons, and resume |
-| Testing   | Vitest                                           | Check my resume data, links, assets, icons, and anchors            |
-| Quality   | Astro Check, Prettier, GitHub Actions            | Run linting, tests, and the production build                       |
-| Hosting   | Vercel                                           | Deploy the static output to `adamwentworth.ca`                     |
+| Framework | Astro                                            | Fast, lightweight static site generation                           |
+| Language  | TypeScript                                       | Typed resume data and content contract tests                       |
+| Styling   | Plain CSS                                        | Responsive design in `src/styles/global.css`                       |
+| Metadata  | Astro layout, JSON-LD, Open Graph, Twitter cards | Structured data, canonical URLs, and social previews               |
+| Assets    | Public static assets                             | Brand marks, portrait, education logos, icons, and resume          |
+| Testing   | Vitest                                           | Contract checks for resume data, links, assets, icons, and anchors |
+| Quality   | Astro Check, Prettier, GitHub Actions            | Linting, tests, and production build                               |
+| Hosting   | Vercel                                           | Static deployment for `adamwentworth.ca`                           |
 
 ---
 
@@ -34,7 +34,7 @@ This site complements [phlosion.com](https://phlosion.com): I use AdamWentworth.
 | ---------------------------------------------------------------------- | ---------------------------------------------------------------- |
 | ![Adam Wentworth social card](public/assets/aw-social-card-readme.png) | ![Adam Wentworth wordmark](public/assets/aw-wordmark-readme.png) |
 
-I keep brand and social assets in `public/assets/`, resume and favicon assets in `public/`, and project and credential imagery in `public/images/`. The `*-readme.png` previews use an opaque light panel so the dark lettering stays readable in both GitHub themes; the transparent production artwork remains unchanged.
+Brand and social assets live in `public/assets/`, resume and favicon assets live in `public/`, and project and credential imagery lives in `public/images/`. The `*-readme.png` previews use an opaque light panel so the dark lettering stays readable in both GitHub themes; the transparent production artwork remains unchanged.
 
 ---
 
@@ -61,7 +61,7 @@ Resume/
 `-- README.md
 ```
 
-I keep the repo intentionally content-driven. I make most resume changes in `src/data/resume.ts` and update components or styles only when the presentation model needs to change.
+The repository is intentionally content-driven. Most resume changes belong in `src/data/resume.ts`; components and styles only need updates when the presentation model changes.
 
 ---
 
@@ -79,7 +79,7 @@ I keep the repo intentionally content-driven. I make most resume changes in `src
 
 ## Content Model
 
-`src/data/resume.ts` is my primary content source. It defines:
+`src/data/resume.ts` is the primary content source. It defines:
 
 | Field                                          | Purpose                                                                           |
 | ---------------------------------------------- | --------------------------------------------------------------------------------- |
@@ -92,7 +92,7 @@ I keep the repo intentionally content-driven. I make most resume changes in `src
 | `skills`                                       | Grouped skill matrix                                                              |
 | `education`                                    | Credential cards and logo assets                                                  |
 
-`src/data/techIcons.ts` maps my visible technology labels to simple-icons, local images, or custom inline SVG-style shapes. A contract test checks that every visible badge has icon coverage.
+`src/data/techIcons.ts` maps visible technology labels to simple-icons, local images, or custom inline SVG-style shapes. A contract test checks that every visible badge has icon coverage.
 
 ---
 
@@ -138,13 +138,13 @@ npm run preview
 | `npm run build`        | Build the static Astro output         |
 | `npm run verify`       | Run lint, tests, and production build |
 
-Before I commit, I normally run:
+Run the complete verification suite before committing:
 
 ```bash
 npm run verify
 ```
 
-My CI workflow runs the same core gate on pushes and pull requests to `main`: install dependencies, lint, test, and build.
+CI runs the same core gate on pushes and pull requests to `main`: install dependencies, lint, test, and build.
 
 ---
 
@@ -161,11 +161,11 @@ flowchart LR
   Layout --> Static[Static Astro output]
 ```
 
-I do not use a runtime database or backend for this site. Astro compiles my resume content, icon mappings, assets, and metadata into static output.
+The site has no runtime database or backend. Astro compiles the resume content, icon mappings, assets, and metadata into static output.
 
 ---
 
-## How I Maintain the Site
+## Editing Workflow
 
 ### Update Resume Content
 
@@ -180,7 +180,7 @@ Edit `src/data/resume.ts` for:
 
 ### Update Resume Documents
 
-I generate the website, Markdown resume, and PDF resume from repo-local sources:
+The website, Markdown resume, and PDF resume are generated from repository-local sources:
 
 - `src/data/resume.ts` holds the primary site content.
 - `scripts/resume-document.mjs` holds the condensed print/Markdown resume selections.
@@ -205,7 +205,7 @@ npm run verify
 
 ## Environment Overview
 
-I do not need runtime environment variables for local development or production rendering.
+The site does not require runtime environment variables for local development or production rendering.
 
 | Setting             | Location            | Purpose                                                                   |
 | ------------------- | ------------------- | ------------------------------------------------------------------------- |
@@ -217,9 +217,9 @@ I do not need runtime environment variables for local development or production 
 
 ## Deployment
 
-I build AdamWentworth.ca as static Astro output and deploy it with Vercel.
+AdamWentworth.ca builds as static Astro output and deploys through Vercel.
 
-My typical deployment flow:
+Typical deployment flow:
 
 1. Push to GitHub.
 2. Vercel installs dependencies and runs `npm run build`.
@@ -229,6 +229,6 @@ My typical deployment flow:
 
 ---
 
-## Why I Built It
+## Project Goals
 
-This site is the recruiting and resume layer of my portfolio. I designed it to stay fast, direct, scannable, and honest: a recruiter should be able to understand who I am and what I build quickly, then follow my project links for deeper technical evidence.
+This site is the recruiting and resume layer of the portfolio. It is designed to stay fast, direct, scannable, and honest: visitors can understand the professional profile quickly, then follow project links for deeper technical evidence.
