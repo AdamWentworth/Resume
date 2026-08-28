@@ -1,7 +1,5 @@
 # AdamWentworth.ca — Resume & Portfolio
 
-## About
-
 This repository contains the source for my personal resume and project portfolio, [AdamWentworth.ca](https://adamwentworth.ca). The site brings together resume highlights, selected engineering case studies, technical skills, education, experience, contact links, and a downloadable PDF resume in one fast, accessible place.
 
 The site complements [phlosion.com](https://phlosion.com): AdamWentworth.ca focuses on professional background and recruiting context, while Phlosion provides a broader product-lab view of individual software builds.
