@@ -1,18 +1,40 @@
-# AdamWentworth.ca - Resume And Portfolio Site
+# AdamWentworth.ca — Resume & Portfolio
 
-AdamWentworth.ca is the personal resume and project portfolio site for Adam Wentworth. It is a static Astro site built to present resume highlights, selected engineering case studies, technical skills, education, experience, contact links, SEO metadata, and a downloadable PDF resume in one fast public surface.
+## About
 
-The site complements [phlosion.com](https://phlosion.com): AdamWentworth.ca focuses on recruiting context and background, while Phlosion presents the broader product-lab view of individual software builds.
+I built AdamWentworth.ca as my personal resume and project portfolio. It brings together my resume highlights, selected engineering case studies, technical skills, education, experience, contact links, and downloadable PDF resume in one fast, accessible site.
+
+This site complements [phlosion.com](https://phlosion.com): I use AdamWentworth.ca to share my professional background and recruiting context, while Phlosion is my broader product lab for individual software builds.
+
+## Tech Stack
+
+[![Astro](https://img.shields.io/badge/Astro-7.2.9-BC52EE?logo=astro&logoColor=white)](https://astro.build/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-6-3178C6?logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
+[![CSS](https://img.shields.io/badge/CSS-Plain-663399?logo=css&logoColor=white)](https://developer.mozilla.org/docs/Web/CSS)
+[![Vitest](https://img.shields.io/badge/Tests-Vitest-6E9F18?logo=vitest&logoColor=white)](https://vitest.dev/)
+[![Prettier](https://img.shields.io/badge/Formatting-Prettier-F7B93E?logo=prettier&logoColor=black)](https://prettier.io/)
+[![Vercel](https://img.shields.io/badge/Deployment-Vercel-000000?logo=vercel&logoColor=white)](https://vercel.com/)
+
+| Layer     | Technology                                       | How I use it                                                       |
+| --------- | ------------------------------------------------ | ------------------------------------------------------------------ |
+| Framework | Astro                                            | Generate a fast, lightweight static site                           |
+| Language  | TypeScript                                       | Type my resume data and content contract tests                     |
+| Styling   | Plain CSS                                        | Build the responsive design in `src/styles/global.css`             |
+| Metadata  | Astro layout, JSON-LD, Open Graph, Twitter cards | Publish structured data, canonical URLs, and social previews       |
+| Assets    | Public static assets                             | Serve my brand marks, portrait, education logos, icons, and resume |
+| Testing   | Vitest                                           | Check my resume data, links, assets, icons, and anchors            |
+| Quality   | Astro Check, Prettier, GitHub Actions            | Run linting, tests, and the production build                       |
+| Hosting   | Vercel                                           | Deploy the static output to `adamwentworth.ca`                     |
 
 ---
 
 ## Brand Surface
 
-| Social card                                                     | Adam Wentworth lockup                                     |
-| --------------------------------------------------------------- | --------------------------------------------------------- |
-| ![Adam Wentworth social card](public/assets/aw-social-card.png) | ![Adam Wentworth wordmark](public/assets/aw-wordmark.png) |
+| Social card                                                            | Adam Wentworth lockup                                            |
+| ---------------------------------------------------------------------- | ---------------------------------------------------------------- |
+| ![Adam Wentworth social card](public/assets/aw-social-card-readme.png) | ![Adam Wentworth wordmark](public/assets/aw-wordmark-readme.png) |
 
-Brand and social assets live in `public/assets/`. Resume and favicon assets live in `public/`, and the project/credential imagery used by the page lives in `public/images/`.
+I keep brand and social assets in `public/assets/`, resume and favicon assets in `public/`, and project and credential imagery in `public/images/`. The `*-readme.png` previews use an opaque light panel so the dark lettering stays readable in both GitHub themes; the transparent production artwork remains unchanged.
 
 ---
 
@@ -39,22 +61,7 @@ Resume/
 `-- README.md
 ```
 
-The repo is intentionally content-driven. Most resume changes should happen in `src/data/resume.ts`, with components and styles changing only when the presentation model changes.
-
----
-
-## Tech Stack Overview
-
-| Layer     | Tech                                             | Notes                                                             |
-| --------- | ------------------------------------------------ | ----------------------------------------------------------------- |
-| Framework | Astro                                            | Static site generation with a lightweight component model         |
-| Language  | TypeScript                                       | Typed resume data and content contract tests                      |
-| Styling   | Plain CSS                                        | Global responsive styles in `src/styles/global.css`               |
-| Metadata  | Astro layout, JSON-LD, Open Graph, Twitter cards | Person structured data, canonical URL, social preview card        |
-| Assets    | Public static assets                             | Brand marks, portrait, education logos, tech icons, PDF resume    |
-| Testing   | Vitest                                           | Contract tests for resume data, links, assets, icons, and anchors |
-| Quality   | Astro Check, Prettier, GitHub Actions            | `npm run verify` runs lint, tests, and production build           |
-| Hosting   | Vercel-ready static output                       | Production site target is `adamwentworth.ca`                      |
+I keep the repo intentionally content-driven. I make most resume changes in `src/data/resume.ts` and update components or styles only when the presentation model needs to change.
 
 ---
 
@@ -72,7 +79,7 @@ The repo is intentionally content-driven. Most resume changes should happen in `
 
 ## Content Model
 
-`src/data/resume.ts` is the primary content source. It defines:
+`src/data/resume.ts` is my primary content source. It defines:
 
 | Field                                          | Purpose                                                                           |
 | ---------------------------------------------- | --------------------------------------------------------------------------------- |
@@ -85,7 +92,7 @@ The repo is intentionally content-driven. Most resume changes should happen in `
 | `skills`                                       | Grouped skill matrix                                                              |
 | `education`                                    | Credential cards and logo assets                                                  |
 
-`src/data/techIcons.ts` maps visible technology labels to simple-icons, local images, or custom inline SVG-style shapes. The contract test checks that every visible badge has icon coverage.
+`src/data/techIcons.ts` maps my visible technology labels to simple-icons, local images, or custom inline SVG-style shapes. A contract test checks that every visible badge has icon coverage.
 
 ---
 
@@ -131,13 +138,13 @@ npm run preview
 | `npm run build`        | Build the static Astro output         |
 | `npm run verify`       | Run lint, tests, and production build |
 
-The normal pre-commit confidence path is:
+Before I commit, I normally run:
 
 ```bash
 npm run verify
 ```
 
-CI runs the same core gate on pushes and pull requests to `main`: install dependencies, lint, test, and build.
+My CI workflow runs the same core gate on pushes and pull requests to `main`: install dependencies, lint, test, and build.
 
 ---
 
@@ -154,11 +161,11 @@ flowchart LR
   Layout --> Static[Static Astro output]
 ```
 
-The site has no runtime database or backend. Resume content, icon mappings, assets, and metadata are compiled into static output.
+I do not use a runtime database or backend for this site. Astro compiles my resume content, icon mappings, assets, and metadata into static output.
 
 ---
 
-## Editing Workflow
+## How I Maintain the Site
 
 ### Update Resume Content
 
@@ -173,7 +180,7 @@ Edit `src/data/resume.ts` for:
 
 ### Update Resume Documents
 
-The website, Markdown resume, and PDF resume are generated from repo-local sources:
+I generate the website, Markdown resume, and PDF resume from repo-local sources:
 
 - `src/data/resume.ts` holds the primary site content.
 - `scripts/resume-document.mjs` holds the condensed print/Markdown resume selections.
@@ -198,7 +205,7 @@ npm run verify
 
 ## Environment Overview
 
-The site does not require runtime environment variables for local development or production rendering.
+I do not need runtime environment variables for local development or production rendering.
 
 | Setting             | Location            | Purpose                                                                   |
 | ------------------- | ------------------- | ------------------------------------------------------------------------- |
@@ -210,9 +217,9 @@ The site does not require runtime environment variables for local development or
 
 ## Deployment
 
-AdamWentworth.ca is built as static Astro output and is ready for Vercel deployment.
+I build AdamWentworth.ca as static Astro output and deploy it with Vercel.
 
-Typical deployment flow:
+My typical deployment flow:
 
 1. Push to GitHub.
 2. Vercel installs dependencies and runs `npm run build`.
@@ -222,6 +229,6 @@ Typical deployment flow:
 
 ---
 
-## Author Notes
+## Why I Built It
 
-This repo is the recruiting and resume layer of the portfolio. It is built to stay fast, direct, scannable, and honest: a recruiter should be able to understand the candidate profile quickly, then follow project links for deeper technical evidence.
+This site is the recruiting and resume layer of my portfolio. I designed it to stay fast, direct, scannable, and honest: a recruiter should be able to understand who I am and what I build quickly, then follow my project links for deeper technical evidence.
