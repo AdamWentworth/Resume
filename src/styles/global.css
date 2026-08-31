@@ -877,6 +877,17 @@ h3 {
   filter: drop-shadow(0 2px 4px rgba(13, 23, 38, 0.12));
 }
 
+.phlosion-button {
+  gap: 8px;
+}
+
+.phlosion-button-mark {
+  width: 22px;
+  height: 22px;
+  flex: 0 0 auto;
+  object-fit: contain;
+}
+
 .project-stack {
   margin-top: 0;
 }
