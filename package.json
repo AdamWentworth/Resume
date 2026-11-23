@@ -22,7 +22,7 @@
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.7.3",
-    "astro": "^7.2.9",
+    "astro": "^7.4.7",
     "simple-icons": "^16.25.0"
   },
   "devDependencies": {
@@ -30,7 +30,7 @@
     "prettier": "^3.9.4",
     "prettier-plugin-astro": "^0.14.1",
     "typescript": "^6.0.3",
-    "vitest": "^4.1.10"
+    "vitest": "^4.1.12"
   },
   "overrides": {
     "yaml": "^2.8.4"
